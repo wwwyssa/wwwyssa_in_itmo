@@ -1,4 +1,8 @@
 public class Lab1 {
+    static{
+        double x = 0/0;
+        System.out.println(x);
+    }
     public static double firstOperation(double x){
         double firstPart = Math.pow(((Math.pow(x / 2, x)) / 2), 3);
         double secondPart = Math.asin(Math.exp(-Math.abs(x))) - 1;
