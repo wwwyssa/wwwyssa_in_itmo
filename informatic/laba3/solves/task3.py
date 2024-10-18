@@ -22,5 +22,4 @@ s1 = '''
 ₽229,590,78 RUB."/> <meta name="daily_price" content=" Цена Bitcoin в реальном времени сегодня составляет ₽5,797,806.88
 RUB."/>
 '''
-print(solve(s))
-print(solve(s1))
+
