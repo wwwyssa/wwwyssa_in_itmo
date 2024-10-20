@@ -5,8 +5,8 @@ import pokemons.*;
 public class Main {
     public static void main(String[] args) {
         Battle b = new Battle();
-        Audino p1 = new Audino("Родион Галкин", 1);
-        Eevee p2 = new Eevee("Пиво", 1);
+        Audino p1 = new Audino("Audino", 1);
+        Eevee p2 = new Eevee("Eevee", 1);
         Vaporeon p3 = new Vaporeon("Vaporeon", 1);
         Chimchar p4 = new Chimchar("Chimchar", 1);
         Monferno p5 = new Monferno("Monferno", 1);

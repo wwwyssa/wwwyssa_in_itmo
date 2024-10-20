@@ -3,7 +3,7 @@ import ru.ifmo.se.pokemon.*;
 
 public class Rest extends StatusMove {
     public Rest() {
-        super(Type.PSYCHIC, 0, 0);
+        super(Type.PSYCHIC, 0, 100);
     }
 
     @Override

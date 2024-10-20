@@ -3,7 +3,7 @@ package attacks;
 import ru.ifmo.se.pokemon.*;
 
 public class LowSweep extends PhysicalMove {
-    public LowSweep() {super(Type.FIGHTING, 65, 100);}
+    public LowSweep() {super(Type.FIGHTING, 65, 1);}
     private int count = 0;
 
     @Override

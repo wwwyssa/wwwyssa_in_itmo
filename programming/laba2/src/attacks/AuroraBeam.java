@@ -3,7 +3,7 @@ package attacks;
 import ru.ifmo.se.pokemon.*;
 
 public class AuroraBeam extends SpecialMove {
-    public AuroraBeam() {super(Type.ICE, 65, 100);}
+    public AuroraBeam() {super(Type.ICE, 65, 1);}
 
     protected int count = 0;
     protected boolean isDecreased = false;

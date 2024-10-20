@@ -3,7 +3,7 @@ package attacks;
 import ru.ifmo.se.pokemon.*;
 
 public class CalmMind extends StatusMove {
-    public CalmMind() {super(Type.PSYCHIC, 0, 0);}
+    public CalmMind() {super(Type.PSYCHIC, 0, 100);}
     private int count = 0;
     @Override
     protected void applySelfEffects(Pokemon p) {

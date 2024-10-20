@@ -3,7 +3,7 @@ package attacks;
 import ru.ifmo.se.pokemon.*;
 
 public class DisarmingVoice extends SpecialMove {
-    public DisarmingVoice() {super(Type.FAIRY, 40, 0);}
+    public DisarmingVoice() {super(Type.FAIRY, 40, 1);}
 
 
     @Override
