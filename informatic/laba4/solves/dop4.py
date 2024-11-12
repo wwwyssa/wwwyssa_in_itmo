@@ -14,21 +14,21 @@ print(f"First algorithm end, time need {time.time() - first_start}sec")
 print()
 
 second_start = time.time()
-print(f"Second first algorithm 1000 times")
+print(f"Start second algorithm 1000 times")
 for i in range(1000):
     _ = dop1.convert(input_file)
 print(f"Second algorithm end, time need {time.time() - second_start}sec")
 print()
 
 third_start = time.time()
-print(f"Third first algorithm 1000 times")
+print(f"Start third first algorithm 1000 times")
 for i in range(1000):
     _ = dop2.json_to_xml(input_file)
 print(f"Third algorithm end, time need {time.time() - third_start}sec")
 print()
 
 fourth_start = time.time()
-print(f"Fourth first algorithm 1000 times")
+print(f"Start fourth first algorithm 1000 times")
 for i in range(1000):
     _ = dop3.convert(input_file)
 print(f"Fourth algorithm end, time need {time.time() - fourth_start}sec")
