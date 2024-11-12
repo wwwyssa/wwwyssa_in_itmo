@@ -54,7 +54,7 @@ RUB."/>
         <meta name="daily_volume" content="В суточным объемом торгов
 ₽2,835,029,974,960.63 RUB."/> <meta name="daily_price" content="Мы обновляем
 нашу цену BTC к RUB в режиме реального времени."/> <meta name="daily_price"
-content=" Price Bitcoin today is ₽5 RUB."/><meta name="daily_price" content="Ethereum стоит на данный момент
+content=" Price Bitcoin today is ₽5RUB."/><meta name="daily_price" content="Ethereum стоит на данный момент
 ₽229,590,78 RUB."/>
         '''
         result = '5'
