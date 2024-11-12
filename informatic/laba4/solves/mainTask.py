@@ -16,6 +16,7 @@ def json_to_xml(filename: str):
             key = s[1:s[1:].index('"') + 1]
             if '{' not in s:
                 value = s[s.index(':') + 2:]
+                value = value.replace(',', '')
                 if '"' in value:
                     value = value[1:-1]
                 result += f"<{key}>{value}</{key}>"
