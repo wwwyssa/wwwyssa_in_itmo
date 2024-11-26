@@ -1,1 +1,93 @@
-<root><even_week>true,</even_week><group_name>P3112"</group_name><days><day1><day_date><date>Tuesday 12 Nov 2024 UTC +03:00"</date><day_id>1</day_id></day_date><lesson1><title>Бадминтон"</title><class_format>Очный"</class_format><type>Спорт"</type><campus_address>Вяземский пер. д.5-7 лит.А"</campus_address><time><from_time>11:40"</from_time><to_time>13:10</to_time></time><auditory>ауд. Большой зал (1424 (присв))"</auditory><teacher><id>163200,</id><name>Румянцева Ольга Львовна</name></teacher></lesson1><lesson2><title>Основы дискретной математики (продвинутый уровень)"</title><class_format>Очный"</class_format><type>Практика"</type><campus_address>Кронверкский пр. д.49 лит.А"</campus_address><time><from_time>15:20"</from_time><to_time>16:50</to_time></time><auditory>Ауд. 2316"</auditory><teacher><id>318424,</id><name>Карпов Дмитрий Валерьевич</name></teacher></lesson2><lesson3><title>Основы дискретной математики (продвинутый уровень)"</title><class_format>Очный"</class_format><type>Лекция"</type><campus_address>Кронверкский пр. д.49 лит.А"</campus_address><time><from_time>17:00"</from_time><to_time>18:30</to_time></time><auditory>Ауд. 2316"</auditory><teacher><id>318424,</id><name>Карпов Дмитрий Валерьевич</name></teacher></lesson3></day1><day2><day_date><date>Thursday 14 Nov 2024 UTC +03:00"</date><day_id>3</day_id></day_date><lessons1><title>Реформы и реформаторы в истории России"</title><class_format>Очный"</class_format><type>Практика"</type><campus_address>Вяземский пер. д.5-7 лит.А"</campus_address><time><from_time>13:30"</from_time><to_time>15:00</to_time></time><auditory>Ауд. 1410"</auditory><teacher><id>275327,</id><name>Вычеров Дмитрий Александрович</name></teacher></lessons1><lesson2><title>Реформы и реформаторы в истории России"</title><class_format>Очный"</class_format><type>Лекция"</type><campus_address>Вяземский пер. д.5-7 лит.А"</campus_address><time><from_time>15:20"</from_time><to_time>16:50</to_time></time><auditory>Ауд. 2403"</auditory><teacher><id>275327,</id><name>Вычеров Дмитрий Александрович</name></teacher></lesson2></day2></days></root>
+<root>
+    <even_week>true</even_week>
+    <group_name>P3112</group_name>
+    <days>
+        <day1>
+            <day_date>
+                <date>Tuesday 12 Nov 2024 UTC +03:00</date>
+                <day_id>1</day_id>
+            </day_date>
+            <lesson1>
+                <title>Бадминтон</title>
+                <class_format>Очный</class_format>
+                <type>Спорт</type>
+                <campus_address>Вяземский пер. д.5-7 лит.А</campus_address>
+                <time>
+                    <from_time>11:40</from_time>
+                    <to_time>13:10</to_time>
+                </time>
+                <auditory>ауд. Большой зал (1424 (присв))</auditory>
+                <teacher>
+                    <id>163200</id>
+                    <name>Румянцева Ольга Львовна</name>
+                </teacher>
+            </lesson1>
+            <lesson2>
+                <title>Основы дискретной математики (продвинутый уровень)</title>
+                <class_format>Очный</class_format>
+                <type>Практика</type>
+                <campus_address>Кронверкский пр. д.49 лит.А</campus_address>
+                <time>
+                    <from_time>15:20</from_time>
+                    <to_time>16:50</to_time>
+                </time>
+                <auditory>Ауд. 2316</auditory>
+                <teacher>
+                    <id>318424</id>
+                    <name>Карпов Дмитрий Валерьевич</name>
+                </teacher>
+            </lesson2>
+            <lesson3>
+                <title>Основы дискретной математики (продвинутый уровень)</title>
+                <class_format>Очный</class_format>
+                <type>Лекция</type>
+                <campus_address>Кронверкский пр. д.49 лит.А</campus_address>
+                <time>
+                    <from_time>17:00</from_time>
+                    <to_time>18:30</to_time>
+                </time>
+                <auditory>Ауд. 2316</auditory>
+                <teacher>
+                    <id>318424</id>
+                    <name>Карпов Дмитрий Валерьевич</name>
+                </teacher>
+            </lesson3>
+        </day1>
+        <day2>
+            <day_date>
+                <date>Thursday 14 Nov 2024 UTC +03:00</date>
+                <day_id>3</day_id>
+            </day_date>
+            <lessons1>
+                <title>Реформы и реформаторы в истории России</title>
+                <class_format>Очный</class_format>
+                <type>Практика</type>
+                <campus_address>Вяземский пер. д.5-7 лит.А</campus_address>
+                <time>
+                    <from_time>13:30</from_time>
+                    <to_time>15:00</to_time>
+                </time>
+                <auditory>Ауд. 1410</auditory>
+                <teacher>
+                    <id>275327</id>
+                    <name>Вычеров Дмитрий Александрович</name>
+                </teacher>
+            </lessons1>
+            <lesson2>
+                <title>Реформы и реформаторы в истории России</title>
+                <class_format>Очный</class_format>
+                <type>Лекция</type>
+                <campus_address>Вяземский пер. д.5-7 лит.А</campus_address>
+                <time>
+                    <from_time>15:20</from_time>
+                    <to_time>16:50</to_time>
+                </time>
+                <auditory>Ауд. 2403</auditory>
+                <teacher>
+                    <id>275327</id>
+                    <name>Вычеров Дмитрий Александрович</name>
+                </teacher>
+            </lesson2>
+        </day2>
+    </days>
+</root>

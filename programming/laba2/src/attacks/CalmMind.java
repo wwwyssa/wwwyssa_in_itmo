@@ -7,7 +7,7 @@ public class CalmMind extends StatusMove {
     private int count = 0;
     @Override
     protected void applySelfEffects(Pokemon p) {
-        if (count < 6) {
+        if (count < 6) {    
             p.setMod(Stat.SPECIAL_DEFENSE, 1);
             p.setMod(Stat.SPECIAL_ATTACK, 1);
             count++;
