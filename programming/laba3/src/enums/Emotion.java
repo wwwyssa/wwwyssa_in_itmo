@@ -4,7 +4,8 @@ import people.Human;
 public enum Emotion {
     HAPPY("Веселый", "Веселая"),
     SAD("Грустный", "Грустная"),
-    RESENTMENT("Обиделся", "Обиделась"),;
+    RESENTMENT("Обиделся", "Обиделась"),
+    DEFAULT("Нормальный", "Нормальная");
 
     private String maleText;
     private String femaleText;

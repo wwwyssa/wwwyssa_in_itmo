@@ -17,7 +17,7 @@ public class Clown extends Human {
 
     @Override
     public Action action(){
-        return new Action("Выступает клоун Хи-хи ха-ха", (int) (Math.max(100, 20 + Math.random() * 100)));
+        return new Action("Выступает клоун " + super.getName() + " Хи-хи ха-ха", (int) (Math.max(100, 20 + Math.random() * 100)));
     }
 
     @Override
