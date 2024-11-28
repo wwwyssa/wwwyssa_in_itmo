@@ -9,12 +9,16 @@ public class Dancer extends Human {
 
     @Override
     public String toString() {
-        return "Dancer {" + "name='" + this.getName() + '\'' + ", age=" + this.getAge() + '}';
+        return "Танцор " + super.getName();
+    }
+    @Override
+    public Action action(){
+        return new Action("Выступает Танцор по имени " + super.getName(), (int) (Math.random() * 100));
     }
 
     @Override
-    public Action action(){
-        return new Action("Выступает Танцор", (int) (Math.random() * 100));
+    public String getProfession(){
+        return "Танцор";
     }
 
 }

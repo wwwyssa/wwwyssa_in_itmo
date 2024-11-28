@@ -9,12 +9,17 @@ public class Gymnast extends Human {
 
     @Override
     public String toString() {
-        return "Gymnast {" + "name='" + this.getName() + '\'' + ", age=" + this.getAge() + '}';
+        return "Гимнаст " + super.getName();
     }
 
     @Override
     public Action action(){
-        return new Action("Выступает Гимнаст", (int) (Math.max(0, -20 + Math.random() * 100)));
+        return new Action("Выступает Гимнаст по имени " + super.getName() , (int) (Math.max(0, -20 + Math.random() * 100)));
+    }
+
+    @Override
+    public String getProfession(){
+        return "Гимнаст";
     }
 
 }

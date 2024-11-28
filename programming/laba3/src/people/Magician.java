@@ -9,11 +9,16 @@ public class Magician extends Human{
 
     @Override
     public String toString() {
-        return "Magician {" + "name='" + this.getName() + '\'' + ", age=" + this.getAge() + '}';
+        return "Волшебник " + super.getName();
+    }
+
+    @Override
+    public String getProfession(){
+        return "Волшебник";
     }
 
     @Override
     public Action action(){
-        return new Action("Выступает волшебник со своим номером!", (int) (Math.random() * 100));
+        return new Action("Выступает волшебник по имени " + super.getName() + " со своим номером!", (int) (Math.random() * 100));
     }
 }

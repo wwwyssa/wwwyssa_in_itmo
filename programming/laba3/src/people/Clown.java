@@ -10,11 +10,18 @@ public class Clown extends Human {
 
     @Override
     public String toString() {
-        return "Clown {" + "name='" + this.getName() + '\'' + ", age=" + this.getAge() + '}';
+        return "Клоун " + super.getName();
     }
+
+
 
     @Override
     public Action action(){
         return new Action("Выступает клоун Хи-хи ха-ха", (int) (Math.max(100, 20 + Math.random() * 100)));
+    }
+
+    @Override
+    public String getProfession() {
+        return "Клоун";
     }
 }

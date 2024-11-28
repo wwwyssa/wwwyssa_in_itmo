@@ -1,3 +1,3 @@
 package people;
 
-public record Action(String description, int surprise) {}
+public record   Action(String description, int surprise) {}
