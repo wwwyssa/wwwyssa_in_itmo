@@ -8,11 +8,18 @@ public abstract class Human implements People {
     private String name;
     private int age;
     private Sex sex;
-
+    private int power = 0;
     public Human(String name, int age, Sex sex) {
         this.name = name;
         this.age = age;
         this.sex = sex;
+    }
+
+    public Human(String name, int age, Sex sex, int power) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.power = power;
     }
 
     @Override
@@ -23,6 +30,11 @@ public abstract class Human implements People {
     public int getAge() {
         return age;
     }
+
+    public int getPower() {
+        return this.power;
+    }
+
 
     @Override
     public boolean isMale() {

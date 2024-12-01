@@ -4,10 +4,12 @@ import enums.Emotion;
 import enums.Sex;
 
 public class Hero extends Human {
-    public Hero(String name, int age, Sex sex) {
-        super(name, age, sex);
+
+    public Hero(String name, int age, Sex sex, int power) {
+        super(name, age, sex, power);
     }
-    private int surprise = 0;
+
+
     private Emotion emotion = Emotion.DEFAULT;
     @Override
     public String toString() {
@@ -19,13 +21,7 @@ public class Hero extends Human {
         return "Герой";
     }
 
-    public int getSurprise() {
-        return surprise;
-    }
 
-    public void addSurprise(int surprise) {
-        this.surprise +=  surprise;
-    }
 
     public Emotion getEmotion() {
         return emotion;
@@ -33,20 +29,36 @@ public class Hero extends Human {
 
     public void setEmotion(Emotion emotion) {
         this.emotion = emotion;
+        System.out.println(this.getName() + " " + this.getEmotion().getDescription(this));
     }
 
+
     public boolean punch(Human human) {
-        if (Math.random() < 0.5) {
-            System.out.println(this.getName() +  (this.isMale() ? " хотел " : " хотела ") + "ударить " + human.getName());
+        if (this.getPower() == 0) {
+            throw new ZeroPowerException(this.getName() + " не может ударить, так как у него нет силы!");
+        }
+
+        if ((Math.random() < 0.5) || this.getPower() < human.getPower() * 1.2) {
+            System.out.println(this.getName() + (this.isMale() ? " хотел " : " хотела ") + "ударить " + human.getName());
             return false;
         }
-        System.out.println(this.getName() +  (this.isMale() ? " хотел " : " хотела ") + "ударить " + human.getName() + " и " +
+        System.out.println(this.getName() + (this.isMale() ? " хотел " : " хотела ") + "ударить " + human.getName() + " и " +
                 (this.isMale() ? "сделал " : "сделала ") + "это");
         return true;
     }
-
-
-
-
-
 }
+
+
+class ZeroPowerException extends RuntimeException {
+    public ZeroPowerException(String message) {
+        super(message);
+    }
+
+    @Override
+    public String getMessage(){
+        return "Ошибка героя: " +  super.getMessage();
+    }
+}
+
+
+

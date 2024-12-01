@@ -3,27 +3,32 @@ import enums.Sex;
 import people.*;
 import performance.Act;
 import performance.Performance;
-import places.Scene;
-import places.SpectatorSeats;
+import stories.FirstStory;
+import stories.SecondStory;
+import stories.Story;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Hero knopochka = new Hero("Кнопочка", 7, Sex.FEMALE);
-        Hero neznaika = new Hero("Незнайка", 6, Sex.MALE);
+        Hero knopochka = new Hero("Кнопочка", 7, Sex.FEMALE, (int) (Math.random() * 100));
+        Hero neznaika = new Hero("Незнайка", 6, Sex.MALE, (int) (Math.random() * 100));
         knopochka.setEmotion(Emotion.SAD);
         neznaika.setEmotion(Emotion.HAPPY);
-        if (knopochka.punch(neznaika)) {
-            System.out.println("И сделала это так сильно, что он упал.");
-        } else{
-            System.out.println("Но вовремя сдержалась и, отвернулась от него");
+        neznaika.say(knopochka.getName() + " в кого-то влюбилась!!!!");
+        knopochka.setEmotion(Emotion.RESENTMENT);
+        try{
+            if (knopochka.punch(neznaika)) {
+                System.out.println("И сделала это так сильно, что он упал.");
+                neznaika.setEmotion(Emotion.SAD);
+            } else{
+                System.out.println("Но вовремя сдержалась и отвернулась от него");
+            }
+        } catch (Exception e){
+            System.out.println(e);
         }
+
         knopochka.say("Концерт между тем продолжается");
-        Scene scene = new Scene(new ArrayList<>());
-        SpectatorSeats spectatorSeats = new SpectatorSeats(new ArrayList<>());
-        spectatorSeats.addHuman(neznaika);
-        spectatorSeats.addHuman(knopochka);
 
         Performance performance = new Performance();
 
@@ -64,8 +69,18 @@ public class Main {
         performance.addAct(thirdAct);
         performance.addAct(fourthAct);
         performance.start();
+
         if (performance.getFunny() >= 1000){
             knopochka.setEmotion(Emotion.HAPPY);
         }
+        Story story;
+        if (knopochka.getEmotion() == Emotion.HAPPY) {
+            System.out.println("Кнопочке понравилось представление, у нее поднялось настроение");
+             story = new FirstStory(knopochka, neznaika);
+        } else{
+            System.out.println("Кнопочка даже не улыбнулась, глядя на представление.");
+            story = new SecondStory(knopochka, neznaika);
+        }
+        story.start();
     }
 }

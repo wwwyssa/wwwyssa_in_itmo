@@ -17,6 +17,7 @@ public class Performance {
     }
 
     public void addAct(Act act) {
+
         acts.add(act);
     }
 
