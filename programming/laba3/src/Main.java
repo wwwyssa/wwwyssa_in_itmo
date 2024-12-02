@@ -18,9 +18,15 @@ public class Main {
         neznaika.say(knopochka.getName() + " в кого-то влюбилась!!!!");
         knopochka.setEmotion(Emotion.RESENTMENT);
         try{
+
             if (knopochka.punch(neznaika)) {
-                System.out.println("И сделала это так сильно, что он упал.");
-                neznaika.setEmotion(Emotion.SAD);
+                if (neznaika.getHealth() < 60){
+                    System.out.println("И сделала это так сильно, что он упал.  Здоровье " + neznaika.getName() + ' ' + neznaika.getHealth());
+                    neznaika.setEmotion(Emotion.SAD);
+                }else{
+                    System.out.println("Но стукнула его не сильно. Здоровье " + neznaika.getName() + ' ' + neznaika.getHealth());
+                }
+
             } else{
                 System.out.println("Но вовремя сдержалась и отвернулась от него");
             }
@@ -64,10 +70,7 @@ public class Main {
         Act secondAct = new Act(gymnasts);
         Act thirdAct = new Act(dancers);
         Act fourthAct = new Act(clowns);
-        performance.addAct(firstAct);
-        performance.addAct(secondAct);
-        performance.addAct(thirdAct);
-        performance.addAct(fourthAct);
+        performance.addActs(firstAct, secondAct, thirdAct, fourthAct);
         performance.start();
 
         if (performance.getFunny() >= 1000){

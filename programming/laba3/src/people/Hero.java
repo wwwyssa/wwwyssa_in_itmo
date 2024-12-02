@@ -4,7 +4,7 @@ import enums.Emotion;
 import enums.Sex;
 
 public class Hero extends Human {
-
+    private int health = 100;
     public Hero(String name, int age, Sex sex, int power) {
         super(name, age, sex, power);
     }
@@ -32,8 +32,21 @@ public class Hero extends Human {
         System.out.println(this.getName() + " " + this.getEmotion().getDescription(this));
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
-    public boolean punch(Human human) {
+    public int getHealth() {
+        return health;
+    }
+
+    public void decreaseHealth(int damage){
+        this.setHealth(this.getHealth() - damage);
+    }
+
+
+
+    public boolean punch(Hero human) {
         if (this.getPower() == 0) {
             throw new ZeroPowerException(this.getName() + " не может ударить, так как у него нет силы!");
         }
@@ -44,6 +57,8 @@ public class Hero extends Human {
         }
         System.out.println(this.getName() + (this.isMale() ? " хотел " : " хотела ") + "ударить " + human.getName() + " и " +
                 (this.isMale() ? "сделал " : "сделала ") + "это");
+        human.decreaseHealth(this.getPower());
+
         return true;
     }
 }

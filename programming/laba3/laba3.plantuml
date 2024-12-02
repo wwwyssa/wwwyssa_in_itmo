@@ -1,0 +1,174 @@
+@startuml
+
+
+package human {
+interface People << interface >> {
+  + getName(): String
+  + isMale(): boolean
+  + say(String): void
+}
+
+
+class Human {
+  + Human(String, int, Sex, int):
+  + Human(String, int, Sex):
+  - name: String
+  - location: String
+  - age: int
+  - sex: Sex
+  - power: int
+  + hashCode(): int
+  + action(): Action
+  + getAge(): int
+  + getLocation(): String
+  + getName(): String
+  + getPower(): int
+  + say(String): void
+  + equals(Object): boolean
+  + isMale(): boolean
+  + toString(): String
+  + getProfession(): String
+  + setLocation(String): void
+}
+
+class Clown {
+  + Clown(String, int, Sex):
+  + toString(): String
+  + getProfession(): String
+  + action(): Action
+}
+class Dancer {
+  + Dancer(String, int, Sex):
+  + toString(): String
+  + getProfession(): String
+  + action(): Action
+}
+
+entity Action << record >> {
+  + Action(String, int):
+  - surprise: int
+  - description: String
+  + description(): String
+  + surprise(): int
+}
+
+class Gymnast {
+  + Gymnast(String, int, Sex):
+  + action(): Action
+  + toString(): String
+  + getProfession(): String
+}
+class Hero {
+  + Hero(String, int, Sex, int):
+  - emotion: Emotion
+  + toString(): String
+  + getEmotion(): Emotion
+  + punch(Human): boolean
+  + getProfession(): String
+  + setEmotion(Emotion): void
+}
+
+class Magician {
+  + Magician(String, int, Sex):
+  + toString(): String
+  + getProfession(): String
+  + action(): Action
+}
+
+class ZeroPowerException {
+  + ZeroPowerException(String):
+  + getMessage(): String
+}
+}
+
+class Main {
+  + Main(): 
+  + main(String[]): void
+}
+package performance{
+class Performance {
+  + Performance(): 
+  - currentActIndex: int
+  - acts: ArrayList<Act>
+  - funny: int
+  + addAct(Act): void
+  + getFunny(): int
+  + start(): void
+  + nextAct(): void
+}
+class Act {
+  + Act(ArrayList<Human>):
+  - funny: int
+  - actors: ArrayList<Human>
+  + perform(): void
+  + getActors(): ArrayList<Human>
+  + getFunny(): int
+}
+}
+package stories{
+    class SecondStory {
+      + SecondStory(Hero, Hero):
+      - firstActor: Hero
+      - secondActor: Hero
+      - storyName: String
+      + start(): void
+      + firstAction(): void
+      + secondAction(): void
+    }
+
+    class FirstStory {
+      + FirstStory(Hero, Hero):
+      - firstActor: Hero
+      - secondActor: Hero
+      - storyName: String
+      + secondAction(): void
+      + firstAction(): void
+      + start(): void
+    }
+
+    class Story {
+      + Story():
+      - storyName: String
+      + hashCode(): int
+      + toString(): String
+      + equals(Object): boolean
+      + start(): void
+    }
+}
+package enums{
+enum Sex << enumeration >> {
+  + Sex(): 
+  + FEMALE: 
+  + MALE: 
+  + values(): Sex[]
+  + valueOf(String): Sex
+}
+
+enum Emotion << enumeration >> {
+  - Emotion(String):
+  - Emotion(String, String):
+  - femaleText: String
+  + RESENTMENT:
+  - maleText: String
+  + DEFAULT:
+  + SAD:
+  + HAPPY:
+  + values(): Emotion[]
+  + valueOf(String): Emotion
+  + getDescription(Human): String
+}
+}
+
+Human               --|>  People
+Clown               ------|>  Human
+Dancer              ------|>  Human
+Gymnast             ------|>  Human
+Hero                ------|>  Human
+Magician            ------|>  Human
+SecondStory         ----|>  Story
+FirstStory          ----|>  Story
+
+Act o.. Human
+Act --> Performance
+
+@enduml

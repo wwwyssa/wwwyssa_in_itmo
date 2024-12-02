@@ -21,6 +21,12 @@ public class Performance {
         acts.add(act);
     }
 
+    public void addActs(Act... inp_acts) {
+        for (Act act : inp_acts) {
+            acts.add(act);
+        }
+    }
+
     public void start() {
         System.out.println("Представление продолжается!");
         currentActIndex = 0;

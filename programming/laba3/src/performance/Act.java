@@ -23,6 +23,7 @@ public class Act {
 
     public void perform() {
         for (Human human : actors) {
+            human.setLocation("Stage");
             Action action = human.action();
             System.out.println(action.description());
             this.funny += action.surprise();

@@ -9,6 +9,7 @@ public abstract class Human implements People {
     private int age;
     private Sex sex;
     private int power = 0;
+    private String location;
     public Human(String name, int age, Sex sex) {
         this.name = name;
         this.age = age;
@@ -20,6 +21,14 @@ public abstract class Human implements People {
         this.age = age;
         this.sex = sex;
         this.power = power;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public void setLocation(String location){
+        this.location = location;
     }
 
     @Override
