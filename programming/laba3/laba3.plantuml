@@ -9,7 +9,7 @@ interface People << interface >> {
 }
 
 
-class Human {
+abstract class Human {
   + Human(String, int, Sex, int):
   + Human(String, int, Sex):
   - name: String
