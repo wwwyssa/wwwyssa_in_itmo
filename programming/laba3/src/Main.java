@@ -5,6 +5,7 @@ import performance.Act;
 import performance.Performance;
 import stories.FirstStory;
 import stories.SecondStory;
+import stories.Start;
 import stories.Story;
 
 import java.util.ArrayList;
@@ -13,26 +14,9 @@ public class Main {
     public static void main(String[] args) {
         Hero knopochka = new Hero("Кнопочка", 7, Sex.FEMALE, (int) (Math.random() * 100));
         Hero neznaika = new Hero("Незнайка", 6, Sex.MALE, (int) (Math.random() * 100));
-        knopochka.setEmotion(Emotion.SAD);
-        neznaika.setEmotion(Emotion.HAPPY);
-        neznaika.say(knopochka.getName() + " в кого-то влюбилась!!!!");
-        knopochka.setEmotion(Emotion.RESENTMENT);
-        try{
 
-            if (knopochka.punch(neznaika)) {
-                if (neznaika.getHealth() < 60){
-                    System.out.println("И сделала это так сильно, что он упал.  Здоровье " + neznaika.getName() + ' ' + neznaika.getHealth());
-                    neznaika.setEmotion(Emotion.SAD);
-                }else{
-                    System.out.println("Но стукнула его не сильно. Здоровье " + neznaika.getName() + ' ' + neznaika.getHealth());
-                }
-
-            } else{
-                System.out.println("Но вовремя сдержалась и отвернулась от него");
-            }
-        } catch (Exception e){
-            System.out.println(e);
-        }
+        Start start = new Start(knopochka, neznaika);
+        start.start();
 
         knopochka.say("Концерт между тем продолжается");
 
@@ -78,7 +62,7 @@ public class Main {
         }
         Story story;
         if (knopochka.getEmotion() == Emotion.HAPPY) {
-            System.out.println("Кнопочке понравилось представление, у нее поднялось настроение");
+             System.out.println("Кнопочке понравилось представление, у нее поднялось настроение");
              story = new FirstStory(knopochka, neznaika);
         } else{
             System.out.println("Кнопочка даже не улыбнулась, глядя на представление.");

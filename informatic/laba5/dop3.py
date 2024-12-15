@@ -8,7 +8,6 @@ data['<DATE>'] = pd.to_datetime(data['<DATE>'], format='%d.%m.%Y')
 
 boxplot_data = []
 labels = []
-
 data = data.rename(columns={
     '<OPEN>': 'открытие',
     '<HIGH>': 'макс',
@@ -24,9 +23,11 @@ for date in dates:
         labels.append(f"{column}\n{date}")
 
 plt.figure(figsize=(16, 8))
-plt.boxplot(boxplot_data, labels=labels)
+plt.boxplot(boxplot_data, labels=labels, showmeans=True, meanprops={"marker": "x", "markerfacecolor": "red", "markeredgecolor": "red"})
 
 plt.grid(axis='y', linestyle='--', alpha=0.5)
 plt.tight_layout()
+
 plt.savefig('boxplot.png')
 plt.show()
+
