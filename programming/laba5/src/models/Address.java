@@ -10,4 +10,9 @@ public class Address implements Validatable {
     public boolean isValid() {
         return street != null && town != null;
     }
+
+    public Address(String street, Location town) {
+        this.street = street;
+        this.town = town;
+    }
 }

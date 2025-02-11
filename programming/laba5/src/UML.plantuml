@@ -1,0 +1,97 @@
+@startuml
+
+package models {
+    class Product {
+        - long id
+        - String name
+        - Coordinates coordinates
+        - Date creationDate
+        - int price
+        - String partNumber
+        - int manufactureCost
+        - UnitOfMeasure unitOfMeasure
+        - Organization manufacturer
+        + Product(long id, String name, Coordinates coordinates, Date creationDate, int price, String partNumber, int manufactureCost, UnitOfMeasure unitOfMeasure, Organization manufacturer)
+        + long getId()
+        + void setId(long id)
+        + String getName()
+        + void setName(String name)
+        + Coordinates getCoordinates()
+        + void setCoordinates(Coordinates coordinates)
+        + Date getCreationDate()
+        + void setCreationDate(Date creationDate)
+        + int getPrice()
+        + void setPrice(int price)
+        + String getPartNumber()
+        + void setPartNumber(String partNumber)
+        + int getManufactureCost()
+        + void setManufactureCost(int manufactureCost)
+        + UnitOfMeasure getUnitOfMeasure()
+        + void setUnitOfMeasure(UnitOfMeasure unitOfMeasure)
+        + Organization getManufacturer()
+        + void setManufacturer(Organization manufacturer)
+        + int compareTo(Product product)
+    }
+
+    class Address {
+        - String street
+        - Location town
+        + boolean isValid()
+    }
+
+    class Coordinates {
+        - Integer x
+        - long y
+        + Coordinates(Integer x, Long y)
+        + boolean isValid()
+    }
+
+    class Location {
+        - float x
+        - int y
+        - Integer z
+    }
+
+    class Organization {
+        - Long id
+        - String name
+        - Integer employeesCount
+        - OrganizationType type
+        - Address officialAddress
+    }
+
+    enum OrganizationType {
+        COMMERCIAL,
+        PUBLIC,
+        GOVERNMENT,
+        PRIVATE_LIMITED_COMPANY,
+        OPEN_JOINT_STOCK_COMPANY
+    }
+
+    enum UnitOfMeasure {
+        KILOGRAMS,
+        CENTIMETERS,
+        MILLILITERS,
+        GRAMS
+    }
+}
+
+package utils {
+    interface ConsoleInterface {
+        + void print(Object obj)
+        + void println(Object obj)
+        + String input()
+    }
+
+    class Console {
+        - static Scanner scanner
+        - static Scanner fileScanner
+        + void print(Object obj)
+        + void println(Object obj)
+        + String input()
+    }
+}
+
+Console ..|> ConsoleInterface
+
+@enduml
