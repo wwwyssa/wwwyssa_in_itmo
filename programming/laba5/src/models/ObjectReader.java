@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.NoSuchElementException;
 
 public class ObjectReader {
-    public static Product readProduct(Console console, CollectionManager collectionManager) {
+    public static Product readProduct(Console console) {
         try {
             console.println("Enter location name:");
             String name;
             while (true) {
                 name = console.input();
-                if (name.equals("")) {
+                if (name.isEmpty()) {
                     console.println("Name can't be empty. Enter location name:");
                 } else {
                     break;
@@ -45,7 +45,7 @@ public class ObjectReader {
                 } else {
                     try {
                         x = Integer.parseInt(inp);
-                        if (x > 765 && x != null) {
+                        if (x > 765) {
                             console.println("X can't be more than 765. Enter x:");
                         } else {
                             break;

@@ -2,6 +2,7 @@ package models;
 
 
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Product implements Comparable<Product>{
@@ -99,9 +100,23 @@ public class Product implements Comparable<Product>{
         this.manufacturer = manufacturer;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Product tmp = (Product) o;
+        return Objects.equals(this.id, tmp.id);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id, name, coordinates, creationDate, price, partNumber, manufactureCost, unitOfMeasure, manufacturer);
+    }
 
     @Override
     public int compareTo(Product product) {
         return (this.price - product.price);
     }
+
+
 }

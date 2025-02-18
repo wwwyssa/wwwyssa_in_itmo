@@ -19,6 +19,10 @@ public class Console {
         return scanner.nextLine();
     }
 
+    public void printError(Object obj) {
+        System.err.println(obj);
+    }
+
 
 
 
