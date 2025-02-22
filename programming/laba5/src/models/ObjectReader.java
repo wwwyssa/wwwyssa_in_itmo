@@ -3,7 +3,7 @@ package models;
 import managers.CollectionManager;
 import utils.Console;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 public class ObjectReader {
@@ -25,7 +25,7 @@ public class ObjectReader {
             int manufactureCost = readManufactureCost(console);
             UnitOfMeasure unitOfMeasure = readUnitOfMeasure(console);
             Organization manufacturer = readOrganization(console);
-            Date date = new Date();
+            LocalDateTime date = LocalDateTime.now();
             return new Product(CollectionManager.generateId(), name, coordinates, date,  price, partNumber, manufactureCost, unitOfMeasure, manufacturer);
         } catch (IllegalStateException | NoSuchElementException e) {
             console.println("Read ERROR. Try again.");

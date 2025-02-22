@@ -1,22 +1,57 @@
 package managers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonParseException;
 import models.Product;
-
-import java.io.*;
-import java.time.LocalDate;
-import java.util.Collection;
-
-import java.util.NoSuchElementException;
-import java.util.PriorityQueue;
 import utils.Console;
+
+import javax.xml.bind.*;
+import javax.xml.bind.annotation.*;
+import java.io.*;
+import java.util.*;
+
+@XmlRootElement(name = "products")
+class ProductWrapper {
+    private Map<Integer, Product> products = new LinkedHashMap<>();
+
+    public ProductWrapper() {}
+
+    public ProductWrapper(Map<Integer, Product> products) {
+        this.products = products;
+    }
+
+    @XmlElement(name = "product")
+    public List<ProductEntry> getProducts() {
+        List<ProductEntry> list = new ArrayList<>();
+        for (Map.Entry<Integer, Product> entry : products.entrySet()) {
+            list.add(new ProductEntry(entry.getKey(), entry.getValue()));
+        }
+        return list;
+    }
+}
+
+class ProductEntry {
+    private int id;
+    private Product product;
+
+    public ProductEntry() {}
+
+    public ProductEntry(int id, Product product) {
+        this.id = id;
+        this.product = product;
+    }
+
+    @XmlAttribute
+    public int getId() {
+        return id;
+    }
+
+    @XmlElement
+    public Product getProduct() {
+        return product;
+    }
+}
 
 
 public class DumpManager {
-    private final Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
     private final String fileName;
     private final Console console;
 
@@ -25,17 +60,35 @@ public class DumpManager {
         this.console = console;
     }
 
-    public void writeCollection(Collection<Product> collection) {
-        try (PrintWriter collectionPrintWriter = new PrintWriter(new File(fileName))) {
-            collectionPrintWriter.println(gson.toJson(collection));
-            console.println("Коллекция сохранена в файл!");
-        } catch (IOException exception) {
-            console.printError("Загрузочный файл не может быть открыт!");
+    public void writeMap(Map<Integer, Product> map) {
+        try {
+            JAXBContext context = JAXBContext.newInstance(ProductWrapper.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.marshal(new ProductWrapper(map), new File(fileName));
+        } catch (JAXBException e) {
+            console.printError("Ошибка записи в XML файл!");
         }
     }
 
+    public LinkedHashMap<Integer, Product> readMap() {
+        if (fileName == null) {
+            console.printError("Переменная окружения с загрузочным файлом не найдена!");
+            return null;
+        }
 
-    public Collection<Product> readCollection() {
+        try {
+            JAXBContext context = JAXBContext.newInstance(ProductWrapper.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ProductWrapper wrapper = (ProductWrapper) unmarshaller.unmarshal(new File(fileName));
+            LinkedHashMap<Integer, Product> map = new LinkedHashMap<>();
+            for (ProductEntry entry : wrapper.getProducts()) {
+                map.put(entry.getId(), entry.getProduct());
+            }
+            return map;
+        } catch (JAXBException e) {
+            console.printError("Ошибка парсинга XML!");
+        }
         return null;
     }
 }
