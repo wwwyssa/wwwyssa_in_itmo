@@ -8,16 +8,30 @@ import javax.xml.bind.annotation.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Класс-обертка для продуктов, используемый для сериализации и десериализации.
+ */
 @XmlRootElement(name = "products")
 class ProductWrapper {
     private Map<Integer, Product> products = new LinkedHashMap<>();
 
+    /**
+     * Конструктор по умолчанию.
+     */
     public ProductWrapper() {}
 
+    /**
+     * Конструктор с параметрами.
+     * @param products карта продуктов
+     */
     public ProductWrapper(Map<Integer, Product> products) {
         this.products = products;
     }
 
+    /**
+     * Возвращает список продуктов.
+     * @return список продуктов
+     */
     @XmlElement(name = "product")
     public List<ProductEntry> getProducts() {
         List<ProductEntry> list = new ArrayList<>();
@@ -28,38 +42,68 @@ class ProductWrapper {
     }
 }
 
+/**
+ * Класс, представляющий запись продукта с идентификатором.
+ */
 class ProductEntry {
     private int id;
     private Product product;
 
+    /**
+     * Конструктор по умолчанию.
+     */
     public ProductEntry() {}
 
+    /**
+     * Конструктор с параметрами.
+     * @param id идентификатор продукта
+     * @param product продукт
+     */
     public ProductEntry(int id, Product product) {
         this.id = id;
         this.product = product;
     }
 
+    /**
+     * Возвращает идентификатор продукта.
+     * @return идентификатор продукта
+     */
     @XmlAttribute
     public int getId() {
         return id;
     }
 
+    /**
+     * Возвращает продукт.
+     * @return продукт
+     */
     @XmlElement
     public Product getProduct() {
         return product;
     }
 }
 
-
+/**
+ * Класс для управления сохранением и загрузкой продуктов в/из XML файла.
+ */
 public class DumpManager {
     private final String fileName;
     private final Console console;
 
+    /**
+     * Конструктор с параметрами.
+     * @param fileName имя файла для сохранения/загрузки
+     * @param console объект консоли для вывода сообщений
+     */
     public DumpManager(String fileName, Console console) {
         this.fileName = fileName;
         this.console = console;
     }
 
+    /**
+     * Сохраняет карту продуктов в XML файл.
+     * @param map карта продуктов
+     */
     public void writeMap(Map<Integer, Product> map) {
         try {
             JAXBContext context = JAXBContext.newInstance(ProductWrapper.class);
@@ -71,6 +115,10 @@ public class DumpManager {
         }
     }
 
+    /**
+     * Загружает Map продуктов из XML файла.
+     * @return загруженная карта продуктов
+     */
     public LinkedHashMap<Integer, Product> readMap() {
         if (fileName == null) {
             console.printError("Переменная окружения с загрузочным файлом не найдена!");

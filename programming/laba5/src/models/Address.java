@@ -2,28 +2,52 @@ package models;
 
 import utils.Validatable;
 
+/**
+ * Класс, представляющий адрес.
+ */
 public class Address implements Validatable {
-    private String street; //Поле не может быть null
-    private Location town; //Поле может быть null
+    private String street; // Поле не может быть null
+    private Location town; // Поле может быть null
 
+    /**
+     * Проверяет, является ли адрес валидным.
+     * @return true, если адрес валиден, иначе false.
+     */
     @Override
     public boolean isValid() {
         return street != null && town != null;
     }
 
+    /**
+     * Конструктор класса Address.
+     * @param street Улица (не может быть null).
+     * @param town Город (может быть null).
+     */
     public Address(String street, Location town) {
         this.street = street;
         this.town = town;
     }
 
+    /**
+     * Возвращает улицу.
+     * @return Улица.
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     * Возвращает город.
+     * @return Город.
+     */
     public Location getTown() {
         return town;
     }
 
+    /**
+     * Возвращает строковое представление адреса.
+     * @return Строковое представление адреса.
+     */
     @Override
     public String toString() {
         return "Address{" +
@@ -32,6 +56,11 @@ public class Address implements Validatable {
                 '}';
     }
 
+    /**
+     * Проверяет равенство текущего объекта с другим объектом.
+     * @param obj Объект для сравнения.
+     * @return true, если объекты равны, иначе false.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
@@ -42,10 +71,12 @@ public class Address implements Validatable {
         return false;
     }
 
+    /**
+     * Возвращает хэш-код для адреса.
+     * @return Хэш-код.
+     */
     @Override
     public int hashCode() {
         return street.hashCode() + town.hashCode();
     }
-
-
 }

@@ -1,42 +1,62 @@
 package models;
 
+import utils.Validatable;
+
 import javax.xml.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Класс, представляющий продукт.
+ */
 @XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Product implements Comparable<Product> {
+public class Product implements Comparable<Product>, Validatable {
 
     @XmlAttribute
-    private long id;
+    private long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 
     @XmlElement(required = true)
-    private String name;
+    private String name; // Поле не может быть null, Строка не может быть пустой
 
     @XmlElement(required = true)
-    private Coordinates coordinates;
+    private Coordinates coordinates; // Поле не может быть null
 
     @XmlElement(required = true)
-    private LocalDateTime creationDate = LocalDateTime.now();
+    private LocalDateTime creationDate = LocalDateTime.now(); // Поле не может быть null
 
     @XmlElement
-    private int price;
+    private int price; // Значение поля должно быть больше 0
 
     @XmlElement
-    private String partNumber;
+    private String partNumber; // Поле не может быть null
 
     @XmlElement
     private int manufactureCost;
 
     @XmlElement(required = true)
-    private UnitOfMeasure unitOfMeasure;
+    private UnitOfMeasure unitOfMeasure; // Поле не может быть null
 
     @XmlElement(required = true)
-    private Organization manufacturer;
+    private Organization manufacturer; // Поле может ��ыть null
 
-    public Product() {} // Пустой конструктор для JAXB
+    /**
+     * Пустой конструктор для JAXB.
+     */
+    public Product() {}
 
+    /**
+     * Конструктор для создания объекта Product.
+     * @param id идентификатор продукта, должен быть больше 0
+     * @param name имя продукта, не может быть null или пустым
+     * @param coordinates координаты продукта, не могут быть null
+     * @param creationDate дата создания продукта, не может быть null
+     * @param price цена продукта, должна быть больше 0
+     * @param partNumber номер детали, не может быть null
+     * @param manufactureCost стоимость производства
+     * @param unitOfMeasure единица измерения, не может быть null
+     * @param manufacturer производитель, может быть null
+     */
     public Product(long id, String name, Coordinates coordinates, LocalDateTime creationDate,
                    int price, String partNumber, int manufactureCost,
                    UnitOfMeasure unitOfMeasure, Organization manufacturer) {
@@ -53,33 +73,119 @@ public class Product implements Comparable<Product> {
 
     // Геттеры и сеттеры
 
+    /**
+     * Возвращает идентификатор продукта.
+     * @return идентификатор продукта
+     */
     public long getId() { return id; }
+
+    /**
+     * Устанавливает идентификатор продукта.
+     * @param id идентификатор продукта
+     */
     public void setId(long id) { this.id = id; }
 
+    /**
+     * Возвращает имя продукта.
+     * @return имя продукта
+     */
     public String getName() { return name; }
+
+    /**
+     * Устанавливает имя продукта.
+     * @param name имя продукта
+     */
     public void setName(String name) { this.name = name; }
 
+    /**
+     * Возвращает координаты продукта.
+     * @return координаты продукта
+     */
     public Coordinates getCoordinates() { return coordinates; }
+
+    /**
+     * Устанавливает координаты п��одукта.
+     * @param coordinates координаты продукта
+     */
     public void setCoordinates(Coordinates coordinates) { this.coordinates = coordinates; }
 
+    /**
+     * Возвращает дату создания продукта.
+     * @return дата создания продукта
+     */
     public LocalDateTime getCreationDate() { return creationDate; }
+
+    /**
+     * Устанавливает дату создания продукта.
+     * @param creationDate дата создания продукта
+     */
     public void setCreationDate(LocalDateTime creationDate) { this.creationDate = creationDate; }
 
+    /**
+     * Возвращает цену продукта.
+     * @return цена продукта
+     */
     public int getPrice() { return price; }
+
+    /**
+     * Устанавливает цену продукта.
+     * @param price цена продукта
+     */
     public void setPrice(int price) { this.price = price; }
 
+    /**
+     * Возвращает номер детали продукта.
+     * @return номер детали продукта
+     */
     public String getPartNumber() { return partNumber; }
+
+    /**
+     * Устанавливает номер детали продукта.
+     * @param partNumber номер детали продукта
+     */
     public void setPartNumber(String partNumber) { this.partNumber = partNumber; }
 
+    /**
+     * Возвращает стоимость производства продукта.
+     * @return стоимость производства продукта
+     */
     public int getManufactureCost() { return manufactureCost; }
+
+    /**
+     * Устанавливает стоимость производства продукта.
+     * @param manufactureCost стоимость производства продукта
+     */
     public void setManufactureCost(int manufactureCost) { this.manufactureCost = manufactureCost; }
 
+    /**
+     * Возвращает единицу измерения продукта.
+     * @return единица измерения продукта
+     */
     public UnitOfMeasure getUnitOfMeasure() { return unitOfMeasure; }
+
+    /**
+     * Устанавливает единицу измерения продукта.
+     * @param unitOfMeasure единица измерения продукта
+     */
     public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) { this.unitOfMeasure = unitOfMeasure; }
 
+    /**
+     * Возвращает производителя продукта.
+     * @return производитель продукта
+     */
     public Organization getManufacturer() { return manufacturer; }
+
+    /**
+     * Устанавливает производителя продукта.
+     * @param manufacturer производитель продукта
+     */
     public void setManufacturer(Organization manufacturer) { this.manufacturer = manufacturer; }
 
+    /**
+     * Проверяет, равен ли данный объект другому объекту.
+     * @param o объект для сравнения
+     * @return true, если объекты равны, иначе false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,11 +194,19 @@ public class Product implements Comparable<Product> {
         return id == product.id;
     }
 
+    /**
+     * Возвращает хэш-код объекта Product.
+     * @return хэш-код объекта
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, name, coordinates, creationDate, price, partNumber, manufactureCost, unitOfMeasure, manufacturer);
     }
 
+    /**
+     * Возвращает строковое представление объекта Product.
+     * @return строковое представление объекта
+     */
     @Override
     public String toString() {
         return "Product{" +
@@ -108,8 +222,30 @@ public class Product implements Comparable<Product> {
                 '}';
     }
 
+    /**
+     * Сравнивает данный объект с другим объектом Product по цене.
+     * @param product объект для сравнения
+     * @return результат сравнения
+     */
     @Override
     public int compareTo(Product product) {
         return Integer.compare(this.price, product.price);
+    }
+
+    /**
+     * Проверяет, является ли продукт допустимым.
+     * @return true, если продукт допустим, иначе false
+     */
+    @Override
+    public boolean isValid() {
+        if (id <= 0) return false;
+        if (name == null || name.isEmpty()) return false;
+        if (coordinates == null || !coordinates.isValid()) return false;
+        if (creationDate == null) return false;
+        if (price <= 0) return false;
+        if (partNumber == null) return false;
+        if (unitOfMeasure == null) return false;
+        if (manufacturer != null && !manufacturer.isValid()) return false;
+        return true;
     }
 }

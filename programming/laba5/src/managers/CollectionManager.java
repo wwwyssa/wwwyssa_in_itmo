@@ -1,46 +1,88 @@
 package managers;
 
 import models.Product;
-import java.util.LinkedHashMap;
 
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * Класс для управления коллекцией продуктов.
+ */
 public class CollectionManager {
     private static long currentId = 1;
-    private LinkedHashMap<Integer, Product> collection = new LinkedHashMap<>();
-    private DumpManager dumpManager;
+    private Map<Integer, Product> collection = new LinkedHashMap<>();
+    private final DumpManager dumpManager;
+    private LocalDateTime lastInitTime;
+    private LocalDateTime lastSaveTime;
 
+    /**
+     * Конструктор для создания объекта CollectionManager.
+     * @param dumpManager менеджер для работы с дампом данных
+     */
     public CollectionManager(DumpManager dumpManager) {
         this.dumpManager = dumpManager;
+        this.lastInitTime = null;
+        this.lastSaveTime = null;
     }
 
+    /**
+     * Генерирует новый уникальный идентификатор.
+     * @return новый уникальный идентификатор
+     */
     public static long generateId() {
         return currentId++;
     }
 
-
+    /**
+     * Очищает коллекцию.
+     */
     public void clear() {
         collection.clear();
     }
 
-    public LinkedHashMap<Integer, Product> getCollection() {
+    /**
+     * Возвращает коллек��ию продуктов.
+     * @return коллекция продуктов
+     */
+    public Map<Integer, Product> getCollection() {
         return collection;
     }
 
+    /**
+     * Возвращает продукт по его идентификатору.
+     * @param id идентификатор продукта
+     * @return продукт с заданным идентификатором
+     */
     public Product getById(long id) {
         return collection.get((int) id);
     }
 
+    /**
+     * Проверяет, содержится ли продукт в коллекции.
+     * @param product продукт для проверки
+     * @return true, если продукт содержится в коллекции, иначе false
+     */
     public boolean contains(Product product) {
         return collection.containsValue(product);
     }
 
-    public long getFreeId(){
-        while(collection.containsKey((int) currentId)){
+    /**
+     * Возвращает свободный идентификатор.
+     * @return свободный идентификатор
+     */
+    public long getFreeId() {
+        while (collection.containsKey((int) currentId)) {
             currentId++;
         }
         return currentId;
     }
 
-
+    /**
+     * Добавляет продукт в коллекцию.
+     * @param product продукт для добавления
+     * @return true, если продукт успешно добавлен, иначе false
+     */
     public boolean addProduct(Product product) {
         if (contains(product)) {
             return false;
@@ -49,20 +91,82 @@ public class CollectionManager {
         return true;
     }
 
+    /**
+     * Обновляет продукт в коллекции.
+     * @param product продукт для обновления
+     */
     public void updateProduct(Product product) {
         collection.put((int) product.getId(), product);
     }
 
-    public void removeProduct(Product product) {
-        collection.remove((int) product.getId());
+    /**
+     * Удаляет продукт из коллекции.
+     * @param id id продукта для удаления
+     */
+    public void removeProduct(long id) {
+        collection.remove((int) id);
     }
 
-    public void loadCollection() {
+    /**
+     * Загружает коллекцию из дампа данных.
+     */
+    public boolean loadCollection() {
         collection = dumpManager.readMap();
+        lastInitTime = LocalDateTime.now();
+        return true;
+        //todo: check if collection is empty
     }
 
+    /**
+     * Сохраняет коллекцию в дамп данных.
+     */
     public void saveCollection() {
         dumpManager.writeMap(collection);
+        lastSaveTime = LocalDateTime.now();
+    }
+
+    /**
+     * Возвращает время последней инициализации коллекции.
+     * @return время последней инициализации
+     */
+    public LocalDateTime getLastInitTime() {
+        return lastInitTime;
+    }
+
+    /**
+     * Возвращает время последнего сохранения коллекции.
+     * @return время последнего сохранения
+     */
+    public LocalDateTime getLastSaveTime() {
+        return lastSaveTime;
+    }
+
+    /**
+     * Возвращает количество элементов в коллекции.
+     * @return количество элементов
+     */
+    public String collectionType() {
+        return collection.getClass().getName();
+    }
+
+
+    /**
+     * Возвращает количество элементов в коллекции.
+     * @return количество элементов
+     */
+    public int collectionSize() {
+        return collection.size();
+    }
+
+    @Override
+    public String toString() {
+        if (collection.isEmpty()) return "Коллекция пуста!";
+
+        StringBuilder info = new StringBuilder();
+        for (int id : collection.keySet()) {
+            info.append(collection.get(id)+"\n\n");
+        }
+        return info.toString().trim();
     }
 
 }
