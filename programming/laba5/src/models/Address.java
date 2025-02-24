@@ -2,21 +2,15 @@ package models;
 
 import utils.Validatable;
 
+
 /**
  * Класс, представляющий адрес.
  */
 public class Address implements Validatable {
-    private String street; // Поле не может быть null
-    private Location town; // Поле может быть null
 
-    /**
-     * Проверяет, является ли адрес валидным.
-     * @return true, если адрес валиден, иначе false.
-     */
-    @Override
-    public boolean isValid() {
-        return street != null && town != null;
-    }
+    private String street; // Поле не может быть null
+
+    private Location town; // Поле может быть null
 
     /**
      * Конструктор класса Address.
@@ -26,6 +20,17 @@ public class Address implements Validatable {
     public Address(String street, Location town) {
         this.street = street;
         this.town = town;
+    }
+
+    public Address() {}
+
+    /**
+     * Проверяет, является ли адрес валидным.
+     * @return true, если адрес валиден, иначе false.
+     */
+    @Override
+    public boolean isValid() {
+        return street != null && !street.isEmpty() && town != null; // Улучшил условие валидации (проверка на пустоту)
     }
 
     /**
@@ -77,6 +82,6 @@ public class Address implements Validatable {
      */
     @Override
     public int hashCode() {
-        return street.hashCode() + town.hashCode();
+        return street.hashCode() + (town != null ? town.hashCode() : 0);
     }
 }

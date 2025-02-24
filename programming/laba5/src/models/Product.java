@@ -2,43 +2,41 @@ package models;
 
 import utils.Validatable;
 
-import javax.xml.bind.annotation.*;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * Класс, представляющий продукт.
  */
-@XmlRootElement(name = "product")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Product implements Comparable<Product>, Validatable {
 
-    @XmlAttribute
+
     private long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 
-    @XmlElement(required = true)
+
     private String name; // Поле не может быть null, Строка не может быть пустой
 
-    @XmlElement(required = true)
+
     private Coordinates coordinates; // Поле не может быть null
 
-    @XmlElement(required = true)
+
     private LocalDateTime creationDate = LocalDateTime.now(); // Поле не может быть null
 
-    @XmlElement
+
     private int price; // Значение поля должно быть больше 0
 
-    @XmlElement
+
     private String partNumber; // Поле не может быть null
 
-    @XmlElement
+
     private int manufactureCost;
 
-    @XmlElement(required = true)
+
     private UnitOfMeasure unitOfMeasure; // Поле не может быть null
 
-    @XmlElement(required = true)
-    private Organization manufacturer; // Поле может ��ыть null
+
+    private Organization manufacturer; // Поле может быть null
 
     /**
      * Пустой конструктор для JAXB.
@@ -104,7 +102,7 @@ public class Product implements Comparable<Product>, Validatable {
     public Coordinates getCoordinates() { return coordinates; }
 
     /**
-     * Устанавливает координаты п��одукта.
+     * Устанавливает координаты продукта.
      * @param coordinates координаты продукта
      */
     public void setCoordinates(Coordinates coordinates) { this.coordinates = coordinates; }

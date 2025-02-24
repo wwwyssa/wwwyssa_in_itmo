@@ -2,90 +2,12 @@ package managers;
 
 import models.Product;
 import utils.Console;
+import utils.DictToXmlConverter;
 
-import javax.xml.bind.*;
-import javax.xml.bind.annotation.*;
 import java.io.*;
 import java.util.*;
+import utils.XMLParser;
 
-/**
- * Класс-обертка для продуктов, используемый для сериализации и десериализации.
- */
-@XmlRootElement(name = "products")
-class ProductWrapper {
-    private Map<Integer, Product> products = new LinkedHashMap<>();
-
-    /**
-     * Конструктор по умолчанию.
-     */
-    public ProductWrapper() {}
-
-    /**
-     * Конструктор с параметрами.
-     * @param products карта продуктов
-     */
-    public ProductWrapper(Map<Integer, Product> products) {
-        this.products = products;
-    }
-
-    /**
-     * Возвращает список продуктов.
-     * @return список продуктов
-     */
-    @XmlElement(name = "product")
-    public List<ProductEntry> getProducts() {
-        List<ProductEntry> list = new ArrayList<>();
-        for (Map.Entry<Integer, Product> entry : products.entrySet()) {
-            list.add(new ProductEntry(entry.getKey(), entry.getValue()));
-        }
-        return list;
-    }
-}
-
-/**
- * Класс, представляющий запись продукта с идентификатором.
- */
-class ProductEntry {
-    private int id;
-    private Product product;
-
-    /**
-     * Конструктор по умолчанию.
-     */
-    public ProductEntry() {}
-
-    /**
-     * Конструктор с параметрами.
-     * @param id идентификатор продукта
-     * @param product продукт
-     */
-    public ProductEntry(int id, Product product) {
-        this.id = id;
-        this.product = product;
-    }
-
-    /**
-     * Возвращает идентификатор продукта.
-     * @return идентификатор продукта
-     */
-    @XmlAttribute
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Возвращает продукт.
-     * @return продукт
-     */
-    @XmlElement
-    public Product getProduct() {
-        return product;
-    }
-}
-
-/**
- * Класс для управления сохранением и загрузкой продуктов в/из XML файла.
- */
 public class DumpManager {
     private final String fileName;
     private final Console console;
@@ -100,43 +22,31 @@ public class DumpManager {
         this.console = console;
     }
 
-    /**
-     * Сохраняет карту продуктов в XML файл.
-     * @param map карта продуктов
-     */
     public void writeMap(Map<Integer, Product> map) {
-        try {
-            JAXBContext context = JAXBContext.newInstance(ProductWrapper.class);
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(new ProductWrapper(map), new File(fileName));
-        } catch (JAXBException e) {
-            console.printError("Ошибка записи в XML файл!");
+        DictToXmlConverter converter = new DictToXmlConverter();
+        String xml = converter.dictToXml((LinkedHashMap<Integer, Product>) map, "Products");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(xml);
+            console.print("Коллекция успешно сохранена в файл!");
+        } catch (IOException e) {
+            console.printError("Произошла ошибка при сохранении коллекции в файл!");
         }
     }
 
-    /**
-     * Загружает Map продуктов из XML файла.
-     * @return загруженная карта продуктов
-     */
+
     public LinkedHashMap<Integer, Product> readMap() {
         if (fileName == null) {
             console.printError("Переменная окружения с загрузочным файлом не найдена!");
             return null;
         }
-
         try {
-            JAXBContext context = JAXBContext.newInstance(ProductWrapper.class);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            ProductWrapper wrapper = (ProductWrapper) unmarshaller.unmarshal(new File(fileName));
-            LinkedHashMap<Integer, Product> map = new LinkedHashMap<>();
-            for (ProductEntry entry : wrapper.getProducts()) {
-                map.put(entry.getId(), entry.getProduct());
-            }
-            return map;
-        } catch (JAXBException e) {
-            console.printError("Ошибка парсинга XML!");
+            return XMLParser.parseXML(fileName);
+        } catch (IOException e) {
+            console.printError("Произошла ошибка при загрузке коллекции из файла!");
         }
         return null;
     }
+
+
+
 }

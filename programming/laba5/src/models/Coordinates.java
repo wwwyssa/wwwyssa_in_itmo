@@ -1,11 +1,13 @@
 package models;
 import utils.Validatable;
 
+
 /**
  * Класс, представляющий координаты.
  */
 public class Coordinates implements Validatable {
     private Integer x; //Максимальное значение поля: 765, Поле не может быть null
+    
     private long y; //Значение поля должно быть больше -395
 
     /**
@@ -17,6 +19,8 @@ public class Coordinates implements Validatable {
         this.x = x;
         this.y = y;
     }
+
+    public Coordinates() {}
 
     /**
      * Проверяет, являются ли координаты допустимыми.

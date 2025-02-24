@@ -10,19 +10,49 @@ import java.nio.file.*;
 
 import managers.CommandManager;
 
+/**
+ * Класс для запуска команд в интерактивном режиме и режиме скрипта.
+ */
 public class Runner {
     private final Console console;
     private final CommandManager commandManager;
     private final List<String> scriptStack = new ArrayList<>();
     private int lengthRecursion = -1;
 
+    /**
+     * Конструктор класса Runner.
+     * @param console объект Console для ввода/вывода
+     * @param commandManager менеджер команд
+     */
     public Runner(Console console, CommandManager commandManager) {
         this.console = console;
         this.commandManager = commandManager;
     }
 
     /**
-     * Интерактивный режим
+     * Запускает команду.
+     * @param userCommand команда для запуска
+     * @return код завершения
+     */
+    private ExecutionResponse launchCommand(String[] userCommand) {
+        if (userCommand[0].isEmpty()) return new ExecutionResponse("");
+        var command = commandManager.getCommands().get(userCommand[0]);
+
+        if (command == null) return new ExecutionResponse(false, "Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки");
+
+        switch (userCommand[0]) {
+            case "execute_script" -> {
+                ExecutionResponse tmp = commandManager.getCommands().get("execute_script").execute(userCommand);
+                if (!tmp.getExitCode()) return tmp;
+                ExecutionResponse tmp2 = scriptMode(userCommand[1]);
+                return new ExecutionResponse(tmp2.getExitCode(), tmp.getMessage() + "\n" + tmp2.getMessage().trim());
+            }
+            default -> { return command.execute(userCommand); }
+        }
+    }
+
+    /**
+     * Интерактивный режим.
      */
     public void interactiveMode() {
         try {
@@ -48,8 +78,9 @@ public class Runner {
 
     /**
      * Проверяет рекурсивность выполнения скриптов.
-     * @param argument Название запускаемого скрипта
-     * @return можно ли выполнять скрипт.
+     * @param argument название запускаемого скрипта
+     * @param scriptScanner сканер для чтения скрипта
+     * @return можно ли выполнять скрипт
      */
     private boolean checkRecursion(String argument, Scanner scriptScanner) {
         var recStart = -1;
@@ -60,24 +91,23 @@ public class Runner {
                 if (recStart < 0) recStart = i;
                 if (lengthRecursion < 0) {
                     console.selectConsoleScanner();
-                    console.println("Была замечена рекурсия! Введите максимальную глубину рекурсии (0..500)");
+                    console.println("Была замечена рекурсия! Введите максимальную глубину рекурсии (0..100)");
                     while (lengthRecursion < 0 || lengthRecursion > 500) {
                         try { console.print("> "); lengthRecursion = Integer.parseInt(console.input().trim()); } catch (NumberFormatException e) { console.println("длина не распознана"); }
                     }
                     console.selectFileScanner(scriptScanner);
                 }
-                if (i > recStart + lengthRecursion || i > 500)
+                if (i > recStart + lengthRecursion || i > 100)
                     return false;
             }
         }
         return true;
     }
 
-
     /**
      * Режим для запуска скрипта.
-     * @param argument Аргумент скрипта
-     * @return Код завершения.
+     * @param argument аргумент скрипта
+     * @return код завершения
      */
     private ExecutionResponse scriptMode(String argument) {
         String[] userCommand = {"", ""};
@@ -88,7 +118,6 @@ public class Runner {
 
         scriptStack.add(argument);
         try (Scanner scriptScanner = new Scanner(new File(argument))) {
-
             ExecutionResponse commandStatus;
 
             if (!scriptScanner.hasNext()) throw new NoSuchElementException();
@@ -107,7 +136,7 @@ public class Runner {
 
                 commandStatus = needLaunch ? launchCommand(userCommand) : new ExecutionResponse("Превышена максимальная глубина рекурсии");
                 if (userCommand[0].equals("execute_script")) console.selectFileScanner(scriptScanner);
-                executionOutput.append(commandStatus.getMessage()+"\n");
+                executionOutput.append(commandStatus.getMessage() + "\n");
             } while (commandStatus.getExitCode() && !commandStatus.getMessage().equals("exit") && console.isCanReadln());
 
             console.selectConsoleScanner();
@@ -127,27 +156,5 @@ public class Runner {
             scriptStack.remove(scriptStack.size() - 1);
         }
         return new ExecutionResponse("");
-    }
-
-    /**
-     * Launchs the command.
-     * @param userCommand Команда для запуска
-     * @return Код завершения.
-     */
-    private ExecutionResponse launchCommand(String[] userCommand) {
-        if (userCommand[0].isEmpty()) return new ExecutionResponse("");
-        var command = commandManager.getCommands().get(userCommand[0]);
-
-        if (command == null) return new ExecutionResponse(false, "Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки");
-
-        switch (userCommand[0]) {
-            case "execute_script" -> {
-                ExecutionResponse tmp = commandManager.getCommands().get("execute_script").execute(userCommand);
-                if (!tmp.getExitCode()) return tmp;
-                ExecutionResponse tmp2 = scriptMode(userCommand[1]);
-                return new ExecutionResponse(tmp2.getExitCode(), tmp.getMessage()+"\n"+tmp2.getMessage().trim());
-            }
-            default -> { return command.execute(userCommand); }
-        }
     }
 }

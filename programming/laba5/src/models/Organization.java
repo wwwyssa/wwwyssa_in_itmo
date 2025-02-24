@@ -7,10 +7,15 @@ import utils.Validatable;
  * Класс, представляющий организацию.
  */
 public class Organization implements Validatable {
+
     private Long id = CollectionManager.generateId(); // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+
     private String name; // Поле не может быть null, Строка не может быть пустой
-    private Integer employeesCount; // Поле не может быть null, Значение поля должно быть больш�� 0
+
+    private Integer employeesCount; // Поле не может быть null, Значение поля должно быть больше 0
+
     private OrganizationType type; // Поле не может быть null
+
     private Address officialAddress; // Поле не может быть null
 
     /**
@@ -27,42 +32,33 @@ public class Organization implements Validatable {
         this.officialAddress = officialAddress;
     }
 
-    /**
-     * Возвращает идентиф��катор организации.
-     * @return идентификатор организации
-     */
+    public Organization() {}
+    // Геттеры и сеттеры с аннотациями JAXB
+
     public Long getId() {
         return id;
     }
 
-    /**
-     * Возвращает имя организации.
-     * @return имя организации
-     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    /**
-     * Возвращает количество сотрудников.
-     * @return количество сотрудников
-     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getEmployeesCount() {
         return employeesCount;
     }
 
-    /**
-     * Возвращает тип организации.
-     * @return тип организации
-     */
     public OrganizationType getType() {
         return type;
     }
 
-    /**
-     * Возвращает официальный адрес организации.
-     * @return официальный адрес организации
-     */
     public Address getOfficialAddress() {
         return officialAddress;
     }

@@ -1,6 +1,7 @@
 package managers;
 
 import models.Product;
+import utils.Console;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -42,7 +43,7 @@ public class CollectionManager {
     }
 
     /**
-     * Возвращает коллек��ию продуктов.
+     * Возвращает коллекцию продуктов.
      * @return коллекция продуктов
      */
     public Map<Integer, Product> getCollection() {
@@ -121,8 +122,10 @@ public class CollectionManager {
      * Сохраняет коллекцию в дамп данных.
      */
     public void saveCollection() {
-        dumpManager.writeMap(collection);
-        lastSaveTime = LocalDateTime.now();
+        if (!collection.isEmpty()){
+            dumpManager.writeMap(collection);
+            lastSaveTime = LocalDateTime.now();
+        }
     }
 
     /**
@@ -168,5 +171,7 @@ public class CollectionManager {
         }
         return info.toString().trim();
     }
+
+
 
 }

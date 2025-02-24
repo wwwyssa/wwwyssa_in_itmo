@@ -2,13 +2,20 @@ package models;
 
 import utils.Validatable;
 
+
 /**
  * Класс, представляющий местоположение.
  */
 public class Location implements Validatable {
+
+    
     private float x; // Поле не может быть null
+
+    
     private int y; // Поле не может быть null
-    private Integer z; // Поле не может быть null
+
+    
+    private Integer z; // Поле может быть null, но не должно быть
 
     /**
      * Конструктор для создания объекта Location.
@@ -22,6 +29,7 @@ public class Location implements Validatable {
         this.z = z;
     }
 
+    public Location() {};
     /**
      * Возвращает координату x.
      * @return координата x
@@ -29,6 +37,8 @@ public class Location implements Validatable {
     public float getX() {
         return x;
     }
+
+
 
     /**
      * Возвращает координату y.
@@ -69,7 +79,7 @@ public class Location implements Validatable {
         if (obj == null) return false;
         if (obj instanceof Location) {
             Location location = (Location) obj;
-            return x == location.x && y == location.y && z.equals(location.z);
+            return x == location.x && y == location.y && (z != null ? z.equals(location.z) : location.z == null);
         }
         return false;
     }
@@ -83,6 +93,10 @@ public class Location implements Validatable {
         return Float.hashCode(x) + Integer.hashCode(y) + z.hashCode();
     }
 
+    /**
+     * Проверяет, является ли объект валидным.
+     * @return true, если объект валиден, иначе false
+     */
     @Override
     public boolean isValid() {
         return z != null;
