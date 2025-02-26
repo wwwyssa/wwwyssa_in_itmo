@@ -8,9 +8,11 @@ import java.util.LinkedHashMap;
 
 
 public class CommandManager {
-    private final LinkedHashMap<String, Command> commands = new LinkedHashMap<>();
+    private  LinkedHashMap<String, Command> commands = new LinkedHashMap<>();
     private final ArrayList<String> commandHistory = new ArrayList<>();
 
+
+    public CommandManager() {}
     /**
      * Регистрирует команду.
      * @param commandName Имя команды.
@@ -25,13 +27,6 @@ public class CommandManager {
      */
     public LinkedHashMap<String, Command> getCommands() {
         return commands;
-    }
-
-    /**
-     * @return история команд.
-     */
-    public ArrayList<String> getCommandHistory() {
-        return commandHistory;
     }
 
     /**

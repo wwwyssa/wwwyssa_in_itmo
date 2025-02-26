@@ -1,0 +1,415 @@
+@startuml
+
+!theme plain
+skinparam linetype ortho
+package commands{
+    class Command {
+      + Command(String, String):
+      - name: String
+      - description: String
+      + equals(Object): boolean
+      + hashCode(): int
+      + getName(): String
+      + getDescription(): String
+      + toString(): String
+    }
+    class Add {
+      + Add(Console, CollectionManager):
+      - collectionManager: CollectionManager
+      - console: Console
+      + execute(String[]): ExecutionResponse
+    }
+    class Clear {
+      + Clear(Console, CollectionManager):
+      - collectionManager: CollectionManager
+      - console: Console
+      + execute(String[]): ExecutionResponse
+    }
+
+    class Help {
+      + Help(Console, CommandManager):
+      - console: Console
+      - commandManager: CommandManager
+      + execute(String[]): ExecutionResponse
+    }
+    class Info {
+      + Info(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class Save {
+      + Save(Console, CollectionManager):
+      - collectionManager: CollectionManager
+      - console: Console
+      + execute(String[]): ExecutionResponse
+    }
+    class Show {
+      + Show(Console, CollectionManager):
+      - collectionManager: CollectionManager
+      - console: Console
+      + execute(String[]): ExecutionResponse
+    }
+
+    class Update {
+      + Update(Console, CollectionManager):
+      - collectionManager: CollectionManager
+      - console: Console
+      + execute(String[]): ExecutionResponse
+    }
+
+    class RemoveById {
+      + RemoveById(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class RemoveGreater {
+      + RemoveGreater(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class RemoveGreaterKey {
+      + RemoveGreaterKey(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class MinByName {
+      + MinByName(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class PrintFieldAscendingPartNumber {
+      + PrintFieldAscendingPartNumber(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class AverageOfManufactureCost {
+      + AverageOfManufactureCost(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class ReplaceIfLower {
+      + ReplaceIfLower(Console, CollectionManager):
+      - console: Console
+      - collectionManager: CollectionManager
+      + execute(String[]): ExecutionResponse
+    }
+
+    class Exit {
+      + Exit():
+      + execute(String[]): ExecutionResponse
+    }
+
+    class ExecuteScript {
+      + ExecuteScript(Console, CommandManager):
+      - console: Console
+      - commandManager: CommandManager
+      + execute(String[]): ExecutionResponse
+    }
+
+}
+
+package managers{
+    class CollectionManager {
+      + CollectionManager(DumpManager):
+      - collection: Map<Integer, Product>
+      - currentId: long
+      - dumpManager: DumpManager
+      - lastSaveTime: LocalDateTime
+      - lastInitTime: LocalDateTime
+      + getById(long): Product
+      + addProductWithKey(int, Product): boolean
+      + toString(): String
+      + generateId(): long
+      + clear(): void
+      + addProduct(Product): boolean
+      + contains(Product): boolean
+      + removeProduct(long): void
+      + loadCollection(): boolean
+      + getLastSaveTime(): LocalDateTime
+      + updateProduct(Product): void
+      + saveCollection(): void
+      + getCollection(): Map<Integer, Product>
+      + getLastInitTime(): LocalDateTime
+      + collectionType(): String
+      + getFreeId(): long
+      + collectionSize(): int
+    }
+
+    class DumpManager {
+      + DumpManager(String, Console):
+      - console: Console
+      - fileName: String
+      + readMap(): LinkedHashMap<Integer, Product>
+      + writeMap(Map<Integer, Product>): void
+    }
+
+    class CommandManager {
+      + CommandManager():
+      - commandHistory: ArrayList<String>
+      - commands: LinkedHashMap<String, Command>
+      + addToHistory(String): void
+      + register(String, Command): void
+      + getCommands(): LinkedHashMap<String, Command>
+    }
+}
+
+package models{
+    class Address {
+      + Address():
+      + Address(String, Location):
+      - street: String
+      - town: Location
+      + isValid(): boolean
+      + getStreet(): String
+      + equals(Object): boolean
+      + toString(): String
+      + hashCode(): int
+      + getTown(): Location
+    }
+    class Coordinates {
+      + Coordinates(Integer, Long):
+      + Coordinates():
+      - x: Integer
+      - y: long
+      + hashCode(): int
+      + toString(): String
+      + equals(Object): boolean
+      + isValid(): boolean
+      + getX(): Integer
+      + getY(): long
+    }
+
+    class Location {
+      + Location():
+      + Location(float, int, Integer):
+      - x: float
+      - z: Integer
+      - y: int
+      + getX(): float
+      + getY(): int
+      + toString(): String
+      + hashCode(): int
+      + equals(Object): boolean
+      + getZ(): Integer
+      + isValid(): boolean
+    }
+
+    enum OrganizationType << enumeration >> {
+      + OrganizationType():
+      + PUBLIC:
+      + PRIVATE_LIMITED_COMPANY:
+      + OPEN_JOINT_STOCK_COMPANY:
+      + COMMERCIAL:
+      + GOVERNMENT:
+      + valueOf(String): OrganizationType
+      + values(): OrganizationType[]
+    }
+
+    class Product {
+      + Product(String, Coordinates, Long, UnitOfMeasure, Organization):
+      + Product():
+      - name: String
+      - coordinates: Coordinates
+      - creationDate: Long
+      - unitOfMeasure: UnitOfMeasure
+      - manufacturer: Organization
+      - id: Integer
+      + getCreationDate(): Long
+      + getManufacturer(): Organization
+      + getUnitOfMeasure(): UnitOfMeasure
+      + getCoordinates(): Coordinates
+      + hashCode(): int
+      + toString(): String
+      + equals(Object): boolean
+      + isValid(): boolean
+      + getName(): String
+      + setName(String): void
+      + setId(Integer): void
+      + getId(): Integer
+    }
+
+    class ProductReader {
+      + ProductReader(File):
+      - file: File
+      + readData(): LinkedHashMap<Integer, Product>
+      + getStrBetweenTags(String): String
+      + scanOrganization(): Organization
+      + scanCoordinates(): Coordinates
+      + scanAddress(): Address
+      + scanLocation(): Location
+      + scipUselessLine(int): void
+    }
+
+    class UnitOfMeasure {
+      + UnitOfMeasure():
+      + KILOGRAMS:
+      + GRAMS:
+      + MILLILITERS:
+      + CENTIMETERS:
+      + values(): UnitOfMeasure[]
+      + valueOf(String): UnitOfMeasure
+    }
+
+    class Organization {
+      + Organization(String, Integer, OrganizationType, Address):
+      + Organization():
+      - type: OrganizationType
+      - name: String
+      - employeesCount: Integer
+      - officialAddress: Address
+      - id: Long
+      + getType(): OrganizationType
+      + hashCode(): int
+      + toString(): String
+      + getName(): String
+      + setName(String): void
+      + getId(): Long
+      + setId(Long): void
+      + equals(Object): boolean
+      + isValid(): boolean
+      + getEmployeesCount(): Integer
+      + getOfficialAddress(): Address
+    }
+}
+
+package utils{
+    class Console {
+      + Console():
+      - scanner: Scanner
+      - fileScanner: Scanner
+      - defScanner: Scanner
+      + input(): String
+      + selectConsoleScanner(): void
+      + println(Object): void
+      + print(Object): void
+      + printError(Object): void
+      + selectFileScanner(Scanner): void
+      + isCanReadln(): boolean
+    }
+
+    class DictToXmlConverter {
+      + DictToXmlConverter():
+      + dictToXml(LinkedHashMap<Integer, Product>, String): String
+      - objectToXml(Product): String
+    }
+    class DumpManager {
+      + DumpManager(String, Console):
+      - console: Console
+      - fileName: String
+      + readMap(): LinkedHashMap<Integer, Product>
+      + writeMap(Map<Integer, Product>): void
+    }
+    interface Executable << interface >> {
+      + execute(String[]): ExecutionResponse
+    }
+    class ExecutionResponse {
+      + ExecutionResponse(String):
+      + ExecutionResponse(boolean, String):
+      - message: String
+      - exitCode: boolean
+      + getMessage(): String
+      + toString(): String
+      + getExitCode(): boolean
+    }
+
+
+    class Main {
+      + Main():
+      + main(String[]): void
+    }
+    class Organization {
+      + Organization(String, Integer, OrganizationType, Address):
+      + Organization():
+      - type: OrganizationType
+      - name: String
+      - employeesCount: Integer
+      - officialAddress: Address
+      - id: Long
+      + getType(): OrganizationType
+      + hashCode(): int
+      + toString(): String
+      + getName(): String
+      + setName(String): void
+      + getId(): Long
+      + setId(Long): void
+      + equals(Object): boolean
+      + isValid(): boolean
+      + getEmployeesCount(): Integer
+      + getOfficialAddress(): Address
+    }
+
+
+    class ProductXMLScaner {
+      + ProductXMLScaner(File):
+      ~ file: File
+      ~ curentTag: String
+      ~ Products: LinkedHashMap<Integer, Product>
+      ~ flag: boolean
+      ~ scan: Scanner
+      + scanOrganization(): Organization
+      + scanCoordinates(): Coordinates
+      + scanAddress(): Address
+      + readData(): LinkedHashMap<Integer, Product>
+      + getStrBetweenTags(String): String
+      + scanLocation(): Location
+      + scipUselessLine(int): void
+    }
+
+    class Runner {
+      + Runner(Console, CommandManager):
+      - commandManager: CommandManager
+      - lengthRecursion: int
+      - console: Console
+      - scriptStack: List<String>
+      + interactiveMode(): void
+      - checkRecursion(String, Scanner): boolean
+      - launchCommand(String[]): ExecutionResponse
+    }
+    interface Validatable << interface >> {
+      + isValid(): boolean
+    }
+}
+
+
+
+
+
+
+Add                 -[#000082,plain]-^  Command            
+Address             -[#008200,dashed]-^  Validatable        
+Clear               -[#000082,plain]-^  Command            
+Command             -[#008200,dashed]-^  Executable         
+Coordinates         -[#008200,dashed]-^  Validatable        
+Help                -[#000082,plain]-^  Command            
+Info                -[#000082,plain]-^  Command            
+Location            -[#008200,dashed]-^  Validatable        
+Organization        -[#008200,dashed]-^  Validatable        
+Product             -[#008200,dashed]-^  Validatable        
+RemoveById          -[#000082,plain]-^  Command            
+Save                -[#000082,plain]-^  Command            
+Show                -[#000082,plain]-^  Command            
+Update              -[#000082,plain]-^  Command
+RemoveGreater       -[#000082,plain]-^  Command
+RemoveGreaterKey    -[#000082,plain]-^  Command
+MinByName           -[#000082,plain]-^  Command
+PrintFieldAscendingPartNumber -[#000082,plain]-^  Command
+AverageOfManufactureCost -[#000082,plain]-^  Command
+ReplaceIfLower      -[#000082,plain]-^  Command
+Exit                -[#000082,plain]-^  Command
+ExecuteScript       -[#000082,plain]-^  Command
+
+@enduml

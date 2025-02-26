@@ -6,7 +6,9 @@ import utils.DictToXmlConverter;
 
 import java.io.*;
 import java.util.*;
-import utils.XMLParser;
+
+import utils.ProductXMLScaner;
+
 
 public class DumpManager {
     private final String fileName;
@@ -40,7 +42,8 @@ public class DumpManager {
             return null;
         }
         try {
-            return XMLParser.parseXML(fileName);
+            ProductXMLScaner xmlScaner = new ProductXMLScaner(new File(fileName));
+            return xmlScaner.readData();
         } catch (IOException e) {
             console.printError("Произошла ошибка при загрузке коллекции из файла!");
         }

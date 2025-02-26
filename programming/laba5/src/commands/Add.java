@@ -1,7 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
-import models.ObjectReader;
+import models.ProductReader;
 import models.Product;
 import utils.Console;
 import utils.ExecutionResponse;
@@ -35,7 +35,7 @@ public class Add extends Command {
             if (!args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
 
             console.println("* Making new Product:");
-            Product product = ObjectReader.readProduct(console, collectionManager.getFreeId());
+            Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
 
             //todo isValid check
             if (product != null) {
@@ -43,7 +43,7 @@ public class Add extends Command {
                 collectionManager.addProduct(product);
                 return new ExecutionResponse("Product successfully added!");
             } else return new ExecutionResponse(false,"Product fields are not valid! Product is not created!");
-        } catch (ObjectReader.ObjectReaderBreak e) {
+        } catch (ProductReader.ObjectReaderBreak e) {
             return new ExecutionResponse(false,"Cancel...");
         }
     }

@@ -15,9 +15,9 @@ public class DictToXmlConverter {
      */
     public static String dictToXml(LinkedHashMap<Integer, Product> data, String rootElement) {
         StringBuilder xmlBuilder = new StringBuilder();
-        xmlBuilder.append("<").append(rootElement).append(">");
+        xmlBuilder.append("<").append(rootElement).append(">\n");
         for (Map.Entry<Integer, Product> entry : data.entrySet()) {
-            xmlBuilder.append("<Product id=\"").append(entry.getKey()).append("\">");
+            xmlBuilder.append("<Product id=\"").append(entry.getKey()).append("\">\n");
             xmlBuilder.append(objectToXml(entry.getValue()));
             xmlBuilder.append("</Product>\n");
         }

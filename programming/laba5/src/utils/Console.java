@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Класс для работы с консолью.
  */
-public class Console {
+public class Console{
     private static Scanner scanner = new Scanner(System.in);
     private static Scanner fileScanner = null;
     private static Scanner defScanner = new Scanner(System.in);

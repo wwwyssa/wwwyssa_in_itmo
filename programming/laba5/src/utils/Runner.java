@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.nio.file.*;
 
+import commands.Command;
 import managers.CommandManager;
 
 /**
@@ -36,19 +37,11 @@ public class Runner {
      */
     private ExecutionResponse launchCommand(String[] userCommand) {
         if (userCommand[0].isEmpty()) return new ExecutionResponse("");
-        var command = commandManager.getCommands().get(userCommand[0]);
+        Command command = commandManager.getCommands().get(userCommand[0]);
 
         if (command == null) return new ExecutionResponse(false, "Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки");
+        return command.execute(userCommand);
 
-        switch (userCommand[0]) {
-            case "execute_script" -> {
-                ExecutionResponse tmp = commandManager.getCommands().get("execute_script").execute(userCommand);
-                if (!tmp.getExitCode()) return tmp;
-                ExecutionResponse tmp2 = scriptMode(userCommand[1]);
-                return new ExecutionResponse(tmp2.getExitCode(), tmp.getMessage() + "\n" + tmp2.getMessage().trim());
-            }
-            default -> { return command.execute(userCommand); }
-        }
     }
 
     /**
@@ -83,8 +76,8 @@ public class Runner {
      * @return можно ли выполнять скрипт
      */
     private boolean checkRecursion(String argument, Scanner scriptScanner) {
-        var recStart = -1;
-        var i = 0;
+        int recStart = -1;
+        int i = 0;
         for (String script : scriptStack) {
             i++;
             if (argument.equals(script)) {
@@ -109,6 +102,7 @@ public class Runner {
      * @param argument аргумент скрипта
      * @return код завершения
      */
+    /*
     private ExecutionResponse scriptMode(String argument) {
         String[] userCommand = {"", ""};
         StringBuilder executionOutput = new StringBuilder();
@@ -129,7 +123,7 @@ public class Runner {
                     userCommand = (console.input().trim() + " ").split(" ", 2);
                     userCommand[1] = userCommand[1].trim();
                 }
-                var needLaunch = true;
+                boolean needLaunch = true;
                 if (userCommand[0].equals("execute_script")) {
                     needLaunch = checkRecursion(userCommand[1], scriptScanner);
                 }
@@ -156,5 +150,5 @@ public class Runner {
             scriptStack.remove(scriptStack.size() - 1);
         }
         return new ExecutionResponse("");
-    }
+    }*/
 }

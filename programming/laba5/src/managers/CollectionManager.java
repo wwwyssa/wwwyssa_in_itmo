@@ -92,6 +92,12 @@ public class CollectionManager {
         return true;
     }
 
+    public boolean addProductWithKey(int key, Product product) {
+        collection.put(key, product);
+        return true;
+    }
+
+
     /**
      * Обновляет продукт в коллекции.
      * @param product продукт для обновления

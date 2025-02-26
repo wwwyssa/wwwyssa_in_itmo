@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.Console;
-import models.ObjectReader;
+import models.ProductReader;
 import utils.ExecutionResponse;
 
 /**
@@ -35,7 +35,7 @@ public class Update extends Command {
             }
 
             console.println("* Создание нового Продукта:");
-            var d = ObjectReader.readProduct(console, old.getId());
+            var d = ProductReader.readProduct(console, old.getId());
             if (d != null && d.isValid()) {
                 collectionManager.removeProduct(old.getId());
                 collectionManager.addProduct(d);
@@ -43,7 +43,7 @@ public class Update extends Command {
             } else {
                 return new ExecutionResponse(false, "Поля продукта не валидны! Продукт не создан!");
             }
-        } catch (ObjectReader.ObjectReaderBreak e) {
+        } catch (ProductReader.ObjectReaderBreak e) {
             return new ExecutionResponse(false, "Поля Продукта не валидны! Продукт не создан!");
         }
     }
