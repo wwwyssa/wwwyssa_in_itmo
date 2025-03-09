@@ -1,6 +1,6 @@
 package commands;
 
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 /**
@@ -8,11 +8,11 @@ import utils.ExecutionResponse;
  * @author dim0n4eg
  */
 public class Exit extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
 
-    public Exit(Console console) {
+    public Exit(DefaultConsole defaultConsole) {
         super("exit", "завершить программу (без сохранения в файл)", 0);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
     }
 
     /**
@@ -21,8 +21,9 @@ public class Exit extends Command {
      */
     @Override
     public ExecutionResponse execute(String[] arguments) {
-        if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-
+        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        ExecutionResponse response = validate(arguments);
+        if (!response.getExitCode()) return response;
         return new ExecutionResponse("exit");
     }
 }

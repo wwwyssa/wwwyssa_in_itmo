@@ -1,22 +1,21 @@
 package commands;
 
 import managers.CommandManager;
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * Команда 'help'. Выводит справку по доступным командам
  **/
 public class Help extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CommandManager commandManager;
 
-    public Help(Console console, CommandManager commandManager) {
+    public Help(DefaultConsole defaultConsole, CommandManager commandManager) {
         super("help", "вывести справку по доступным командам", 0);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.commandManager = commandManager;
     }
 
@@ -26,7 +25,8 @@ public class Help extends Command {
      */
     public ExecutionResponse execute(String[] arguments) {
         if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-
+        ExecutionResponse response = validate(arguments);
+        if (!response.getExitCode()) return response;
 
         String result = "";
         for (Map.Entry<String, Command> entry : commandManager.getCommands().entrySet()) {

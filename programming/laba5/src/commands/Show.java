@@ -1,19 +1,19 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 /**
  * Команда 'show'. Выводит все элементы коллекции.
  */
 public class Show extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public Show(Console console, CollectionManager collectionManager) {
+    public Show(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении", 0);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
@@ -23,8 +23,9 @@ public class Show extends Command {
      */
 
     public ExecutionResponse execute(String[] arguments) {
-        if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-
+        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        ExecutionResponse response = validate(arguments);
+        if (!response.getExitCode()) return response;
         return new ExecutionResponse(collectionManager.toString());
 
     }

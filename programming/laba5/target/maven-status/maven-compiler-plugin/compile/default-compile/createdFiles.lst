@@ -32,9 +32,11 @@ models\Organization.class
 utils\ExecutionResponse.class
 commands\RemoveById.class
 models\Product.class
+utils\FileConsole.class
 commands\MinByName.class
 managers\CollectionManager.class
 models\ProductReader$ObjectReaderBreak.class
 utils\Console.class
+utils\DefaultConsole.class
 commands\Clear.class
 commands\Exit.class

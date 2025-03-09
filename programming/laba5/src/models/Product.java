@@ -243,7 +243,7 @@ public class Product implements Comparable<Product>, Validatable {
         if (price <= 0) return false;
         if (partNumber == null) return false;
         if (unitOfMeasure == null) return false;
-        if (manufacturer != null && !manufacturer.isValid()) return false;
+        if (manufacturer == null || !manufacturer.isValid()) return false;
         return true;
     }
 }

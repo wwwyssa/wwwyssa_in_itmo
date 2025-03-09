@@ -2,46 +2,47 @@ package commands;
 
 import managers.CollectionManager;
 import managers.CommandManager;
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 import utils.ReplaceIfLower;
-
+import utils.FileConsole;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Класс команды для выполнения скрипта из указанного файла.
  */
 public class ExecuteScript extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
     private CommandManager commandManager = null;
-
+    private ArrayList<String> scriptStack = new ArrayList<>();
     /**
      * Конструктор класса ExecuteScript.
-     * @param console Консоль для взаимодействия с пользователем.
+     * @param defaultConsole Консоль для взаимодействия с пользователем.
      * @param collectionManager Менеджер коллекции.
      */
-    public ExecuteScript(Console console, CollectionManager collectionManager) {
+    public ExecuteScript(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("execute_script", "считать и исполнить скрипт из указанного файла", 1);
-        this.console = console;
         this.collectionManager = collectionManager;
+        this.defaultConsole = defaultConsole;
         this.commandManager = new CommandManager() {{
-            register("help", new Help(console, this));
-            register("info", new Info(console, collectionManager));
-            register("show", new Show(console, collectionManager));
-            register("add", new Add(console, collectionManager));
-            register("update", new Update(console, collectionManager));
-            register("remove_key", new RemoveById(console, collectionManager));
-            register("save", new Save(console, collectionManager));
-            register("exit", new Exit(console));
-            register("remove_greater", new RemoveGreater(console, collectionManager));
-            register("replace_if_lower", new ReplaceIfLower(console, collectionManager));
-            register("remove_greater_key", new RemoveGreaterKey(console, collectionManager));
-            register("min_by_name", new MinByName(console, collectionManager));
-            register("print_field_ascending_part_number", new PrintFieldAscendingPartNumber(console, collectionManager));
+            register("help", new Help(defaultConsole, this));
+            register("info", new Info(defaultConsole, collectionManager));
+            register("show", new Show(defaultConsole, collectionManager));
+            register("update", new Update(defaultConsole, collectionManager));
+            register("remove_key", new RemoveById(defaultConsole, collectionManager));
+            register("save", new Save(defaultConsole, collectionManager));
+            register("exit", new Exit(defaultConsole));
+            register("remove_greater", new RemoveGreater(defaultConsole, collectionManager));
+            register("replace_if_lower", new ReplaceIfLower(defaultConsole, collectionManager));
+            register("remove_greater_key", new RemoveGreaterKey(defaultConsole, collectionManager));
+            register("min_by_name", new MinByName(defaultConsole, collectionManager));
+            register("print_field_ascending_part_number", new PrintFieldAscendingPartNumber(defaultConsole, collectionManager));
+            register("average_of_manufacture_cost", new AverageOfManufactureCost(defaultConsole, collectionManager));
+            register("clear", new Clear(defaultConsole, collectionManager));
         }};
     }
 
@@ -55,9 +56,15 @@ public class ExecuteScript extends Command {
         File file = null;
         try {
             file = new File("src\\" + args[1].trim());
+            scriptStack.add(args[1].trim());
+            FileConsole fileConsole = new FileConsole(file);
+            commandManager.register("add", new Add(fileConsole, collectionManager));
         } catch (IndexOutOfBoundsException e) {
-            console.println("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'");
+            System.out.println("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'");
             return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'");
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден!");
+            return new ExecutionResponse(false, "Файл не найден!");
         }
         try {
             Scanner scanner = new Scanner(file);
@@ -68,29 +75,47 @@ public class ExecuteScript extends Command {
                     String[] line = (lineInp + " ").split(" ", 2);
                     Command command = commandManager.getCommands().get(line[0]);
                     if (command == null) {
-                        console.println("Команда '" + line[0] + "' не найдена. Наберите 'help' для справки");
-                        return new ExecutionResponse(false, "Команда '" + line[0] + "' не найдена. Наберите 'help' для справки");
-                    }
-                    try {
-                        ExecutionResponse commandStatus = command.execute(line);
-                        if (commandStatus.getMessage().equals("add")){
-                            boolean flag = true;
-                            //todo add;
+                        if (line[0].equals("execute_script")) {
+                            if (scriptStack.contains(line[1].trim())) {
+                                defaultConsole.println("Обнаружен циклический вызов скрипта '" + line[1] + "'. Пропуск...");
+                                for (var i : scriptStack) {
+                                    defaultConsole.println(i);
+                                }
+                                continue;
+                            } else {
+                                scriptStack.add(line[1].trim());
+                                execute(line);
+                                scriptStack.remove(line[1].trim());
+                            }
+                        } else{
+                            defaultConsole.println("Команда '" + line[0] + "' не найдена. Наберите 'help' для справки");
+                            return new ExecutionResponse(false, "Команда '" + line[0] + "' не найдена. Наберите 'help' для справки");
                         }
-                        if (commandStatus.getMessage().equals("exit")) return new ExecutionResponse("exit");
-                        console.println(commandStatus.getMessage());
-                    } catch (Exception ex) {
-                        System.out.println("Не удалось выполнить команду" + ex.getMessage());
-                        return new ExecutionResponse(false, "Не удалось выполнить команду");
+
+                    } else{
+                        try {
+                            ExecutionResponse commandStatus = command.execute(line);
+
+                            if (command.getName().equals("add {Product}")) {
+                                for(int i = 0; i < 14; i++) {
+                                    if (scanner.hasNextLine()) scanner.nextLine();
+                                }
+                            }
+
+                            if (commandStatus.getMessage().equals("exit")) return new ExecutionResponse("exit");
+                            defaultConsole.println(commandStatus.getMessage());
+                        } catch (Exception ex) {
+                            System.out.println("Не удалось выполнить команду" + ex.getMessage());
+                            return new ExecutionResponse(false, "Не удалось выполнить команду");
+                        }
                     }
+
                 }
             }
+            scriptStack.remove(args[1].trim());
             scanner.close();
-        } catch (FileNotFoundException e) {
-            console.println("Файл не найден!");
-            return new ExecutionResponse(false, "Файл не найден!");
         } catch (Exception e) {
-            console.println("Что-то пошло не так" + e.getMessage());
+            System.out.println("Что-то пошло не так" + e.getMessage());
             return new ExecutionResponse(false, "Что-то пошло не так");
         }
         return new ExecutionResponse(true, "Скрипт успешно выполнен");

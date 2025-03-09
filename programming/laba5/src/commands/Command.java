@@ -78,10 +78,7 @@ public abstract class Command implements Executable {
     public ExecutionResponse validate(String[] args) {
        if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
        if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-       if (expectedNumberOfArguments == 2){
-           long id = Long.parseLong(args[1].trim());
-           if (collectionManager.getById(id) == null) return new ExecutionResponse(false, "Не существующий ID");
-       }
+       return new ExecutionResponse(true, "");
     }
 
 }

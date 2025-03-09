@@ -3,25 +3,26 @@ package commands;
 import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
-import utils.*;
 
 public class RemoveGreater extends Command{
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public RemoveGreater(Console console, CollectionManager collectionManager) {
+    public RemoveGreater(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("remove_greater", "удалить из коллекции все элементы, превышающие заданный", 0);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
     @Override
     public ExecutionResponse execute(String[] args) {
-        if (args.length != 1) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName());
+        //if (args.length != 1) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName());
+        ExecutionResponse response = validate(args);
+        if (!response.getExitCode()) return response;
         try{
-            Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
+            Product product = ProductReader.readProduct(defaultConsole, collectionManager.getFreeId());
             int count = 0;
             for(Integer key : collectionManager.getCollection().keySet()){
                 if (collectionManager.getCollection().get(key).compareTo(product) > 0){

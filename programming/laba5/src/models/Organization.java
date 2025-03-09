@@ -123,7 +123,6 @@ public class Organization implements Validatable {
         if (officialAddress == null || !officialAddress.isValid()) {
             return false;
         }
-        System.out.println("Organization isValid");
         return true;
     }
 }

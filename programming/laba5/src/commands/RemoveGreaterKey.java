@@ -1,23 +1,24 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 public class RemoveGreaterKey extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public RemoveGreaterKey(Console console, CollectionManager collectionManager) {
+    public RemoveGreaterKey(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("remove_greater_key", "удалить из коллекции все элементы, ключ которых превышает заданный", 1);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
     @Override
     public ExecutionResponse execute(String[] arguments) {
-        if (arguments.length != 2) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "{id}");
-
+        //if (arguments.length != 2) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "{id}");
+        ExecutionResponse response = validate(arguments);
+        if (!response.getExitCode()) return response;
         try {
             int key = Integer.parseInt(arguments[1]);
             for (int keyToRemove : collectionManager.getCollection().keySet()) {

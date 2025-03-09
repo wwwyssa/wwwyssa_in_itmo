@@ -1,2 +1,16 @@
-help
+add
+2
+2
+2
+2
+2
+2
+grams
+2
+2
+public
+2
+2
+2
+2
 execute_script 2.txt

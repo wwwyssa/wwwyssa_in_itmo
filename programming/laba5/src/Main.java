@@ -4,13 +4,13 @@ import managers.CollectionManager;
 import managers.CommandManager;
 import managers.DumpManager;
 
-import utils.Console;
+import utils.DefaultConsole;
 import utils.ReplaceIfLower;
 import utils.Runner;
 
 public class Main {
     public static void main(String[] args) {
-        var console = new Console();
+        var console = new DefaultConsole();
 
         if (args.length == 0) {
             console.println("Введите имя загружаемого файла как аргумент командной строки");

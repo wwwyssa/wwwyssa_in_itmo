@@ -1,7 +1,6 @@
 package managers;
 
 import models.Product;
-import utils.Console;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -121,7 +120,6 @@ public class CollectionManager {
         collection = dumpManager.readMap();
         lastInitTime = LocalDateTime.now();
         return true;
-        //todo: check if collection is empty
     }
 
     /**

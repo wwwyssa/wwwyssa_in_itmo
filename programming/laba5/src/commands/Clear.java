@@ -1,8 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.Console;
-import models.Product;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 /**
@@ -11,12 +10,12 @@ import utils.ExecutionResponse;
  * @author dim0n4eg
  */
 public class Clear extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public Clear(Console console, CollectionManager collectionManager) {
+    public Clear(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("clear", "очистить коллекцию", 0);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
@@ -27,8 +26,9 @@ public class Clear extends Command {
      */
     @Override
     public ExecutionResponse execute(String[] arguments) {
-        if (!arguments[1].isEmpty())
-            return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        ExecutionResponse validationResponse = validate(arguments);
+        if (!validationResponse.getExitCode()) return validationResponse;
         int i = 0;
         while (collectionManager.getCollection().size() > 0) {
             if (collectionManager.getCollection().containsKey(i)){

@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
 import utils.Console;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 /**
@@ -15,12 +16,12 @@ public class Add extends Command {
 
     /**
      * Конструктор для создания объекта Add.
-     * @param console объект консоли для взаимодействия с пользователем
+     * @param defaultConsole объект консоли для взаимодействия с пользователем
      * @param collectionManager менеджер коллекции для управления продуктами
      */
-    public Add(Console console, CollectionManager collectionManager) {
+    public Add(Console defaultConsole, CollectionManager collectionManager) {
         super("add {Product}", "add new Product to collection", 0);
-        this.console = console;
+        this.console = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
@@ -33,15 +34,15 @@ public class Add extends Command {
     public ExecutionResponse execute(String[] args) {
         try {
             //if (!args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-            console.println(args.length);
             ExecutionResponse validateResponse = validate(args);
             if (!validateResponse.getExitCode()) return validateResponse;
-            console.println("* Making new Product:");
+            //console.println(args.length);
+            //console.println("* Making new Product:");
             Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
 
             //todo isValid check
             if (product != null) {
-                console.println(product.isValid());
+                //console.println(product.isValid());
                 collectionManager.addProduct(product);
                 return new ExecutionResponse("Product successfully added!");
             } else return new ExecutionResponse(false,"Product fields are not valid! Product is not created!");

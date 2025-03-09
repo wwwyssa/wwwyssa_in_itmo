@@ -1,7 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.Console;
+import utils.DefaultConsole;
 import models.ProductReader;
 import utils.ExecutionResponse;
 
@@ -10,12 +10,12 @@ import utils.ExecutionResponse;
  * @author dim0n4eg
  */
 public class Update extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public Update(Console console, CollectionManager collectionManager) {
+    public Update(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("update <ID> {element}", "обновить значение элемента коллекции по ID", 1);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
@@ -25,7 +25,9 @@ public class Update extends Command {
      */
     public ExecutionResponse execute(String[] arguments) {
         try {
-            if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+            //if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+            ExecutionResponse response = validate(arguments);
+            if (!response.getExitCode()) return response;
             long id = -1;
             try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, "Ошибка ввода ID "); }
 
@@ -34,8 +36,8 @@ public class Update extends Command {
                 return new ExecutionResponse(false, "Не существующий ID");
             }
 
-            console.println("* Создание нового Продукта:");
-            var d = ProductReader.readProduct(console, old.getId());
+            defaultConsole.println("* Создание нового Продукта:");
+            var d = ProductReader.readProduct(defaultConsole, old.getId());
             if (d != null && d.isValid()) {
                 collectionManager.removeProduct(old.getId());
                 collectionManager.addProduct(d);

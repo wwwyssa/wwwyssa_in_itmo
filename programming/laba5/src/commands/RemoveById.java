@@ -1,20 +1,19 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.Console;
-import models.Product;
+import utils.DefaultConsole;
 import utils.ExecutionResponse;
 
 /**
  * Команда 'remove_by_id'. Удаляет элемент из коллекции.
  */
 public class RemoveById extends Command {
-    private final Console console;
+    private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
-    public RemoveById(Console console, CollectionManager collectionManager) {
+    public RemoveById(DefaultConsole defaultConsole, CollectionManager collectionManager) {
         super("remove_by_id <ID>", "удалить элемент из коллекции по ID", 1);
-        this.console = console;
+        this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
@@ -24,7 +23,9 @@ public class RemoveById extends Command {
      */
     @Override
     public ExecutionResponse execute(String[] arguments) {
-        if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        //if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
+        ExecutionResponse response = validate(arguments);
+        if (!response.getExitCode()) return response;
         long id = -1;
         try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, "ID не распознан"); }
 
