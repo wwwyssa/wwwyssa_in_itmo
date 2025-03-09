@@ -11,7 +11,7 @@ public class Exit extends Command {
     private final Console console;
 
     public Exit(Console console) {
-        super("exit", "завершить программу (без сохранения в файл)");
+        super("exit", "завершить программу (без сохранения в файл)", 0);
         this.console = console;
     }
 

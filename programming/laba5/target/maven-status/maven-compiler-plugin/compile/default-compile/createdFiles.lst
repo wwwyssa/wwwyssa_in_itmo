@@ -1,11 +1,11 @@
 commands\ExecuteScript$1.class
-utils\ConsoleInterface.class
 utils\Runner.class
 commands\PrintFieldAscendingPartNumber.class
 managers\CommandManager.class
 commands\Save.class
 commands\Help.class
 Main$1.class
+models\ProductFileReader.class
 commands\RemoveGreaterKey.class
 commands\AverageOfManufactureCost.class
 Main.class

@@ -9,7 +9,7 @@ public class RemoveGreaterKey extends Command {
     private final CollectionManager collectionManager;
 
     public RemoveGreaterKey(Console console, CollectionManager collectionManager) {
-        super("remove_greater_key", "удалить из коллекции все элементы, ключ которых превышает заданный");
+        super("remove_greater_key", "удалить из коллекции все элементы, ключ которых превышает заданный", 1);
         this.console = console;
         this.collectionManager = collectionManager;
     }

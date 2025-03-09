@@ -9,7 +9,7 @@ public class AverageOfManufactureCost extends Command{
     private final CollectionManager collectionManager;
 
     public AverageOfManufactureCost(Console console, CollectionManager collectionManager){
-        super("average_of_manufacture_cost", "вывести среднее значение поля manufactureCost для всех элементов коллекции");
+        super("average_of_manufacture_cost", "вывести среднее значение поля manufactureCost для всех элементов коллекции", 0);
         this.console = console;
         this.collectionManager = collectionManager;
     }

@@ -35,6 +35,7 @@ public class ProductReader {
                     break;
                 }
             }
+
             Coordinates coordinates = readCoordinates(console);
             int price = readPrice(console);
             String partNumber = readPartNumber(console);

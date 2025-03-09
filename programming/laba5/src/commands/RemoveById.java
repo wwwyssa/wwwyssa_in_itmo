@@ -13,7 +13,7 @@ public class RemoveById extends Command {
     private final CollectionManager collectionManager;
 
     public RemoveById(Console console, CollectionManager collectionManager) {
-        super("remove_by_id <ID>", "удалить элемент из коллекции по ID");
+        super("remove_by_id <ID>", "удалить элемент из коллекции по ID", 1);
         this.console = console;
         this.collectionManager = collectionManager;
     }

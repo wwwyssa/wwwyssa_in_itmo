@@ -15,7 +15,7 @@ public class Help extends Command {
     private final CommandManager commandManager;
 
     public Help(Console console, CommandManager commandManager) {
-        super("help", "вывести справку по доступным командам");
+        super("help", "вывести справку по доступным командам", 0);
         this.console = console;
         this.commandManager = commandManager;
     }

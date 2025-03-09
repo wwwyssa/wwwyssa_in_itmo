@@ -14,7 +14,7 @@ public class Info extends Command {
     private final CollectionManager collectionManager;
 
     public Info(Console console, CollectionManager collectionManager) {
-        super("info", "вывести информацию о коллекции");
+        super("info", "вывести информацию о коллекции", 0);
         this.console = console;
         this.collectionManager = collectionManager;
     }

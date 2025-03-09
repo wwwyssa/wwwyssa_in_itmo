@@ -10,7 +10,7 @@ public class MinByName extends Command {
     private final CollectionManager collectionManager;
 
     public MinByName(Console console, CollectionManager collectionManager) {
-        super("min_by_name", "вывести объект из коллекции, имя которого является минимальным");
+        super("min_by_name", "вывести объект из коллекции, имя которого является минимальным", 0);
         this.console = console;
         this.collectionManager = collectionManager;
     }

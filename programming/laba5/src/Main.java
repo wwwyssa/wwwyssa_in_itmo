@@ -41,7 +41,6 @@ public class Main {
             register("print_field_ascending_part_number", new PrintFieldAscendingPartNumber(console, collectionManager));
             register("execute_script", new ExecuteScript(console, collectionManager));
         }};
-
-        new Runner(console, commandManager).interactiveMode();
+        new Runner(console, commandManager).run();
     }
 }

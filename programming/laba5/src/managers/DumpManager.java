@@ -43,11 +43,17 @@ public class DumpManager {
         }
         try {
             ProductXMLScaner xmlScaner = new ProductXMLScaner(new File(fileName));
-            return xmlScaner.readData();
+            LinkedHashMap<Integer, Product> tmp =  xmlScaner.readData();
+            for(Integer key : tmp.keySet()){
+                Product product = tmp.get(key);
+                if (!product.isValid()){
+                    tmp.remove(key);
+                }
+            }
         } catch (IOException e) {
             console.printError("Произошла ошибка при загрузке коллекции из файла!");
         }
-        return null;
+        return new LinkedHashMap<Integer, Product>();
     }
 
 

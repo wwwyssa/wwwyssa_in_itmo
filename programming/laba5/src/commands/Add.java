@@ -19,7 +19,7 @@ public class Add extends Command {
      * @param collectionManager менеджер коллекции для управления продуктами
      */
     public Add(Console console, CollectionManager collectionManager) {
-        super("add {Product}", "add new Product to collection");
+        super("add {Product}", "add new Product to collection", 0);
         this.console = console;
         this.collectionManager = collectionManager;
     }
@@ -32,8 +32,10 @@ public class Add extends Command {
     @Override
     public ExecutionResponse execute(String[] args) {
         try {
-            if (!args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-
+            //if (!args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
+            console.println(args.length);
+            ExecutionResponse validateResponse = validate(args);
+            if (!validateResponse.getExitCode()) return validateResponse;
             console.println("* Making new Product:");
             Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
 

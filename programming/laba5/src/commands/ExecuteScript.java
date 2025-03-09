@@ -8,6 +8,7 @@ import utils.ReplaceIfLower;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,7 @@ public class ExecuteScript extends Command {
      * @param collectionManager Менеджер коллекции.
      */
     public ExecuteScript(Console console, CollectionManager collectionManager) {
-        super("execute_script", "считать и исполнить скрипт из указанного файла");
+        super("execute_script", "считать и исполнить скрипт из указанного файла", 1);
         this.console = console;
         this.collectionManager = collectionManager;
         this.commandManager = new CommandManager() {{
@@ -72,6 +73,10 @@ public class ExecuteScript extends Command {
                     }
                     try {
                         ExecutionResponse commandStatus = command.execute(line);
+                        if (commandStatus.getMessage().equals("add")){
+                            boolean flag = true;
+                            //todo add;
+                        }
                         if (commandStatus.getMessage().equals("exit")) return new ExecutionResponse("exit");
                         console.println(commandStatus.getMessage());
                     } catch (Exception ex) {

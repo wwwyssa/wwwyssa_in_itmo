@@ -12,7 +12,7 @@ public class PrintFieldAscendingPartNumber extends Command{
 
 
     public PrintFieldAscendingPartNumber(Console console, CollectionManager collectionManager){
-        super("print_field_ascending_part_number", "вывести значения поля partNumber всех элементов в порядке возрастания");
+        super("print_field_ascending_part_number", "вывести значения поля partNumber всех элементов в порядке возрастания", 0);
         this.console = console;
         this.collectionManager = collectionManager;
     }

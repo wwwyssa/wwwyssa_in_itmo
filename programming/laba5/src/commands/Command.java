@@ -1,6 +1,7 @@
 package commands;
 
 import utils.Executable;
+import utils.ExecutionResponse;
 
 import java.security.spec.ECField;
 import java.util.Objects;
@@ -11,15 +12,16 @@ import java.util.Objects;
 public abstract class Command implements Executable {
     private final String name;
     private final String description;
-
+    private final int expectedNumberOfArguments;
     /**
      * Конструктор для создания объекта Command.
      * @param name имя команды
      * @param description описание команды
      */
-    public Command(String name, String description) {
+    public Command(String name, String description, int expectedNumberOfArguments) {
         this.name = name;
         this.description = description;
+        this.expectedNumberOfArguments = expectedNumberOfArguments;
     }
 
     /**
@@ -72,5 +74,14 @@ public abstract class Command implements Executable {
                 '}';
     }
 
+
+    public ExecutionResponse validate(String[] args) {
+       if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
+       if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
+       if (expectedNumberOfArguments == 2){
+           long id = Long.parseLong(args[1].trim());
+           if (collectionManager.getById(id) == null) return new ExecutionResponse(false, "Не существующий ID");
+       }
+    }
 
 }

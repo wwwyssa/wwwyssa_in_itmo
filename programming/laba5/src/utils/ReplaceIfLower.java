@@ -10,7 +10,7 @@ public class ReplaceIfLower extends Command {
     private final CollectionManager collectionManager;
 
     public ReplaceIfLower(Console console, CollectionManager collectionManager) {
-        super("replace_if_lower", "заменить значение по ключу, если новое значение меньше старого");
+        super("replace_if_lower", "заменить значение по ключу, если новое значение меньше старого", 1);
         this.console = console;
         this.collectionManager = collectionManager;
     }

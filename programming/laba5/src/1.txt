@@ -1,1 +1,2 @@
-add
+help
+execute_script 2.txt
