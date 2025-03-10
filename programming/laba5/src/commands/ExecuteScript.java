@@ -54,7 +54,7 @@ public class ExecuteScript extends Command {
     public ExecutionResponse execute(String[] args) {
         File file = null;
         try {
-            file = new File("src\\" + args[1].trim());
+            file = new File(args[1].trim());
             scriptStack.add(args[1].trim());
             FileConsole fileConsole = new FileConsole(file);
             commandManager.register("add", new Add(fileConsole, collectionManager));
