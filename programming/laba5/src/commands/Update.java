@@ -1,7 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import models.ProductReader;
 import utils.ExecutionResponse;
 

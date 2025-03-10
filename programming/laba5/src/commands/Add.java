@@ -3,8 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
-import utils.Console;
-import utils.DefaultConsole;
+import utils.console.Console;
 import utils.ExecutionResponse;
 
 /**

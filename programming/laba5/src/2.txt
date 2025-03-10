@@ -1,2 +1,4 @@
 show
 clear
+show
+execute_script 1.txt

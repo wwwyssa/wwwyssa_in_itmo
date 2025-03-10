@@ -1,7 +1,7 @@
 package commands;
 
 import managers.CommandManager;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.ExecutionResponse;
 
 import java.util.Map;

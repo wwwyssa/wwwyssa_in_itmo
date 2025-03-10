@@ -1,5 +1,5 @@
+E:\wwwyssa_in_itmo\programming\laba5\src\utils\console\Console.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\MinByName.java
-E:\wwwyssa_in_itmo\programming\laba5\src\utils\FileConsole.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\Address.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\Coordinates.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Command.java
@@ -12,15 +12,15 @@ E:\wwwyssa_in_itmo\programming\laba5\src\commands\Add.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\RemoveGreaterKey.java
 E:\wwwyssa_in_itmo\programming\laba5\src\managers\DumpManager.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\ProductXMLScaner.java
-E:\wwwyssa_in_itmo\programming\laba5\src\utils\DefaultConsole.java
-E:\wwwyssa_in_itmo\programming\laba5\src\utils\ReplaceIfLower.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Info.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\ProductFileReader.java
+E:\wwwyssa_in_itmo\programming\laba5\src\utils\console\FileConsole.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Exit.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\Runner.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\Product.java
 E:\wwwyssa_in_itmo\programming\laba5\src\managers\CollectionManager.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\UnitOfMeasure.java
+E:\wwwyssa_in_itmo\programming\laba5\src\utils\console\DefaultConsole.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Clear.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Show.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\Location.java
@@ -32,8 +32,8 @@ E:\wwwyssa_in_itmo\programming\laba5\src\commands\Help.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Save.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\RemoveGreater.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\DictToXmlConverter.java
+E:\wwwyssa_in_itmo\programming\laba5\src\commands\ReplaceIfLower.java
 E:\wwwyssa_in_itmo\programming\laba5\src\Main.java
 E:\wwwyssa_in_itmo\programming\laba5\src\managers\CommandManager.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Update.java
-E:\wwwyssa_in_itmo\programming\laba5\src\utils\Console.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\ExecuteScript.java

@@ -1,7 +1,7 @@
 package managers;
 
 import models.Product;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.DictToXmlConverter;
 
 import java.io.*;

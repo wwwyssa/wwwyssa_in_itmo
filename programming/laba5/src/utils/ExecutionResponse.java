@@ -5,16 +5,16 @@ package utils;
  */
 public class ExecutionResponse {
     private boolean exitCode;
-    private String message;
+    private Object answer;
 
     /**
      * Конструктор для создания объекта ExecutionResponse.
      * @param code код завершения
      * @param s сообщение
      */
-    public ExecutionResponse(boolean code, String s) {
+    public ExecutionResponse(boolean code, Object s) {
         exitCode = code;
-        message = s;
+        answer = s;
     }
 
     /**
@@ -23,7 +23,7 @@ public class ExecutionResponse {
      */
     public ExecutionResponse(String s) {
         exitCode = true;
-        message = s;
+        answer = s;
     }
 
     /**
@@ -36,11 +36,11 @@ public class ExecutionResponse {
      * Возвращает сообщение.
      * @return сообщение
      */
-    public String getMessage() { return message; }
+    public String getAnswer() { return answer.toString(); }
 
     /**
      * Возвращает строковое представление объекта ExecutionResponse.
      * @return строковое представление объекта
      */
-    public String toString() { return String.valueOf(exitCode) + ";" + message; }
+    public String toString() { return String.valueOf(exitCode) + ";" + answer; }
 }

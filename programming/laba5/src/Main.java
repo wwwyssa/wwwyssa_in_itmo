@@ -4,8 +4,8 @@ import managers.CollectionManager;
 import managers.CommandManager;
 import managers.DumpManager;
 
-import utils.DefaultConsole;
-import utils.ReplaceIfLower;
+import utils.console.DefaultConsole;
+import commands.ReplaceIfLower;
 import utils.Runner;
 
 public class Main {

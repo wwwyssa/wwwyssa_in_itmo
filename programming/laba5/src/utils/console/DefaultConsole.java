@@ -1,4 +1,4 @@
-package utils;
+package utils.console;
 
 import java.util.Scanner;
 

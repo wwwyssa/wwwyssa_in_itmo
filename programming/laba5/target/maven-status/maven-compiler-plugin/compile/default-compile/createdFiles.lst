@@ -1,5 +1,6 @@
 commands\ExecuteScript$1.class
 utils\Runner.class
+utils\console\Console.class
 commands\PrintFieldAscendingPartNumber.class
 managers\CommandManager.class
 commands\Save.class
@@ -10,10 +11,12 @@ commands\RemoveGreaterKey.class
 commands\AverageOfManufactureCost.class
 Main.class
 models\Location.class
+utils\console\FileConsole.class
 utils\ProductXMLScaner.class
 commands\Info.class
 models\OrganizationType.class
 utils\Executable.class
+commands\ReplaceIfLower.class
 managers\DumpManager.class
 commands\RemoveGreater.class
 commands\Update.class
@@ -21,9 +24,9 @@ commands\Command.class
 models\Coordinates.class
 commands\ExecuteScript.class
 commands\Show.class
+utils\console\DefaultConsole.class
 utils\DictToXmlConverter.class
 commands\Add.class
-utils\ReplaceIfLower.class
 models\ProductReader.class
 models\UnitOfMeasure.class
 models\Address.class
@@ -32,11 +35,8 @@ models\Organization.class
 utils\ExecutionResponse.class
 commands\RemoveById.class
 models\Product.class
-utils\FileConsole.class
 commands\MinByName.class
 managers\CollectionManager.class
 models\ProductReader$ObjectReaderBreak.class
-utils\Console.class
-utils\DefaultConsole.class
 commands\Clear.class
 commands\Exit.class

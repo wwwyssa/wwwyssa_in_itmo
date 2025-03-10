@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 import commands.Command;
 import managers.CommandManager;
+import utils.console.DefaultConsole;
 
 /**
  * Класс для запуска команд в интерактивном режиме и режиме скрипта.
@@ -56,8 +57,8 @@ public class Runner {
                 commandManager.addToHistory(userCommand[0]);
                 commandStatus = launchCommand(userCommand);
 
-                if (commandStatus.getMessage().equals("exit")) break;
-                defaultConsole.println(commandStatus.getMessage());
+                if (commandStatus.getAnswer().equals("exit")) break;
+                defaultConsole.println(commandStatus.getAnswer());
             }
         } catch (NoSuchElementException exception) {
             defaultConsole.printError("Пользовательский ввод не обнаружен!");

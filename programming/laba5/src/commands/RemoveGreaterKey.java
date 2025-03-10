@@ -1,7 +1,7 @@
 package commands;
 
 import managers.CollectionManager;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.ExecutionResponse;
 
 public class RemoveGreaterKey extends Command {

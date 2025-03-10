@@ -2,10 +2,9 @@ package commands;
 
 import managers.CollectionManager;
 import managers.CommandManager;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.ExecutionResponse;
-import utils.ReplaceIfLower;
-import utils.FileConsole;
+import utils.console.FileConsole;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -78,9 +77,6 @@ public class ExecuteScript extends Command {
                         if (line[0].equals("execute_script")) {
                             if (scriptStack.contains(line[1].trim())) {
                                 defaultConsole.println("Обнаружен циклический вызов скрипта '" + line[1] + "'. Пропуск...");
-                                for (var i : scriptStack) {
-                                    defaultConsole.println(i);
-                                }
                                 continue;
                             } else {
                                 scriptStack.add(line[1].trim());
@@ -102,8 +98,8 @@ public class ExecuteScript extends Command {
                                 }
                             }
 
-                            if (commandStatus.getMessage().equals("exit")) return new ExecutionResponse("exit");
-                            defaultConsole.println(commandStatus.getMessage());
+                            if (commandStatus.getAnswer().equals("exit")) return new ExecutionResponse("exit");
+                            defaultConsole.println(commandStatus.getAnswer());
                         } catch (Exception ex) {
                             System.out.println("Не удалось выполнить команду" + ex.getMessage());
                             return new ExecutionResponse(false, "Не удалось выполнить команду");

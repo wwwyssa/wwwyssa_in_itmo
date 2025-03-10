@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import models.Product;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.ExecutionResponse;
 
 public class MinByName extends Command {

@@ -3,7 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
-import utils.DefaultConsole;
+import utils.console.DefaultConsole;
 import utils.ExecutionResponse;
 
 public class RemoveGreater extends Command{

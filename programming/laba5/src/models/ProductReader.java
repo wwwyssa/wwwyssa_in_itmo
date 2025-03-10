@@ -1,7 +1,6 @@
 package models;
 
-import utils.Console;
-import utils.DefaultConsole;
+import utils.console.Console;
 
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;

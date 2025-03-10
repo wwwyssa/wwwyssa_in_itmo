@@ -1,9 +1,10 @@
-package utils;
+package commands;
 
-import commands.Command;
 import managers.CollectionManager;
 import models.Product;
 import models.ProductReader;
+import utils.ExecutionResponse;
+import utils.console.DefaultConsole;
 
 public class ReplaceIfLower extends Command {
     private final DefaultConsole defaultConsole;

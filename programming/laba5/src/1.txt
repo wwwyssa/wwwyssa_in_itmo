@@ -13,4 +13,5 @@ public
 2
 2
 2
+show
 execute_script 2.txt
