@@ -47,12 +47,6 @@ public class FileConsole implements Console {
     @Override
     public void println(Object obj) {}
 
-    @Override
-    public void selectFileScanner(Scanner scanner) {}
-
-    @Override
-    public void selectConsoleScanner() {}
-
     public void skipLines(int lines) {
         for (int i = 0; i < lines; i++) {
             scanner.nextLine();

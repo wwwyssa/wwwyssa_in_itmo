@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 /**
  * Команда 'remove_by_id'. Удаляет элемент из коллекции.
@@ -22,10 +22,7 @@ public class RemoveById extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse execute(String[] arguments) {
-        //if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
+    public ExecutionResponse innerExecute(String[] arguments) {
         long id = -1;
         try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, "ID не распознан"); }
 

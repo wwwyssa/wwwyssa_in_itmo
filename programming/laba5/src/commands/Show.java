@@ -2,7 +2,8 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.Answer;
+import utils.responses.ExecutionResponse;
 
 /**
  * Команда 'show'. Выводит все элементы коллекции.
@@ -22,11 +23,8 @@ public class Show extends Command {
      * @return Успешность выполнения команды.
      */
 
-    public ExecutionResponse execute(String[] arguments) {
-        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
-        return new ExecutionResponse(collectionManager.toString());
-
+    @Override
+    public ExecutionResponse innerExecute(String[] arguments) {
+        return new ExecutionResponse(new Answer(collectionManager.toString()));
     }
 }

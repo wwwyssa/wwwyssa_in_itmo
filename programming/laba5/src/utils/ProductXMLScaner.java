@@ -34,19 +34,27 @@ public class ProductXMLScaner {
             if (scan.hasNextLine()){
                 String line = scan.nextLine();
                 if (!line.equals("</Products>")){
-                    String tmp = scan.nextLine();
-                    long curId = Long.parseLong(getStrBetweenTags(tmp));
-                    String curProductName = getStrBetweenTags(scan.nextLine());
-                    Coordinates curCoords = scanCoordinates();
-                    LocalDateTime curTime = LocalDateTime.parse(getStrBetweenTags(scan.nextLine()));
-                    int price = Integer.parseInt(getStrBetweenTags(scan.nextLine()));
-                    String partNumber = getStrBetweenTags(scan.nextLine());
-                    int manufactureCost = Integer.parseInt(getStrBetweenTags(scan.nextLine()));
-                    UnitOfMeasure unitOfMeasure = UnitOfMeasure.valueOf(getStrBetweenTags(scan.nextLine()));
-                    scipUselessLine(1);
-                    Organization manufacturer = scanOrganization();
-                    Products.put((int)curId, new Product(curId, curProductName, curCoords, curTime, price, partNumber, manufactureCost, unitOfMeasure, manufacturer));
-                    scipUselessLine(1);
+                    try{
+                        String tmp = scan.nextLine();
+                        long curId = Long.parseLong(getStrBetweenTags(tmp));
+                        String curProductName = getStrBetweenTags(scan.nextLine());
+                        Coordinates curCoords = scanCoordinates();
+                        LocalDateTime curTime = LocalDateTime.parse(getStrBetweenTags(scan.nextLine()));
+                        int price = Integer.parseInt(getStrBetweenTags(scan.nextLine()));
+                        String partNumber = getStrBetweenTags(scan.nextLine());
+                        int manufactureCost = Integer.parseInt(getStrBetweenTags(scan.nextLine()));
+                        UnitOfMeasure unitOfMeasure = UnitOfMeasure.valueOf(getStrBetweenTags(scan.nextLine()));
+                        scipUselessLine(1);
+                        Organization manufacturer = scanOrganization();
+                        Products.put((int)curId, new Product(curId, curProductName, curCoords, curTime, price, partNumber, manufactureCost, unitOfMeasure, manufacturer));
+                        scipUselessLine(1);
+                    } catch (Exception e){
+                        while (scan.hasNextLine()){
+                            if (scan.nextLine().equals("</Product>")){
+                                break;
+                            }
+                        }
+                    }
                 }else{
                     scan.close();
                     return Products;

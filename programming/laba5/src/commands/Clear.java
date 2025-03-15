@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 /**
  * Команда 'clear'. Очищает коллекцию.
@@ -25,10 +25,7 @@ public class Clear extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse execute(String[] arguments) {
-        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse validationResponse = validate(arguments);
-        if (!validationResponse.getExitCode()) return validationResponse;
+    public ExecutionResponse innerExecute(String[] arguments) {
         int i = 0;
         while (collectionManager.getCollection().size() > 0) {
             if (collectionManager.getCollection().containsKey(i)){

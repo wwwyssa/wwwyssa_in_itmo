@@ -3,7 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.Product;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 public class MinByName extends Command {
     private final DefaultConsole defaultConsole;
@@ -16,11 +16,8 @@ public class MinByName extends Command {
     }
 
     @Override
-    public ExecutionResponse execute(String[] arguments) {
+    public ExecutionResponse innerExecute(String[] arguments) {
         if (collectionManager.getCollection().isEmpty()) { return new ExecutionResponse(false, "Коллекция пуста.");}
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
-
         Product minProduct = null;
         String minName = null;
         for (Product product : collectionManager.getCollection().values()) {

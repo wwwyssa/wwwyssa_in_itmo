@@ -2,23 +2,31 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
+
+/**
+ * Класс команды для вывода среднего значения поля manufactureCost для всех элементов коллекции.
+ */
 public class AverageOfManufactureCost extends Command{
     private final DefaultConsole defaultConsole;
     private final CollectionManager collectionManager;
 
+
+    /**
+     * Конструктор класса
+     * @param defaultConsole объект консоли
+     * @param collectionManager объект менеджера коллекции
+     */
     public AverageOfManufactureCost(DefaultConsole defaultConsole, CollectionManager collectionManager){
         super("average_of_manufacture_cost", "вывести среднее значение поля manufactureCost для всех элементов коллекции", 0);
         this.defaultConsole = defaultConsole;
         this.collectionManager = collectionManager;
     }
 
+
     @Override
-    public ExecutionResponse execute(String[] arguments){
-        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse validationResponse = validate(arguments);
-        if (!validationResponse.getExitCode()) return validationResponse;
+    public ExecutionResponse innerExecute(String[] arguments){
         if (collectionManager.getCollection().isEmpty()) return new ExecutionResponse(false, "Коллекция пуста!");
 
         double sum = 0;

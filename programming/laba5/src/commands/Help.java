@@ -2,7 +2,7 @@ package commands;
 
 import managers.CommandManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 import java.util.Map;
 
@@ -23,11 +23,7 @@ public class Help extends Command {
      * Выполняет команду
      * @return Успешность выполнения команды.
      */
-    public ExecutionResponse execute(String[] arguments) {
-        if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
-
+    public ExecutionResponse innerExecute(String[] arguments) {
         String result = "";
         for (Map.Entry<String, Command> entry : commandManager.getCommands().entrySet()) {
             result += entry.getKey() + " -> " + entry.getValue() + "\n";

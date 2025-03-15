@@ -1,4 +1,6 @@
 show
-clear
-show
-execute_script 1.txt
+
+
+
+
+execute_script src\1.txt

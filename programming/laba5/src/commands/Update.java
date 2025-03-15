@@ -3,7 +3,7 @@ package commands;
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import models.ProductReader;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 /**
  * Команда 'update'. Обновляет элемент коллекции.
@@ -23,11 +23,8 @@ public class Update extends Command {
      * Выполняет команду
      * @return Успешность выполнения команды.
      */
-    public ExecutionResponse execute(String[] arguments) {
+    public ExecutionResponse innerExecute(String[] arguments) {
         try {
-            //if (arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-            ExecutionResponse response = validate(arguments);
-            if (!response.getExitCode()) return response;
             long id = -1;
             try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, "Ошибка ввода ID "); }
 

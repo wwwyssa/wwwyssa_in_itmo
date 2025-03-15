@@ -7,6 +7,4 @@ public interface Console {
     void println(Object obj);
     String input();
     void printError(Object obj);
-    void selectFileScanner(Scanner scanner);
-    void selectConsoleScanner();
 }

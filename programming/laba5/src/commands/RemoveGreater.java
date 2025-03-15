@@ -4,7 +4,7 @@ import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 public class RemoveGreater extends Command{
     private final DefaultConsole defaultConsole;
@@ -17,10 +17,7 @@ public class RemoveGreater extends Command{
     }
 
     @Override
-    public ExecutionResponse execute(String[] args) {
-        //if (args.length != 1) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName());
-        ExecutionResponse response = validate(args);
-        if (!response.getExitCode()) return response;
+    public ExecutionResponse innerExecute(String[] args) {
         try{
             Product product = ProductReader.readProduct(defaultConsole, collectionManager.getFreeId());
             int count = 0;

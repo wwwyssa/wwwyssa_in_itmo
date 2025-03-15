@@ -19,8 +19,12 @@ public class Main {
 
         var dumpManager = new DumpManager(args[0], console);
         var collectionManager = new CollectionManager(dumpManager);
-        if (!collectionManager.loadCollection()) {
-            System.exit(1);
+        try {
+            if (!collectionManager.loadCollection()) {
+                System.exit(1);
+            }
+        } catch (Exception e) {
+            console.println("Ошибка загрузки коллекции: " + e.getMessage());
         }
 
         CommandManager commandManager = new CommandManager() {{

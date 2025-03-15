@@ -53,19 +53,6 @@ public class DefaultConsole implements Console {
      * Возвращает сканнер для работы с файлом.
      * @return сканнер для работы с файлом
      */
-    @Override
-    public void selectFileScanner(Scanner scanner) {
-        fileScanner = scanner;
-    }
-
-    /**
-     * Возвращает сканнер для работы с консолью.
-     * @return сканнер для работы с консолью
-     */
-    @Override
-    public void selectConsoleScanner() {
-        fileScanner = null;
-    }
 
     public boolean isCanReadln() throws IllegalStateException {
         return (fileScanner!=null?fileScanner:defScanner).hasNextLine();

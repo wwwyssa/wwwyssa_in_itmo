@@ -4,7 +4,8 @@ import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
 import utils.console.Console;
-import utils.ExecutionResponse;
+import utils.responses.Answer;
+import utils.responses.ExecutionResponse;
 
 /**
  * Класс, представляющий команду добавления нового продукта в коллекцию.
@@ -30,23 +31,15 @@ public class Add extends Command {
      * @return результат выполнения команды
      */
     @Override
-    public ExecutionResponse execute(String[] args) {
+    public ExecutionResponse innerExecute(String[] args) {
         try {
-            //if (!args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-            ExecutionResponse validateResponse = validate(args);
-            if (!validateResponse.getExitCode()) return validateResponse;
-            //console.println(args.length);
-            //console.println("* Making new Product:");
             Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
-
-            //todo isValid check
             if (product != null) {
-                //console.println(product.isValid());
                 collectionManager.addProduct(product);
-                return new ExecutionResponse("Product successfully added!");
-            } else return new ExecutionResponse(false,"Product fields are not valid! Product is not created!");
+                return new ExecutionResponse(new Answer("Product successfully added!"));
+            } else return new ExecutionResponse(false,new Answer("Product fields are not valid! Product is not created!"));
         } catch (ProductReader.ObjectReaderBreak e) {
-            return new ExecutionResponse(false,"Cancel...");
+            return new ExecutionResponse(false, new Answer("Cancel..."));
         }
     }
 }

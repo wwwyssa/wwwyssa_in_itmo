@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 import java.time.LocalDateTime;
 
@@ -25,12 +25,7 @@ public class Info extends Command {
      */
 
 
-    public ExecutionResponse execute(String[] arguments) {
-        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
-
+    public ExecutionResponse innerExecute(String[] arguments) {
         LocalDateTime lastInitTime = collectionManager.getLastInitTime();
         String lastInitTimeString = (lastInitTime == null) ? "в данной сессии инициализации еще не происходило" :
                 lastInitTime.toLocalDate().toString() + " " + lastInitTime.toLocalTime().toString();

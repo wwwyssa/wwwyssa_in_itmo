@@ -3,7 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.Product;
 import models.ProductReader;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 import utils.console.DefaultConsole;
 
 public class ReplaceIfLower extends Command {
@@ -17,12 +17,9 @@ public class ReplaceIfLower extends Command {
     }
 
     @Override
-    public ExecutionResponse execute(String[] args) {
-        if (args.length != 2)
-            return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName());
+    public ExecutionResponse innerExecute(String[] args) {
         int key = Integer.parseInt(args[1]);
         if (!collectionManager.getCollection().containsKey(key)) {
-            defaultConsole.println("Элемента с таким ключом нет в коллекции");
             return new ExecutionResponse(false, "Элемента с таким ключом нет в коллекции");
         }
         try {

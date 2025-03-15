@@ -4,3 +4,4 @@ informatic/laba3/__pycache__/
 informatic/laba4/solves/__pycache__/
 *.idea/
 *.__pycache__/ 
+/soft-skills/*

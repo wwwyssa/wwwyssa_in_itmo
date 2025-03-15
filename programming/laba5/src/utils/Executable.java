@@ -1,5 +1,7 @@
 package utils;
 
+import utils.responses.ExecutionResponse;
+
 public interface Executable {
     /**
      * Выполнить что-либо.

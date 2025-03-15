@@ -2,7 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 public class RemoveGreaterKey extends Command {
     private final DefaultConsole defaultConsole;
@@ -15,10 +15,7 @@ public class RemoveGreaterKey extends Command {
     }
 
     @Override
-    public ExecutionResponse execute(String[] arguments) {
-        //if (arguments.length != 2) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "{id}");
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
+    public ExecutionResponse innerExecute(String[] arguments) {
         try {
             int key = Integer.parseInt(arguments[1]);
             for (int keyToRemove : collectionManager.getCollection().keySet()) {

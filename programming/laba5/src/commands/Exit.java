@@ -1,7 +1,7 @@
 package commands;
 
 import utils.console.DefaultConsole;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
 /**
  * Команда 'exit'. Завершает выполнение.
@@ -20,10 +20,7 @@ public class Exit extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse execute(String[] arguments) {
-        //if (!arguments[1].isEmpty()) return new ExecutionResponse(false, "Неправильное количество аргументов!\nИспользование: '" + getName() + "'");
-        ExecutionResponse response = validate(arguments);
-        if (!response.getExitCode()) return response;
+    public ExecutionResponse innerExecute(String[] arguments) {
         return new ExecutionResponse("exit");
     }
 }

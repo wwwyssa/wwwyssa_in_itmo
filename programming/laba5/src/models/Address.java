@@ -21,9 +21,6 @@ public class Address implements Validatable {
         this.street = street;
         this.town = town;
     }
-
-    public Address() {}
-
     /**
      * Проверяет, является ли адрес валидным.
      * @return true, если адрес валиден, иначе false.

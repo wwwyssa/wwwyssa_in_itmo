@@ -1,9 +1,8 @@
 package commands;
 
 import utils.Executable;
-import utils.ExecutionResponse;
+import utils.responses.ExecutionResponse;
 
-import java.security.spec.ECField;
 import java.util.Objects;
 
 /**
@@ -17,6 +16,7 @@ public abstract class Command implements Executable {
      * Конструктор для создания объекта Command.
      * @param name имя команды
      * @param description описание команды
+     * @param expectedNumberOfArguments ожидаемое количество аргументов
      */
     public Command(String name, String description, int expectedNumberOfArguments) {
         this.name = name;
@@ -74,11 +74,25 @@ public abstract class Command implements Executable {
                 '}';
     }
 
-
+    /**
+     * Выполняет команду с указанными аргументами.
+     * @param args Аргументы команды.
+     * @return Результат выполнения команды.
+     */
     public ExecutionResponse validate(String[] args) {
        if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
        if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
        return new ExecutionResponse(true, "");
     }
 
+    @Override
+    public ExecutionResponse execute(String[] arguments) {
+        if (validate(arguments).getExitCode()) {
+            return innerExecute(arguments);
+        } else {
+            return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
+        }
+    }
+
+    public abstract ExecutionResponse innerExecute(String[] arguments);
 }
