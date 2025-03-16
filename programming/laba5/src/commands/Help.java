@@ -2,6 +2,7 @@ package commands;
 
 import managers.CommandManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 import java.util.Map;
@@ -28,6 +29,6 @@ public class Help extends Command {
         for (Map.Entry<String, Command> entry : commandManager.getCommands().entrySet()) {
             result += entry.getKey() + " -> " + entry.getValue() + "\n";
         }
-        return new ExecutionResponse(result);
+        return new ExecutionResponse(new AnswerString(result));
     }
 }

@@ -12,12 +12,12 @@ E:\wwwyssa_in_itmo\programming\laba5\src\commands\Add.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\RemoveGreaterKey.java
 E:\wwwyssa_in_itmo\programming\laba5\src\managers\DumpManager.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\ProductXMLScaner.java
+E:\wwwyssa_in_itmo\programming\laba5\src\utils\responses\ListAnswer.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Info.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\console\FileConsole.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Exit.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\Runner.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\Product.java
-E:\wwwyssa_in_itmo\programming\laba5\src\utils\responses\AnswerWithElements.java
 E:\wwwyssa_in_itmo\programming\laba5\src\managers\CollectionManager.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\responses\AnswerString.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\UnitOfMeasure.java
@@ -31,6 +31,7 @@ E:\wwwyssa_in_itmo\programming\laba5\src\commands\AverageOfManufactureCost.java
 E:\wwwyssa_in_itmo\programming\laba5\src\models\OrganizationType.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Help.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\Save.java
+E:\wwwyssa_in_itmo\programming\laba5\src\utils\responses\ValidAnswer.java
 E:\wwwyssa_in_itmo\programming\laba5\src\commands\RemoveGreater.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\DictToXmlConverter.java
 E:\wwwyssa_in_itmo\programming\laba5\src\utils\responses\ExecutionResponse.java

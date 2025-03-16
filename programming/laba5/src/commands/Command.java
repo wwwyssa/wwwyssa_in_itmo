@@ -1,6 +1,7 @@
 package commands;
 
 import utils.Executable;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 import java.util.Objects;
@@ -80,9 +81,9 @@ public abstract class Command implements Executable {
      * @return Результат выполнения команды.
      */
     public ExecutionResponse validate(String[] args) {
-       if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-       if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
-       return new ExecutionResponse(true, "");
+       if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+       if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+       return new ExecutionResponse(true, new AnswerString(""));
     }
 
     @Override
@@ -90,7 +91,7 @@ public abstract class Command implements Executable {
         if (validate(arguments).getExitCode()) {
             return innerExecute(arguments);
         } else {
-            return new ExecutionResponse(false, "Incorrect number of arguments!\nCorrect: '" + getName() + "'");
+            return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
         }
     }
 

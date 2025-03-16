@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 import commands.Command;
 import managers.CommandManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -33,11 +34,11 @@ public class Runner {
      * @return код завершения
      */
     private ExecutionResponse launchCommand(String[] userCommand) {
-        if (userCommand[0].isEmpty()) return new ExecutionResponse("");
+        if (userCommand[0].isEmpty()) return new ExecutionResponse(new AnswerString(""));
         Command command = commandManager.getCommands().get(userCommand[0]);
 
         if (command == null)
-            return new ExecutionResponse(false, "Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки");
+            return new ExecutionResponse(false, new AnswerString("Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки"));
         if (command.getName().equals("execute_script")) {
             return command.execute(userCommand);
         }
@@ -59,7 +60,7 @@ public class Runner {
                 commandStatus = launchCommand(userCommand);
 
                 if (commandStatus.getAnswer().equals("exit")) break;
-                defaultConsole.println(commandStatus.getAnswer());
+                defaultConsole.println(commandStatus.getAnswer().getAnswer());
             }
         } catch (NoSuchElementException exception) {
             defaultConsole.printError("Пользовательский ввод не обнаружен!");

@@ -5,6 +5,7 @@ import models.ProductReader;
 import models.Product;
 import utils.console.Console;
 import utils.responses.Answer;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -36,10 +37,10 @@ public class Add extends Command {
             Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
             if (product != null) {
                 collectionManager.addProduct(product);
-                return new ExecutionResponse(new Answer("Product successfully added!"));
-            } else return new ExecutionResponse(false,new Answer("Product fields are not valid! Product is not created!"));
+                return new ExecutionResponse(new AnswerString("Product successfully added!"));
+            } else return new ExecutionResponse(false,new AnswerString("Product fields are not valid! Product is not created!"));
         } catch (ProductReader.ObjectReaderBreak e) {
-            return new ExecutionResponse(false, new Answer("Cancel..."));
+            return new ExecutionResponse(false,new AnswerString("Cancel..."));
         }
     }
 }

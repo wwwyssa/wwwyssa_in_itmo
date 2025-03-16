@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 public class RemoveGreaterKey extends Command {
@@ -23,9 +24,9 @@ public class RemoveGreaterKey extends Command {
                     collectionManager.removeProduct(keyToRemove);
                 }
             }
-            return new ExecutionResponse(true, "Все элементы с ключом больше " + key + " успешно удалены.");
+            return new ExecutionResponse(true, new AnswerString("Все элементы с ключом больше " + key + " успешно удалены."));
         } catch (NumberFormatException e) {
-            return new ExecutionResponse(false, "Ключ должен быть числом.");
+            return new ExecutionResponse(false,new AnswerString( "Ключ должен быть числом."));
         }
     }
 }

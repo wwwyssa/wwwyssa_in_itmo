@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -24,11 +25,11 @@ public class RemoveById extends Command {
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
         long id = -1;
-        try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, "ID не распознан"); }
+        try { id = Long.parseLong(arguments[1].trim()); } catch (NumberFormatException e) { return new ExecutionResponse(false, new AnswerString("ID не распознан")); }
 
         if (collectionManager.getById(id) == null )
-            return new ExecutionResponse(false, "Не существующий ID");
+            return new ExecutionResponse(false, new AnswerString("Не существующий ID"));
         collectionManager.removeProduct(id);
-        return new ExecutionResponse("Продукт успешно удалён!");
+        return new ExecutionResponse(new AnswerString("Продукт успешно удалён!"));
     }
 }

@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import models.ProductReader;
 import models.Product;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 public class RemoveGreater extends Command{
@@ -27,9 +28,9 @@ public class RemoveGreater extends Command{
                     count++;
                 }
             }
-            return new ExecutionResponse("Продукты успешно удалены! Удалено " + count + " элементов");
+            return new ExecutionResponse(new AnswerString("Продукты успешно удалены! Удалено " + count + " элементов"));
         } catch (Exception e){
-            return new ExecutionResponse(false, "Ошибка ввода данных!");
+            return new ExecutionResponse(false, new AnswerString("Ошибка ввода данных!"));
         }
 
 

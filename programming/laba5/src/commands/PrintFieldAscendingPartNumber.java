@@ -2,7 +2,9 @@ package commands;
 
     import managers.CollectionManager;
     import utils.console.DefaultConsole;
+    import utils.responses.AnswerString;
     import utils.responses.ExecutionResponse;
+    import utils.responses.ListAnswer;
 
     import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ package commands;
         @Override
         public ExecutionResponse innerExecute(String[] arguments) {
             if (collectionManager.getCollection().isEmpty()) {
-                return new ExecutionResponse(false, "Коллекция пуста!");
+                return new ExecutionResponse(false, new AnswerString("Коллекция пуста!"));
             }
 
             ArrayList<String> partNumbers = new ArrayList<>();
@@ -40,6 +42,6 @@ package commands;
                 partNumbers.add(product.getPartNumber());
             }
             partNumbers.sort(String::compareTo);
-            return new ExecutionResponse(true, partNumbers.toString());
+            return new ExecutionResponse(true, new ListAnswer(partNumbers));
         }
     }

@@ -3,6 +3,7 @@ package commands;
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import utils.responses.Answer;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -25,6 +26,6 @@ public class Show extends Command {
 
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
-        return new ExecutionResponse(new Answer(collectionManager.toString()));
+        return new ExecutionResponse(new AnswerString(collectionManager.toString()));
     }
 }

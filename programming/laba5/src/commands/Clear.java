@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -33,6 +34,6 @@ public class Clear extends Command {
             }
             i++;
         }
-        return new ExecutionResponse("Коллекция очищена!");
+        return new ExecutionResponse(new AnswerString("Коллекция очищена!"));
     }
 }

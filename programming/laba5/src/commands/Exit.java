@@ -1,6 +1,7 @@
 package commands;
 
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -21,6 +22,6 @@ public class Exit extends Command {
      */
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
-        return new ExecutionResponse("exit");
+        return new ExecutionResponse(new AnswerString("exit"));
     }
 }

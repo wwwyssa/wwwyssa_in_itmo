@@ -1,14 +1,13 @@
 package utils.responses;
 
-public class Answer<T> {
-    private T answer;
+public class Answer<T extends ValidAnswer> {
+    private final T value;
 
-    public Answer(T answer) {
-        this.answer = answer;
+    public Answer(T value) {
+        this.value = value;
     }
 
-    public T getAnswer() {
-        return answer;
+    public T getValue() {
+        return value;
     }
-
 }

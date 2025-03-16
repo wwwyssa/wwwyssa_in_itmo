@@ -3,6 +3,7 @@ package commands;
 import managers.CollectionManager;
 import models.Product;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 public class MinByName extends Command {
@@ -17,7 +18,7 @@ public class MinByName extends Command {
 
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
-        if (collectionManager.getCollection().isEmpty()) { return new ExecutionResponse(false, "Коллекция пуста.");}
+        if (collectionManager.getCollection().isEmpty()) { return new ExecutionResponse(false, new AnswerString("Коллекция пуста."));}
         Product minProduct = null;
         String minName = null;
         for (Product product : collectionManager.getCollection().values()) {
@@ -27,8 +28,8 @@ public class MinByName extends Command {
             }
         }
         if (minProduct == null) {
-            return new ExecutionResponse(false, "Произошла ошибка при поиске элемента с минимальным именем.");
+            return new ExecutionResponse(false, new AnswerString("Произошла ошибка при поиске элемента с минимальным именем."));
         }
-        return new ExecutionResponse(true, minProduct.toString());
+        return new ExecutionResponse(true, new AnswerString(minProduct.toString()));
     }
 }

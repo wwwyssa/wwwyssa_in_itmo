@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 /**
@@ -24,6 +25,6 @@ public class Save extends Command {
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
         collectionManager.saveCollection();
-        return new ExecutionResponse(true, "Коллекция успешно сохранена в файл.");
+        return new ExecutionResponse(true, new AnswerString("Коллекция успешно сохранена в файл."));
     }
 }

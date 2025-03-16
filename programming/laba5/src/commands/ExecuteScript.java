@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import managers.CommandManager;
 import utils.console.DefaultConsole;
 import utils.responses.Answer;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 import utils.console.FileConsole;
 import java.io.File;
@@ -61,10 +62,10 @@ public class ExecuteScript extends Command {
             commandManager.register("add", new Add(fileConsole, collectionManager));
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'");
-            return new ExecutionResponse(false, new Answer("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'"));
+            return new ExecutionResponse(false, new AnswerString("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'"));
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден!");
-            return new ExecutionResponse(false, new Answer("Файл не найден!"));
+            return new ExecutionResponse(false, new AnswerString("Файл не найден!"));
         }
         try {
             Scanner scanner = new Scanner(file);
@@ -86,7 +87,7 @@ public class ExecuteScript extends Command {
                             }
                         } else{
                             defaultConsole.println("Команда '" + line[0] + "' не найдена. Наберите 'help' для справки");
-                            return new ExecutionResponse(false, new Answer("Команда '" + line[0] + "' не найдена. Наберите 'help' для справки"));
+                            return new ExecutionResponse(false, new AnswerString("Команда '" + line[0] + "' не найдена. Наберите 'help' для справки"));
                         }
 
                     } else{
@@ -98,11 +99,11 @@ public class ExecuteScript extends Command {
                                 }
                             }
 
-                            if (commandStatus.getAnswer().getAnswer().equals("exit")) return new ExecutionResponse(new Answer("exit"));
+                            if (commandStatus.getAnswer().getAnswer().equals("exit")) return new ExecutionResponse(new AnswerString("exit"));
                             defaultConsole.println(commandStatus.getAnswer());
                         } catch (Exception ex) {
                             System.out.println("Не удалось выполнить команду" + ex.getMessage());
-                            return new ExecutionResponse(false, new Answer("Не удалось выполнить команду"));
+                            return new ExecutionResponse(false, new AnswerString("Не удалось выполнить команду"));
                         }
                     }
 
@@ -112,8 +113,8 @@ public class ExecuteScript extends Command {
             scanner.close();
         } catch (Exception e) {
             System.out.println("Что-то пошло не так" + e.getMessage());
-            return new ExecutionResponse(false, new Answer("Что-то пошло не так"));
+            return new ExecutionResponse(false, new AnswerString("Что-то пошло не так"));
         }
-        return new ExecutionResponse(true, new Answer("Скрипт выполнен"));
+        return new ExecutionResponse(true,new AnswerString("Скрипт выполнен"));
     }
 }

@@ -1,14 +1,15 @@
 package utils.responses;
 
+import models.Product;
 import java.util.ArrayList;
 
 /**
  * Класс, представляющий ответ выполнения.
  * @param <T> тип ответа
  */
-public class ExecutionResponse<T extends Answer<T>> {
+public class ExecutionResponse<T extends ValidAnswer> {
     private boolean exitCode;
-    private Answer answer;
+    private T answer;
 
     /**
      * Конструктор для создания объекта ExecutionResponse.
@@ -41,7 +42,7 @@ public class ExecutionResponse<T extends Answer<T>> {
      * Возвращает ответ.
      * @return ответ
      */
-    public Answer getAnswer() {
+    public T getAnswer() {
         return answer;
     }
 

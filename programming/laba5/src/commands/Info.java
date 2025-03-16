@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 import java.time.LocalDateTime;
@@ -39,6 +40,6 @@ public class Info extends Command {
         s+=" Количество элементов: " + collectionManager.getCollection().size()+"\n";
         s+=" Дата последнего сохранения: " + lastSaveTimeString+"\n";
         s+=" Дата последней инициализации: " + lastInitTimeString;
-        return new ExecutionResponse(s);
+        return new ExecutionResponse(new AnswerString(s));
     }
 }

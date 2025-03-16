@@ -1,19 +1,18 @@
 package utils.responses;
 
-public class AnswerString<T extends String> extends Answer {
-    private T answer;
+public class AnswerString implements ValidAnswer {
+    private final String value;
 
-
-    public AnswerString(T answer) {
-        super(answer);
+    public AnswerString(String value) {
+        this.value = value;
     }
 
-    public T getAnswer() {
-        return answer;
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public String toString() {
-        return answer;
+    public Object getAnswer() {
+        return value;
     }
 }

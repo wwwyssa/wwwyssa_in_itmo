@@ -2,6 +2,7 @@ package commands;
 
 import managers.CollectionManager;
 import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 
 
@@ -27,13 +28,13 @@ public class AverageOfManufactureCost extends Command{
 
     @Override
     public ExecutionResponse innerExecute(String[] arguments){
-        if (collectionManager.getCollection().isEmpty()) return new ExecutionResponse(false, "Коллекция пуста!");
+        if (collectionManager.getCollection().isEmpty()) return new ExecutionResponse(false, new AnswerString("Коллекция пуста!"));
 
         double sum = 0;
         for (var product : collectionManager.getCollection().values()) {
             sum += product.getManufactureCost();
         }
 
-        return new ExecutionResponse(true, "Среднее значение поля manufactureCost для всех элементов коллекции: " + sum / collectionManager.getCollection().size());
+        return new ExecutionResponse(true, new AnswerString("Среднее значение поля manufactureCost для всех элементов коллекции: " + sum / collectionManager.getCollection().size()));
     }
 }
