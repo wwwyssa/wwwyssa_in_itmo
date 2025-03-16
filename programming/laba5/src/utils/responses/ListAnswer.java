@@ -1,15 +1,17 @@
 package utils.responses;
+import models.Product;
+
 import java.util.ArrayList;
 
 
 public class ListAnswer implements ValidAnswer {
-    private final ArrayList<String> value;
+    private final ArrayList<Object> value;
 
-    public ListAnswer(ArrayList<String> value) {
+    public ListAnswer(ArrayList<Object> value) {
         this.value = value;
     }
 
-    public ArrayList<String> getValue() {
+    public ArrayList<Object> getValue() {
         return value;
     }
 
