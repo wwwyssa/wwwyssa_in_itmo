@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @param <T> тип ответа
  */
 public class ExecutionResponse<T extends ValidAnswer> {
-    private boolean exitCode;
-    private T answer;
+    private final boolean exitCode;
+    private final T answer;
 
     /**
      * Конструктор для создания объекта ExecutionResponse.

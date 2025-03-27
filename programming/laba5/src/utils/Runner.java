@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.NavigableMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -53,13 +54,14 @@ public class Runner {
             String[] userCommand = {"", ""};
 
             while (true) {
+
                 userCommand = (defaultConsole.input().trim() + " ").split(" ", 2);
                 userCommand[1] = userCommand[1].trim();
 
                 commandManager.addToHistory(userCommand[0]);
                 commandStatus = launchCommand(userCommand);
 
-                if (commandStatus.getAnswer().equals("exit")) break;
+                if (commandStatus.getAnswer().getAnswer().equals("exit")) break;
                 defaultConsole.println(commandStatus.getAnswer().getAnswer());
             }
         } catch (NoSuchElementException exception) {

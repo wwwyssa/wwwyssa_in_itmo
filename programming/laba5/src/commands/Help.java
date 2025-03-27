@@ -4,6 +4,7 @@ import managers.CommandManager;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 import java.util.Map;
 
@@ -24,11 +25,11 @@ public class Help extends Command {
      * Выполняет команду
      * @return Успешность выполнения команды.
      */
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
         String result = "";
         for (Map.Entry<String, Command> entry : commandManager.getCommands().entrySet()) {
             result += entry.getKey() + " -> " + entry.getValue() + "\n";
         }
-        return new ExecutionResponse(new AnswerString(result));
+        return new ExecutionResponse<>(new AnswerString(result));
     }
 }

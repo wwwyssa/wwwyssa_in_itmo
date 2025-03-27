@@ -49,6 +49,14 @@ public class DefaultConsole implements Console {
         System.err.println(obj);
     }
 
+    public boolean hasNextLine(){
+        return scanner.hasNextLine();
+    }
+
+
+    public void nextLine(){
+        scanner.nextLine();
+    }
     /**
      * Возвращает сканнер для работы с файлом.
      * @return сканнер для работы с файлом

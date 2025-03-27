@@ -7,6 +7,7 @@ import utils.console.Console;
 import utils.responses.Answer;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 /**
  * Класс, представляющий команду добавления нового продукта в коллекцию.
@@ -32,15 +33,15 @@ public class Add extends Command {
      * @return результат выполнения команды
      */
     @Override
-    public ExecutionResponse innerExecute(String[] args) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] args) {
         try {
             Product product = ProductReader.readProduct(console, collectionManager.getFreeId());
             if (product != null) {
                 collectionManager.addProduct(product);
-                return new ExecutionResponse(new AnswerString("Product successfully added!"));
-            } else return new ExecutionResponse(false,new AnswerString("Product fields are not valid! Product is not created!"));
+                return new ExecutionResponse<>(new AnswerString("Product successfully added!"));
+            } else return new ExecutionResponse<>(false,new AnswerString("Product fields are not valid! Product is not created!"));
         } catch (ProductReader.ObjectReaderBreak e) {
-            return new ExecutionResponse(false,new AnswerString("Cancel..."));
+            return new ExecutionResponse<>(false,new AnswerString("Cancel..."));
         }
     }
 }

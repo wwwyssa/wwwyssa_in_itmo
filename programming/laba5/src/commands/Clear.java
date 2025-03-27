@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 /**
  * Команда 'clear'. Очищает коллекцию.
@@ -26,7 +27,7 @@ public class Clear extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse<AnswerString> innerExecute(String[] arguments) {
         int i = 0;
         while (collectionManager.getCollection().size() > 0) {
             if (collectionManager.getCollection().containsKey(i)){

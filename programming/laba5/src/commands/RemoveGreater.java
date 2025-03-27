@@ -6,6 +6,7 @@ import models.Product;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 public class RemoveGreater extends Command{
     private final DefaultConsole defaultConsole;
@@ -18,7 +19,7 @@ public class RemoveGreater extends Command{
     }
 
     @Override
-    public ExecutionResponse innerExecute(String[] args) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] args) {
         try{
             Product product = ProductReader.readProduct(defaultConsole, collectionManager.getFreeId());
             int count = 0;
@@ -28,9 +29,9 @@ public class RemoveGreater extends Command{
                     count++;
                 }
             }
-            return new ExecutionResponse(new AnswerString("Продукты успешно удалены! Удалено " + count + " элементов"));
+            return new ExecutionResponse<>(new AnswerString("Продукты успешно удалены! Удалено " + count + " элементов"));
         } catch (Exception e){
-            return new ExecutionResponse(false, new AnswerString("Ошибка ввода данных!"));
+            return new ExecutionResponse<>(false, new AnswerString("Ошибка ввода данных!"));
         }
 
 

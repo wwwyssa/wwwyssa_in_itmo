@@ -6,6 +6,7 @@ import models.ProductReader;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
 import utils.console.DefaultConsole;
+import utils.responses.ValidAnswer;
 
 public class ReplaceIfLower extends Command {
     private final DefaultConsole defaultConsole;
@@ -18,10 +19,10 @@ public class ReplaceIfLower extends Command {
     }
 
     @Override
-    public ExecutionResponse innerExecute(String[] args) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] args) {
         int key = Integer.parseInt(args[1]);
         if (!collectionManager.getCollection().containsKey(key)) {
-            return new ExecutionResponse(false, new AnswerString("Элемента с таким ключом нет в коллекции"));
+            return new ExecutionResponse<>(false, new AnswerString("Элемента с таким ключом нет в коллекции"));
         }
         try {
             Product product = ProductReader.readProduct(defaultConsole, collectionManager.getFreeId());
@@ -29,11 +30,11 @@ public class ReplaceIfLower extends Command {
                 collectionManager.removeProduct(key);
                 collectionManager.addProductWithKey(key, product);
                 defaultConsole.println("Продукт успешно заменен!");
-                return new ExecutionResponse(new AnswerString("Продукт успешно заменен!"));
+                return new ExecutionResponse<>(new AnswerString("Продукт успешно заменен!"));
             }
         } catch (Exception e) {
-            return new ExecutionResponse(false, new AnswerString("Ошибка ввода данных!"));
+            return new ExecutionResponse<>(false, new AnswerString("Ошибка ввода данных!"));
         }
-        return new ExecutionResponse(false, new AnswerString("Новое значение не меньше старого!"));
+        return new ExecutionResponse<>(false, new AnswerString("Новое значение не меньше старого!"));
     }
 }

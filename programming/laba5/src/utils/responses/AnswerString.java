@@ -1,6 +1,6 @@
 package utils.responses;
 
-public class AnswerString implements ValidAnswer {
+public class AnswerString implements ValidAnswer<String> {
     private final String value;
 
     public AnswerString(String value) {
@@ -12,7 +12,7 @@ public class AnswerString implements ValidAnswer {
     }
 
     @Override
-    public Object getAnswer() {
+    public String getAnswer() {
         return value;
     }
 }

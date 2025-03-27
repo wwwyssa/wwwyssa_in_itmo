@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 public class RemoveGreaterKey extends Command {
     private final DefaultConsole defaultConsole;
@@ -16,7 +17,7 @@ public class RemoveGreaterKey extends Command {
     }
 
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
         try {
             int key = Integer.parseInt(arguments[1]);
             for (int keyToRemove : collectionManager.getCollection().keySet()) {
@@ -24,9 +25,9 @@ public class RemoveGreaterKey extends Command {
                     collectionManager.removeProduct(keyToRemove);
                 }
             }
-            return new ExecutionResponse(true, new AnswerString("Все элементы с ключом больше " + key + " успешно удалены."));
+            return new ExecutionResponse<>(true, new AnswerString("Все элементы с ключом больше " + key + " успешно удалены."));
         } catch (NumberFormatException e) {
-            return new ExecutionResponse(false,new AnswerString( "Ключ должен быть числом."));
+            return new ExecutionResponse<>(false,new AnswerString( "Ключ должен быть числом."));
         }
     }
 }

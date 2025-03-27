@@ -1,14 +1,19 @@
 package commands;
 
-    import managers.CollectionManager;
-    import utils.console.DefaultConsole;
-    import utils.responses.AnswerString;
-    import utils.responses.ExecutionResponse;
-    import utils.responses.ListAnswer;
+import managers.CollectionManager;
+import utils.console.DefaultConsole;
+import utils.responses.AnswerString;
+import utils.responses.ExecutionResponse;
+import utils.responses.ListAnswer;
+import utils.responses.ValidAnswer;
 
-    import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import models.Product;
 
-    /**
+/**
      * Класс команды для вывода значений поля partNumber всех элементов в порядке возрастания.
      */
     public class PrintFieldAscendingPartNumber extends Command {
@@ -28,20 +33,18 @@ package commands;
 
         /**
          * Выполняет команду с указанными аргументами.
+         *
          * @param arguments Аргументы команды.
          * @return Результат выполнения команды.
          */
         @Override
-        public ExecutionResponse innerExecute(String[] arguments) {
-            if (collectionManager.getCollection().isEmpty()) {
-                return new ExecutionResponse(false, new AnswerString("Коллекция пуста!"));
-            }
-
-            ArrayList<String> partNumbers = new ArrayList<>();
+        public ExecutionResponse<ListAnswer> innerExecute(String[] arguments) {
+            String tmpString = "";
+            ArrayList<Product> tmpList = new ArrayList<>();
             for (var product : collectionManager.getCollection().values()) {
-                partNumbers.add(product.getPartNumber());
+                tmpList.add(product);
             }
-            partNumbers.sort(String::compareTo);
-            return new ExecutionResponse(true, new ListAnswer(partNumbers));
+            tmpList.sort(Product::compareTo);
+            return new ExecutionResponse<>(true, new ListAnswer(tmpList));
         }
     }

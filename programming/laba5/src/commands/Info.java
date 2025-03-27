@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 import java.time.LocalDateTime;
 
@@ -26,7 +27,7 @@ public class Info extends Command {
      */
 
 
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
         LocalDateTime lastInitTime = collectionManager.getLastInitTime();
         String lastInitTimeString = (lastInitTime == null) ? "в данной сессии инициализации еще не происходило" :
                 lastInitTime.toLocalDate().toString() + " " + lastInitTime.toLocalTime().toString();
@@ -40,6 +41,6 @@ public class Info extends Command {
         s+=" Количество элементов: " + collectionManager.getCollection().size()+"\n";
         s+=" Дата последнего сохранения: " + lastSaveTimeString+"\n";
         s+=" Дата последней инициализации: " + lastInitTimeString;
-        return new ExecutionResponse(new AnswerString(s));
+        return new ExecutionResponse<>(new AnswerString(s));
     }
 }

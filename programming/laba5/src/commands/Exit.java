@@ -3,6 +3,7 @@ package commands;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 /**
  * Команда 'exit'. Завершает выполнение.
@@ -21,7 +22,7 @@ public class Exit extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
-        return new ExecutionResponse(new AnswerString("exit"));
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
+        return new ExecutionResponse<>(new AnswerString("exit"));
     }
 }

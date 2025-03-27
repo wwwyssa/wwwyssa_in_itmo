@@ -1,22 +1,22 @@
 package utils.responses;
 import models.Product;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
-public class ListAnswer implements ValidAnswer {
-    private final ArrayList<Object> value;
+public class ListAnswer implements ValidAnswer<List<Product>> {
+    private final List<Product> value;
 
-    public ListAnswer(ArrayList<Object> value) {
+    public ListAnswer(List<Product> value) {
         this.value = value;
     }
 
-    public ArrayList<Object> getValue() {
+    public List<Product> getValue() {
         return value;
     }
 
     @Override
-    public Object getAnswer() {
+    public List<Product> getAnswer() {
         return value;
     }
 }

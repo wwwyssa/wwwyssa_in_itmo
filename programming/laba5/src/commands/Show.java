@@ -23,7 +23,6 @@ public class Show extends Command {
      * Выполняет команду
      * @return Успешность выполнения команды.
      */
-
     @Override
     public ExecutionResponse innerExecute(String[] arguments) {
         return new ExecutionResponse(new AnswerString(collectionManager.toString()));

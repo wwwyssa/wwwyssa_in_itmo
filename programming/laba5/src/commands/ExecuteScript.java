@@ -1,16 +1,17 @@
 package commands;
 
-import managers.CollectionManager;
-import managers.CommandManager;
-import utils.console.DefaultConsole;
-import utils.responses.Answer;
-import utils.responses.AnswerString;
-import utils.responses.ExecutionResponse;
-import utils.console.FileConsole;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import managers.CollectionManager;
+import managers.CommandManager;
+import utils.console.DefaultConsole;
+import utils.console.FileConsole;
+import utils.responses.AnswerString;
+import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 /**
  * Класс команды для выполнения скрипта из указанного файла.
@@ -53,7 +54,7 @@ public class ExecuteScript extends Command {
      * @return Результат выполнения команды.
      */
     @Override
-    public ExecutionResponse innerExecute(String[] args) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] args) {
         File file = null;
         try {
             file = new File(args[1].trim());
@@ -62,10 +63,10 @@ public class ExecuteScript extends Command {
             commandManager.register("add", new Add(fileConsole, collectionManager));
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'");
-            return new ExecutionResponse(false, new AnswerString("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'"));
+            return new ExecutionResponse<ValidAnswer<String>>(false, new AnswerString("Неправильное количество аргументов!\nИспользование: '" + getName() + " {file}'"));
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден!");
-            return new ExecutionResponse(false, new AnswerString("Файл не найден!"));
+            return new ExecutionResponse<ValidAnswer<String>>(false, new AnswerString("Файл не найден!"));
         }
         try {
             Scanner scanner = new Scanner(file);
@@ -99,11 +100,11 @@ public class ExecuteScript extends Command {
                                 }
                             }
 
-                            if (commandStatus.getAnswer().getAnswer().equals("exit")) return new ExecutionResponse(new AnswerString("exit"));
-                            defaultConsole.println(commandStatus.getAnswer());
+                            if (commandStatus.getAnswer().getAnswer().equals("exit")) return new ExecutionResponse<ValidAnswer<String>>(new AnswerString("exit"));
+                            defaultConsole.println(commandStatus.getAnswer().getAnswer());
                         } catch (Exception ex) {
                             System.out.println("Не удалось выполнить команду" + ex.getMessage());
-                            return new ExecutionResponse(false, new AnswerString("Не удалось выполнить команду"));
+                            return new ExecutionResponse<ValidAnswer<String>>(false, new AnswerString("Не удалось выполнить команду"));
                         }
                     }
 

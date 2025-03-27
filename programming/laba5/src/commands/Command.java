@@ -1,10 +1,11 @@
 package commands;
 
+import java.util.Objects;
+
 import utils.Executable;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
-
-import java.util.Objects;
+import utils.responses.ValidAnswer;
 
 /**
  * Абстрактный класс, представляющий команду.
@@ -80,18 +81,18 @@ public abstract class Command implements Executable {
      * @param args Аргументы команды.
      * @return Результат выполнения команды.
      */
-    public ExecutionResponse validate(String[] args) {
-       if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
-       if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
-       return new ExecutionResponse(true, new AnswerString(""));
+    public ExecutionResponse<ValidAnswer<String>> validate(String[] args) {
+       if (expectedNumberOfArguments == 0 && !args[1].isEmpty()) return new ExecutionResponse<>(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+       if (expectedNumberOfArguments == 1 && args[1].isEmpty()) return new ExecutionResponse<>(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+       return new ExecutionResponse<>(true, new AnswerString(""));
     }
 
     @Override
-    public ExecutionResponse execute(String[] arguments) {
+    public ExecutionResponse<AnswerString> execute(String[] arguments) {
         if (validate(arguments).getExitCode()) {
             return innerExecute(arguments);
         } else {
-            return new ExecutionResponse(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+            return new ExecutionResponse<>(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
         }
     }
 

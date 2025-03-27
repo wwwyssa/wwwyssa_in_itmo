@@ -5,6 +5,7 @@ import models.Product;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 public class MinByName extends Command {
     private final DefaultConsole defaultConsole;
@@ -17,8 +18,8 @@ public class MinByName extends Command {
     }
 
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
-        if (collectionManager.getCollection().isEmpty()) { return new ExecutionResponse(false, new AnswerString("Коллекция пуста."));}
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
+        if (collectionManager.getCollection().isEmpty()) { return new ExecutionResponse<>(false, new AnswerString("Коллекция пуста."));}
         Product minProduct = null;
         String minName = null;
         for (Product product : collectionManager.getCollection().values()) {
@@ -28,8 +29,8 @@ public class MinByName extends Command {
             }
         }
         if (minProduct == null) {
-            return new ExecutionResponse(false, new AnswerString("Произошла ошибка при поиске элемента с минимальным именем."));
+            return new ExecutionResponse<>(false, new AnswerString("Произошла ошибка при поиске элемента с минимальным именем."));
         }
-        return new ExecutionResponse(true, new AnswerString(minProduct.toString()));
+        return new ExecutionResponse<>(true, new AnswerString(minProduct.toString()));
     }
 }

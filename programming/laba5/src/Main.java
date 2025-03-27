@@ -1,12 +1,24 @@
-import commands.*;
-
+import commands.Add;
+import commands.AverageOfManufactureCost;
+import commands.Clear;
+import commands.ExecuteScript;
+import commands.Exit;
+import commands.Help;
+import commands.Info;
+import commands.MinByName;
+import commands.PrintFieldAscendingPartNumber;
+import commands.RemoveById;
+import commands.RemoveGreater;
+import commands.RemoveGreaterKey;
+import commands.ReplaceIfLower;
+import commands.Save;
+import commands.Show;
+import commands.Update;
 import managers.CollectionManager;
 import managers.CommandManager;
 import managers.DumpManager;
-
-import utils.console.DefaultConsole;
-import commands.ReplaceIfLower;
 import utils.Runner;
+import utils.console.DefaultConsole;
 
 public class Main {
     public static void main(String[] args) {

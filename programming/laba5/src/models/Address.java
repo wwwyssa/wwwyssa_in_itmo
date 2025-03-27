@@ -54,7 +54,7 @@ public class Address implements Validatable {
     public String toString() {
         return "Address{" +
                 "street='" + street + '\'' +
-                ", town=" + town +
+                ", town=" + town + '\n' +
                 '}';
     }
 

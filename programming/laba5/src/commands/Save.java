@@ -4,6 +4,7 @@ import managers.CollectionManager;
 import utils.console.DefaultConsole;
 import utils.responses.AnswerString;
 import utils.responses.ExecutionResponse;
+import utils.responses.ValidAnswer;
 
 /**
  * Команда 'save'. Сохраняет коллекцию в файл.
@@ -23,8 +24,8 @@ public class Save extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse<ValidAnswer<String>> innerExecute(String[] arguments) {
         collectionManager.saveCollection();
-        return new ExecutionResponse(true, new AnswerString("Коллекция успешно сохранена в файл."));
+        return new ExecutionResponse<>(true, new AnswerString("Коллекция успешно сохранена в файл."));
     }
 }
