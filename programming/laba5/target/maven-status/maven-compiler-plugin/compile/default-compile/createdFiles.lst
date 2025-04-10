@@ -6,11 +6,8 @@ managers\CommandManager.class
 commands\Save.class
 commands\Help.class
 utils\responses\ExecutionResponse.class
-Main$1.class
 utils\responses\AnswerString.class
 commands\RemoveGreaterKey.class
-commands\AverageOfManufactureCost.class
-Main.class
 models\Location.class
 utils\console\FileConsole.class
 utils\ProductXMLScaner.class
@@ -18,6 +15,7 @@ utils\responses\Answer.class
 commands\Info.class
 models\OrganizationType.class
 utils\Executable.class
+commands\Penis.class
 commands\ReplaceIfLower.class
 managers\DumpManager.class
 commands\RemoveGreater.class
@@ -25,8 +23,8 @@ commands\Update.class
 commands\Command.class
 models\Coordinates.class
 commands\ExecuteScript.class
-commands\Show.class
 utils\console\DefaultConsole.class
+TestClass.class
 utils\DictToXmlConverter.class
 commands\Add.class
 models\ProductReader.class
@@ -40,6 +38,5 @@ models\Product.class
 commands\MinByName.class
 managers\CollectionManager.class
 models\ProductReader$ObjectReaderBreak.class
-commands\Clear.class
 commands\Exit.class
 utils\responses\ListAnswer.class
