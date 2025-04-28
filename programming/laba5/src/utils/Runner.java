@@ -65,7 +65,7 @@ public class Runner {
                 defaultConsole.println(commandStatus.getAnswer().getAnswer());
             }
         } catch (NoSuchElementException exception) {
-            defaultConsole.printError("Пользовательский ввод не обнаружен!");
+            defaultConsole.printError("Пользовательский ввод не обнаружен! )");
         } catch (IllegalStateException exception) {
             defaultConsole.printError("Непредвиденная ошибка!");
         }

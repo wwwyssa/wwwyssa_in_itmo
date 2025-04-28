@@ -1,6 +1,8 @@
-package managers;
+package com.wwwyssa.lab6.server.managers;
 
-import models.Product;
+import com.wwwyssa.lab6.common.models.Product;
+import com.wwwyssa.lab6.common.util.executions.AnswerString;
+import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -12,18 +14,33 @@ import java.util.Map;
 public class CollectionManager {
     private static long currentId = 1;
     private Map<Integer, Product> collection = new LinkedHashMap<>();
-    private final DumpManager dumpManager;
+    private final DumpManager dumpManager = DumpManager.getInstance();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
+    private static volatile CollectionManager instance;
 
     /**
      * Конструктор для создания объекта CollectionManager.
-     * @param dumpManager менеджер для работы с дампом данных
      */
-    public CollectionManager(DumpManager dumpManager) {
-        this.dumpManager = dumpManager;
+    public CollectionManager() {
         this.lastInitTime = null;
         this.lastSaveTime = null;
+    }
+
+
+    /**
+     * Возвращает единственный экземпляр CollectionManager.
+     * @return Экземпляр CollectionManager.
+     */
+    public static CollectionManager getInstance() {
+        if (instance == null) {
+            synchronized (CollectionManager.class) {
+                if (instance == null) {
+                    instance = new CollectionManager();
+                }
+            }
+        }
+        return instance;
     }
 
     /**
@@ -116,10 +133,10 @@ public class CollectionManager {
     /**
      * Загружает коллекцию из дампа данных.
      */
-    public boolean loadCollection() {
+    public ExecutionResponse loadCollection() {
         collection = dumpManager.readMap();
         lastInitTime = LocalDateTime.now();
-        return true;
+        return new ExecutionResponse(new AnswerString("OK"));
     }
 
     /**

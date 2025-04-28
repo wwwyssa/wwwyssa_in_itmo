@@ -1,0 +1,67 @@
+ORG 0x374       ; Начало программы по адресу 374
+
+; Данные
+LENGTH_ADDR: WORD 0x579 ; Адрес для хранения длины строки
+CURRENT_LEN: WORD 0X576     ; Текущее количество оставшихся символов
+BUFFER_PTR:  WORD 0x57A ; Указатель на буфер (после 2 байт длины)
+
+START:
+    CLA                 ; Очистка аккумулятора
+
+    ; === Ввод длины строки ===
+INPUT_LENGTH:
+    IN 5                ; Чтение статуса ВУ-2
+    AND #0x40           ; Проверка бита готовности
+    BEQ INPUT_LENGTH    ; Если не готово, ждём
+    
+    IN 4                ; Читаем длину (1 байт)
+    ST (LENGTH_ADDR)    ; Сохраняем длину по адресу 0x577
+    ST CURRENT_LEN      ; Сохраняем длину в счётчик
+    
+    ; Проверка на нулевую длину
+    BEQ DONE
+
+    ; === Ввод символов ===
+INPUT_LOOP:
+    IN 5                ; Чтение статуса ВУ-2
+    AND #0x40           ; Проверка готовности
+    BEQ INPUT_LOOP
+    
+    IN 4                ; Чтение символа
+    ST (BUFFER_PTR)     ; Сохраняем символ в буфер
+
+	LD CURRENT_LEN
+    DEC
+    ST CURRENT_LEN
+
+    ; Проверка на завершение
+    BEQ DONE
+    JUMP INPUT_LOOP_2
+
+INPUT_LOOP_2:
+    
+    IN 5                ; Чтение статуса ВУ-2
+    AND #0x40           ; Проверка готовности
+    BEQ INPUT_LOOP_2
+    
+    IN 4                ; Чтение символа
+    SWAB
+    ADD (BUFFER_PTR)
+    ST (BUFFER_PTR) 
+    
+    ; Увеличиваем указатель буфера
+    LD BUFFER_PTR
+    INC
+    ST BUFFER_PTR
+    
+    ; Уменьшаем счётчик
+    LD CURRENT_LEN
+    DEC
+    ST CURRENT_LEN
+    
+    ; Проверка на завершение
+    BEQ DONE
+    JUMP INPUT_LOOP
+
+DONE:
+    HLT                 ; Остановка программы

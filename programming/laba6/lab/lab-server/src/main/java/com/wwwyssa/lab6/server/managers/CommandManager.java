@@ -1,6 +1,6 @@
-package managers;
+package com.wwwyssa.lab6.server.managers;
 
-import commands.Command;
+import com.wwwyssa.lab6.server.commands.Command;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

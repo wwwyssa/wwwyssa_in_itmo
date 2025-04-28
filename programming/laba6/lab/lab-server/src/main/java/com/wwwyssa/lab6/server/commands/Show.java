@@ -1,21 +1,19 @@
-package commands;
+package com.wwwyssa.lab6.server.commands;
 
-import managers.CollectionManager;
-import utils.console.DefaultConsole;
-import utils.responses.Answer;
-import utils.responses.AnswerString;
-import utils.responses.ExecutionResponse;
+import com.wwwyssa.lab6.common.util.executions.AnswerString;
+import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
+import com.wwwyssa.lab6.common.validators.NoArgumentsValidator;
+import com.wwwyssa.lab6.server.managers.CollectionManager;
+
 
 /**
  * Команда 'show'. Выводит все элементы коллекции.
  */
-public class Show extends Command {
-    private final DefaultConsole defaultConsole;
+public class Show extends Command<NoArgumentsValidator> {
     private final CollectionManager collectionManager;
 
-    public Show(DefaultConsole defaultConsole, CollectionManager collectionManager) {
-        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении", 0);
-        this.defaultConsole = defaultConsole;
+    public Show(CollectionManager collectionManager) {
+        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении", 0, new NoArgumentsValidator());
         this.collectionManager = collectionManager;
     }
 
@@ -24,7 +22,7 @@ public class Show extends Command {
      * @return Успешность выполнения команды.
      */
     @Override
-    public ExecutionResponse innerExecute(String[] arguments) {
+    public ExecutionResponse innerExecute(String arguments) {
         return new ExecutionResponse(new AnswerString(collectionManager.toString()));
     }
 }

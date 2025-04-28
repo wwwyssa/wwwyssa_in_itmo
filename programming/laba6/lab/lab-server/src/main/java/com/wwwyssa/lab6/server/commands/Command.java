@@ -1,29 +1,35 @@
-package commands;
+package com.wwwyssa.lab6.server.commands;
 
 import java.util.Objects;
 
-import utils.Executable;
-import utils.responses.AnswerString;
-import utils.responses.ExecutionResponse;
-import utils.responses.ValidAnswer;
+import com.wwwyssa.lab6.common.validators.ArgumentValidator;
+import com.wwwyssa.lab6.server.managers.CollectionManager;
+import com.wwwyssa.lab6.server.util.Executable;
+import com.wwwyssa.lab6.common.util.executions.AnswerString;
+import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
+import com.wwwyssa.lab6.common.util.ValidAnswer;
 
 /**
  * Абстрактный класс, представляющий команду.
  */
-public abstract class Command implements Executable {
+public abstract class Command<T extends ArgumentValidator> {
     private final String name;
     private final String description;
     private final int expectedNumberOfArguments;
+    protected static CollectionManager collectionManager = CollectionManager.getInstance();
+    public final T argumentValidator;
+
     /**
      * Конструктор для создания объекта Command.
      * @param name имя команды
      * @param description описание команды
      * @param expectedNumberOfArguments ожидаемое количество аргументов
      */
-    public Command(String name, String description, int expectedNumberOfArguments) {
+    public Command(String name, String description, int expectedNumberOfArguments, T argumentValidator) {
         this.name = name;
         this.description = description;
         this.expectedNumberOfArguments = expectedNumberOfArguments;
+        this.argumentValidator = argumentValidator;
     }
 
     /**
@@ -40,6 +46,11 @@ public abstract class Command implements Executable {
      */
     public String getDescription() {
         return description;
+    }
+
+
+    public ArgumentValidator getArgumentValidator() {
+        return argumentValidator;
     }
 
     /**
@@ -87,14 +98,15 @@ public abstract class Command implements Executable {
        return new ExecutionResponse<>(true, new AnswerString(""));
     }
 
-    @Override
-    public ExecutionResponse<AnswerString> execute(String[] arguments) {
-        if (validate(arguments).getExitCode()) {
-            return innerExecute(arguments);
+
+    public ExecutionResponse execute(String arg) {
+        ExecutionResponse argumentStatus = argumentValidator.validate(arg, getName());
+        if (argumentStatus.getExitCode()) {
+            return innerExecute(arg);
         } else {
-            return new ExecutionResponse<>(false, new AnswerString("Incorrect number of arguments!\nCorrect: '" + getName() + "'"));
+            return argumentStatus;
         }
     }
 
-    public abstract ExecutionResponse innerExecute(String[] arguments);
+    public abstract ExecutionResponse innerExecute(String arguments);
 }

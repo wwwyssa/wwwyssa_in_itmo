@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.wwwyssa.lab6</groupId>
-		<artifactId>lab</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<artifactId>lab6</artifactId>
+		<version>1</version>
 	</parent>
 	<artifactId>lab-server</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1</version>
 	<name>lab-server</name>
 
 	<build>
@@ -29,7 +29,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>${project.groupId}.server.Server</mainClass>
+							<mainClass>com.wwwyssa.lab6.server.Server</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -51,13 +51,10 @@
 	</build>
 
 	<dependencies>
-
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>com.wwwyssa.lab6</groupId>
 			<artifactId>lab-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
 	</dependencies>
-
 </project>
