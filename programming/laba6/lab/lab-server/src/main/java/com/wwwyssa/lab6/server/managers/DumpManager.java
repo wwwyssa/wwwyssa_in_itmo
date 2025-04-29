@@ -3,6 +3,7 @@ package com.wwwyssa.lab6.server.managers;
 import com.wwwyssa.lab6.common.models.Product;
 import com.wwwyssa.lab6.common.util.executions.AnswerString;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
+import com.wwwyssa.lab6.server.Server;
 import com.wwwyssa.lab6.server.util.DictToXmlConverter;
 import  com.wwwyssa.lab6.server.util.ProductXMLScaner;
 
@@ -26,7 +27,12 @@ public class DumpManager {
 
     public static DumpManager getInstance() {
         if (instance == null) {
-            instance = new DumpManager("1.xml");
+            Server.logger.info("DumpManager instance created");
+
+            instance = new DumpManager("E:\\wwwyssa_in_itmo\\programming\\laba6\\lab\\1.xml");
+
+
+
         }
         return instance;
     }
@@ -54,7 +60,6 @@ public class DumpManager {
             for(Integer key : tmp.keySet()){
                 Product product = tmp.get(key);
                 if (!product.isValid()){
-
                     tmp.remove(key);
                 }
             }

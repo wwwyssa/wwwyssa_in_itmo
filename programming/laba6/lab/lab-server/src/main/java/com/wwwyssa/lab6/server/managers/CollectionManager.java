@@ -13,8 +13,8 @@ import java.util.Map;
  */
 public class CollectionManager {
     private static long currentId = 1;
-    private Map<Integer, Product> collection = new LinkedHashMap<>();
     private final DumpManager dumpManager = DumpManager.getInstance();
+    private Map<Integer, Product> collection = new LinkedHashMap<>();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
     private static volatile CollectionManager instance;
@@ -25,6 +25,7 @@ public class CollectionManager {
     public CollectionManager() {
         this.lastInitTime = null;
         this.lastSaveTime = null;
+        this.collection = dumpManager.readMap();
     }
 
 
@@ -185,7 +186,6 @@ public class CollectionManager {
     @Override
     public String toString() {
         if (collection.isEmpty()) return "Коллекция пуста!";
-
         StringBuilder info = new StringBuilder();
         for (int id : collection.keySet()) {
             info.append(collection.get(id)+"\n\n");

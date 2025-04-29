@@ -2,11 +2,16 @@ package com.wwwyssa.lab6.common.models;
 
 import com.wwwyssa.lab6.common.util.Validatable;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * Класс, представляющий местоположение.
  */
-public class Location implements Validatable {
+public class Location implements Validatable, Serializable {
 
+    @Serial
+    private static final long serialVersionUID = 14L;
     
     private float x; // Поле не может быть null
 

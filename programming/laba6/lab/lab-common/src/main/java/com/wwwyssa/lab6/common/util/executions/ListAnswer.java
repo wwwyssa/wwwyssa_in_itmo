@@ -2,10 +2,14 @@ package com.wwwyssa.lab6.common.util.executions;
 import com.wwwyssa.lab6.common.util.ValidAnswer;
 import com.wwwyssa.lab6.common.models.Product;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 
-public class ListAnswer implements ValidAnswer<List<?>> {
+public class ListAnswer implements ValidAnswer<List<?>>, Serializable {
+    @Serial
+    private static final long serialVersionUID = 14L;
     private final List<?> value;
 
     public ListAnswer(List<?> value) {

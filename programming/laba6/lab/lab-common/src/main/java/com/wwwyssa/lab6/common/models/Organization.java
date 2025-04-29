@@ -1,10 +1,18 @@
 package com.wwwyssa.lab6.common.models;
 
 import com.wwwyssa.lab6.common.util.Validatable;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Random;
+
 /**
  * Класс, представляющий организацию.
  */
-public class Organization implements Validatable {
+public class Organization implements Validatable, Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 14L;
 
     private Long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 
@@ -24,7 +32,7 @@ public class Organization implements Validatable {
      * @param officialAddress официальный адрес, не может быть null
      */
     public Organization(String name, Integer employeesCount, OrganizationType type, Address officialAddress) {
-        this.id = null; // id будет сгенерирован автоматически
+        this.id = Math.abs(new Random().nextLong()) + 1; // id будет сгенерирован автоматически
         this.name = name;
         this.employeesCount = employeesCount;
         this.type = type;

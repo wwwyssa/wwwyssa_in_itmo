@@ -6,12 +6,13 @@ import com.wwwyssa.lab6.common.util.Response;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
 import com.wwwyssa.lab6.common.validators.ArgumentValidator;
 import com.wwwyssa.lab6.server.commands.Command;
-import com.wwwyssa.lab6.server.commands.Help;
+import com.wwwyssa.lab6.server.commands.*;
 import com.wwwyssa.lab6.server.commands.Show;
 import com.wwwyssa.lab6.server.managers.CollectionManager;
 import com.wwwyssa.lab6.server.managers.CommandManager;
 import com.wwwyssa.lab6.server.managers.Runner;
 import com.wwwyssa.lab6.server.managers.ServerConnectionManager;
+import com.wwwyssa.lab6.server.util.AskingCommand;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -86,8 +87,16 @@ public class Server {
         logger.info("The collection file has been successfully loaded!");
         // Регистрация команд
         commandManager = new CommandManager() {{
-            register("Help", new Help(this));
-            register("Show", new Show(CollectionManager.getInstance()));
+            register("help", new Help(this));
+            register("show", new Show(CollectionManager.getInstance()));
+            register("info", new Info(CollectionManager.getInstance()));
+            register("averageOfManufactureCost", new AverageOfManufactureCost(CollectionManager.getInstance()));
+            register("minByName", new MinByName(CollectionManager.getInstance()));
+            register("clear", new Clear(CollectionManager.getInstance()));
+            register("printFieldAscendingPartNumber", new PrintFieldAscendingPartNumber(CollectionManager.getInstance()));
+            register("removeGreaterKey", new RemoveGreaterKey(CollectionManager.getInstance()));
+            register("Save", new Save(CollectionManager.getInstance()));
+            register("add", new Add(CollectionManager.getInstance()));
         }};
         Runner runner = new Runner(commandManager);
 
@@ -125,28 +134,27 @@ public class Server {
                 Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
                 while (keys.hasNext()) {
                     SelectionKey key = keys.next();
+                    System.out.println("Key: " + key);
                     logger.info("Processing key: " + key);
                     try {
                         if (key.isValid()) {
+                            // Принимаем новое соединение
                             if (key.isAcceptable()) {
-                                // Принимаем новое соединение
-                                try (ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel()) {
-                                    SocketChannel clientChannel = serverSocketChannel.accept();
-                                    logger.info("Client connected: " + clientChannel.getRemoteAddress());
-
-                                    // Настройка канала для неблокирующего режима
-                                    clientChannel.configureBlocking(false);
-                                    InitialCommandsData(clientChannel, key); //  отправка клиенту списка команд
-                                }
-                            } else if (key.isReadable()) {
+                                ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel();
+                                SocketChannel clientChannel = serverSocketChannel.accept();
+                                logger.info("Client connected: " + clientChannel.getRemoteAddress());
+                                // Настройка канала для неблокирующего режима
+                                clientChannel.configureBlocking(false);
+                                InitialCommandsData(clientChannel, key); // Отправка клиенту списка команд
+                            }
+                             else if (key.isReadable()) {
                                 SocketChannel clientChannel = (SocketChannel) key.channel();
                                 clientChannel.configureBlocking(false);
 
                                 Request request;
                                 try {
                                     request = networkManager.receive(clientChannel, key);
-                                } catch (ServerConnectionManager.NullRequestException | SocketException |
-                                         NullPointerException e) {
+                                } catch (ServerConnectionManager.NullRequestException | SocketException | NullPointerException e) {
                                     logger.severe("Error receiving request from client: " + e.getMessage());
                                     collectionManager.saveCollection();
                                     logger.info("Collection saved successfully");
@@ -208,17 +216,16 @@ public class Server {
         try {
             Map<String, Pair<ArgumentValidator, Boolean>> commandsData = new HashMap<>();
             for (var entrySet : commandManager.getCommands().entrySet()) {
-                //boolean isAskingCommand = AskingCommand.class.isAssignableFrom(entrySet.getValue().getClass());
-                boolean isAskingCommand = false;
+                boolean isAskingCommand = AskingCommand.class.isAssignableFrom(entrySet.getValue().getClass());
                 commandsData.put(entrySet.getKey(), new Pair<>(entrySet.getValue().getArgumentValidator(), isAskingCommand));
             }
             networkManager.send(new Response(commandsData), clientChannel);
-            //logger.info("Command list sent to the client: " + clientChannel.getRemoteAddress());
+            logger.info("Command list sent to the client: " + clientChannel.getRemoteAddress());
         } catch (IOException e) {
-            //logger.severe("Error sending command list to the client: " + e.getMessage());
+            logger.severe("Error sending command list to the client: " + e.getMessage());
             key.cancel();
         } catch (NullPointerException e) {
-            //logger.severe("The client disconnected from the server: " + e.getMessage());
+            logger.severe("The client disconnected from the server: " + e.getMessage());
             key.cancel();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

@@ -2,11 +2,17 @@ package com.wwwyssa.lab6.common.models;
 
 import com.wwwyssa.lab6.common.util.Validatable;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 
 /**
  * Класс, представляющий адрес.
  */
-public class Address implements Validatable {
+public class Address implements Validatable, Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 14L;
 
     private String street; // Поле не может быть null
 

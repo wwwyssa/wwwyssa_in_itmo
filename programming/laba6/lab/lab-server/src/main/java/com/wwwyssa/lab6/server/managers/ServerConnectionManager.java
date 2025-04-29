@@ -8,16 +8,13 @@ import java.io.IOException;
 import java.nio.channels.ServerSocketChannel;
 import java.net.InetSocketAddress;
 import java.util.Arrays;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.StreamCorruptedException;
 import java.nio.channels.SelectionKey;
-import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
 public class ServerConnectionManager {
@@ -49,7 +46,7 @@ public class ServerConnectionManager {
     public void send(Response response, SocketChannel clientChannel) throws IOException, ClassNotFoundException {
         try (ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 
-             ObjectOutputStream clientDataOut = new ObjectOutputStream(bytes)) {
+            ObjectOutputStream clientDataOut = new ObjectOutputStream(bytes)) {
             clientDataOut.writeObject(response);
             byte[] byteResponse = bytes.toByteArray();
 

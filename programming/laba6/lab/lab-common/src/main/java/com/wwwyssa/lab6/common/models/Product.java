@@ -3,14 +3,17 @@ package com.wwwyssa.lab6.common.models;
 import com.wwwyssa.lab6.common.util.Validatable;
 
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
  * Класс, представляющий продукт.
  */
-public class Product implements Comparable<Product>, Validatable {
-
+public class Product implements Comparable<Product>, Validatable, Serializable {
+    @Serial
+    private static final long serialVersionUID = 14L;
 
     private long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 

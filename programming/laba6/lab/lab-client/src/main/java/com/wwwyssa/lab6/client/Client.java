@@ -12,12 +12,15 @@ import com.wwwyssa.lab6.common.util.Pair;
 import com.wwwyssa.lab6.common.util.Request;
 import com.wwwyssa.lab6.common.util.Response;
 import com.wwwyssa.lab6.client.util.DefaultConsole;
+import com.wwwyssa.lab6.common.util.executions.ListAnswer;
 import com.wwwyssa.lab6.common.validators.ArgumentValidator;
 
 import java.io.*;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 //Вариант 88347
@@ -43,7 +46,7 @@ public final class Client {
                     String inputCommand = console.input();
                     ExecutionResponse argumentStatus = validateCommand((inputCommand.trim() + " ").split(" ", 2));
                     if (!argumentStatus.getExitCode()) {
-                        console.printError(argumentStatus.getAnswer().getAnswer().toString() + "ПЕНИС");
+                        console.printError( argumentStatus.getAnswer().getAnswer().toString());
                     }
                     else {
                         Request request = prepareRequest(console, inputCommand);
@@ -58,7 +61,12 @@ public final class Client {
                                 //response.getExecutionStatus().getAnswer().forEach(item -> console.println(item.toString()));
                             }
                             else {
-                                console.println(response.getExecutionStatus().getAnswer());
+                                if (response.getExecutionStatus().getAnswer().getClass() == ListAnswer.class){
+                                    console.println(response.getExecutionStatus().getAnswer().getAnswer());
+                                } else{
+                                    console.println(response.getExecutionStatus().getAnswer());
+                                }
+
                             }
                         } else {
                             console.printError(response.getExecutionStatus().getAnswer());
@@ -80,7 +88,7 @@ public final class Client {
 
     private static Request askingRequest(Console console, String inputCommand) {
         ElementValidator elementValidator = new ElementValidator();
-        Pair<ExecutionResponse, Product> validationStatusPair = elementValidator.validateAsking(console, 1L); //На клиенте вводится id=1L, на сервере он меняется на корректный
+        Pair<ExecutionResponse, Product> validationStatusPair = elementValidator.validateAsking(console, Math.abs(new Random().nextLong()) + 1); //На клиенте вводится id=1L, на сервере он меняется на корректный
         if (!validationStatusPair.getFirst().getExitCode()) {
             console.printError(validationStatusPair.getFirst().getAnswer());
             return null;

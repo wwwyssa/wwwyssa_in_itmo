@@ -350,3 +350,2280 @@ INFO: Stop packet sent
 
 апр. 28, 2025 10:12:17 PM com.wwwyssa.lab6.server.Server run
 INFO: Response sent to client: /127.0.0.1:35622
+апр. 29, 2025 12:42:06 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 12:42:06 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 12:42:06 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 12:42:36 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=16, readyOps=16
+апр. 29, 2025 12:42:36 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38362
+апр. 29, 2025 12:42:36 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 12:42:36 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:42:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 12:42:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38362], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=1, readyOps=1
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38362], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=4, readyOps=4
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:42:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38362
+апр. 29, 2025 12:45:51 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 12:45:51 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 12:45:51 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 12:45:51 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=16, readyOps=16
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38413
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 12:46:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38413], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=1, readyOps=1
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38413], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=4, readyOps=4
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 12:46:01 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:46:02 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 12:46:02 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:46:02 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38413
+апр. 29, 2025 12:51:50 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38413], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=1, readyOps=1
+апр. 29, 2025 12:51:50 AM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 12:51:50 AM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 12:52:04 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 12:52:04 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 12:52:04 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 12:52:04 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 12:52:18 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 12:52:18 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 12:52:18 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 12:52:18 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=16, readyOps=16
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38530
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 12:52:21 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38530], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=1, readyOps=1
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38530], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=4, readyOps=4
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:52:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38530
+апр. 29, 2025 12:54:57 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 12:54:57 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 12:54:57 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 12:54:57 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=16, readyOps=16
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38697
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 12:54:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38697], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=1, readyOps=1
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38697], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=4, readyOps=4
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:55:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38697
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38697], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=1, readyOps=1
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38697], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=4, readyOps=4
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 12:55:35 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38697
+апр. 29, 2025 1:00:19 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38697], selector=sun.nio.ch.WEPollSelectorImpl@13969fbe, interestOps=1, readyOps=1
+апр. 29, 2025 1:00:19 AM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 1:00:19 AM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 1:00:38 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:00:38 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:00:38 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:00:38 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:00:40 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=16, readyOps=16
+апр. 29, 2025 1:00:40 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38764
+апр. 29, 2025 1:00:40 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:00:40 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:00:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:00:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38764], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=1, readyOps=1
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38764], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=4, readyOps=4
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 443
+апр. 29, 2025 1:00:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:00:43 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 187
+апр. 29, 2025 1:00:43 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:00:43 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38764
+апр. 29, 2025 1:02:40 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:02:40 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:02:40 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:02:40 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@7c30a502, interestOps=16, readyOps=16
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38815
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:02:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:03:31 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:03:31 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:03:31 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:03:31 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:04:22 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:04:22 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:04:22 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:04:22 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@6e8dacdf, interestOps=16, readyOps=16
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38840
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:04:24 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:05:42 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:05:42 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:05:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:05:42 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@6e8dacdf, interestOps=16, readyOps=16
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38874
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:05:44 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:06:24 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:06:24 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:06:24 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:06:24 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:08:44 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:08:45 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:08:45 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:08:45 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:08:49 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@668bc3d5, interestOps=16, readyOps=16
+апр. 29, 2025 1:08:49 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38908
+апр. 29, 2025 1:08:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:08:49 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:08:50 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:08:50 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38908], selector=sun.nio.ch.WEPollSelectorImpl@668bc3d5, interestOps=1, readyOps=1
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Show', product=null}
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38908], selector=sun.nio.ch.WEPollSelectorImpl@668bc3d5, interestOps=4, readyOps=4
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:08:55 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38908
+апр. 29, 2025 1:09:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38908], selector=sun.nio.ch.WEPollSelectorImpl@668bc3d5, interestOps=1, readyOps=1
+апр. 29, 2025 1:09:23 AM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 1:09:23 AM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 1:12:17 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:12:17 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:12:17 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:12:17 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:12:19 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@58ceff1, interestOps=16, readyOps=16
+апр. 29, 2025 1:12:19 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:38989
+апр. 29, 2025 1:12:19 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 480
+апр. 29, 2025 1:12:19 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:12:20 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 224
+апр. 29, 2025 1:12:20 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38989], selector=sun.nio.ch.WEPollSelectorImpl@58ceff1, interestOps=1, readyOps=1
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='Help', product=null}
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38989], selector=sun.nio.ch.WEPollSelectorImpl@58ceff1, interestOps=4, readyOps=4
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 729
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:12:26 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:12:27 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 217
+апр. 29, 2025 1:12:27 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:12:27 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:38989
+апр. 29, 2025 1:12:29 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:38989], selector=sun.nio.ch.WEPollSelectorImpl@58ceff1, interestOps=1, readyOps=1
+апр. 29, 2025 1:12:29 AM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 1:12:29 AM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 1:20:28 AM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 1:20:29 AM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 1:20:29 AM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 1:20:29 AM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 1:20:32 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=16, readyOps=16
+апр. 29, 2025 1:20:32 AM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:39086
+апр. 29, 2025 1:20:32 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 577
+апр. 29, 2025 1:20:32 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:32 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:33 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 65
+апр. 29, 2025 1:20:33 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=1, readyOps=1
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='help', product=null}
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=4, readyOps=4
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1217
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 193
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:20:37 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:39086
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=1, readyOps=1
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 153 bytes received from client
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='minByName', product=null}
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=4, readyOps=4
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:41 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 1:20:42 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:20:42 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:39086
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=1, readyOps=1
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 168 bytes received from client
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='averageOfManufactureCost', product=null}
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=4, readyOps=4
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 528
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:20:59 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 1:21:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 16
+апр. 29, 2025 1:21:00 AM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 1:21:00 AM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:39086
+апр. 29, 2025 8:53:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:39086], selector=sun.nio.ch.WEPollSelectorImpl@1e643faf, interestOps=1, readyOps=1
+апр. 29, 2025 8:53:39 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 8:53:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 8:54:02 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 8:54:02 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 8:54:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 8:54:02 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5745
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 8:54:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5745], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5745], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error sending response to client: com.wwwyssa.lab6.common.util.executions.ListAnswer
+апр. 29, 2025 8:54:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 8:55:03 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 8:55:03 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 8:55:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 8:55:03 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 8:55:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 8:55:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5751
+апр. 29, 2025 8:55:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 8:55:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:55:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:55:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 8:55:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5751], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5751], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error sending response to client: com.wwwyssa.lab6.common.models.Product
+апр. 29, 2025 8:55:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 8:56:02 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 8:56:02 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 8:56:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 8:56:02 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 8:56:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 8:56:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5782
+апр. 29, 2025 8:56:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 8:56:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:56:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:56:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 8:56:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5782], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5782], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error sending response to client: com.wwwyssa.lab6.common.models.Coordinates
+апр. 29, 2025 8:56:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 8:57:47 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 8:57:47 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 8:57:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 8:57:47 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 8:57:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 8:57:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5800
+апр. 29, 2025 8:57:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 8:57:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:50 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 8:57:50 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5800], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5800], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1752
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 216
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 8:57:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:5800
+апр. 29, 2025 9:00:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5800], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:00:25 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 9:00:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 9:00:38 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:00:38 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:00:38 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:00:38 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5904
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 9:00:40 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5904], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5904], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1752
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 216
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:00:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:5904
+апр. 29, 2025 9:02:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5904], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:02:02 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 9:02:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5916
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 9:02:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5916], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5916], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1752
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 216
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:5916
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5916], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 9:02:27 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 9:03:30 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:03:30 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:03:30 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:03:30 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=16, readyOps=16
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:5921
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 651
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 139
+апр. 29, 2025 9:03:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5921], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 173 bytes received from client
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='PrintFieldAscendingPartNumber', product=null}
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5921], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=4, readyOps=4
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1752
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 216
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:03:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:5921
+апр. 29, 2025 9:03:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:5921], selector=sun.nio.ch.WEPollSelectorImpl@3f3afe78, interestOps=1, readyOps=1
+апр. 29, 2025 9:03:47 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 9:03:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 9:14:10 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:14:10 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:14:11 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:14:11 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6139
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:14:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6139], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='help', product=null}
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6139], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=4, readyOps=4
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1806
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 14
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:14:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6139
+апр. 29, 2025 9:14:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6139], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:14:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:14:36 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:14:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:15:40 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:15:40 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:15:40 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:15:40 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:15:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:15:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6144
+апр. 29, 2025 9:15:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:15:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:15:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:15:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:15:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:15:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6144], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:15:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:15:55 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:15:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:16:26 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:16:26 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:16:26 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:16:26 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6167
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:16:28 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:16:31 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6167], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:16:31 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:16:31 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:16:31 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:16:55 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:16:55 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:16:55 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:16:55 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:16:57 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:16:57 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6174
+апр. 29, 2025 9:16:57 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:16:57 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:16:57 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:16:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:16:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:16:59 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6174], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:16:59 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:16:59 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:16:59 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:18:31 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:18:31 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:18:31 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:18:31 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6191
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:18:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6191], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6191], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=4, readyOps=4
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 498
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 242
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:18:35 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6191
+апр. 29, 2025 9:21:36 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:21:36 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:21:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:21:36 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=16, readyOps=16
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6254
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 768
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 256
+апр. 29, 2025 9:21:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6254], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 162 bytes received from client
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='removeGreaterKey 1', product=null}
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6254], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=4, readyOps=4
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 498
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 242
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:21:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6254
+апр. 29, 2025 9:33:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6254], selector=sun.nio.ch.WEPollSelectorImpl@19dfb72a, interestOps=1, readyOps=1
+апр. 29, 2025 9:33:12 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 9:33:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 9:47:58 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 9:47:58 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 9:47:58 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 9:47:58 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6706
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:48:00 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:6706
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='help', product=null}
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1888
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 96
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6706
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:48:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6706
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:6706], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 9:50:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 9:50:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 9:50:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 9:50:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6706
+апр. 29, 2025 10:41:08 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:41:08 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:41:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:41:08 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:7886
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:41:10 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:41:11 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:41:11 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:41:11 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:7886
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7886], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7886], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:41:12 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:41:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:41:13 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:41:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:7886
+апр. 29, 2025 10:42:15 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7886], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:42:15 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 10:42:15 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 10:42:36 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:42:36 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:42:36 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:42:36 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:7908
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:42:38 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:7908
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7908], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7908], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:42:39 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:7908
+апр. 29, 2025 10:45:50 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:45:50 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:45:50 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:45:50 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:7982
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:45:52 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:45:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:45:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:45:53 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:7982
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7982], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.Server run
+SEVERE: PENISМетод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7982], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:45:54 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:7982
+апр. 29, 2025 10:47:02 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:47:02 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:47:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:47:02 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:7995
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:47:04 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:7995
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7995], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:7995], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:47:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:7995
+апр. 29, 2025 10:48:00 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:48:00 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:48:00 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:48:00 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8010
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8010
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8010], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8010], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:48:02 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:48:03 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:48:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8010
+апр. 29, 2025 10:48:44 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:48:44 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:48:44 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:48:44 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8013
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:48:46 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8013
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8013], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8013], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:48:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8013
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8013], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8013], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:49:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:49:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:49:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:49:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8013
+апр. 29, 2025 10:51:03 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:51:03 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:51:03 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:51:03 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8056
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:51:05 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8056
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8056], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8056], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:51:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8056
+апр. 29, 2025 10:52:41 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 10:52:41 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 10:52:41 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 10:52:41 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8067
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 791
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 23
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:52:43 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8067
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8067], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 147 bytes received from client
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=null}
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Метод должен вызываться с аргументом MusicBand!
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8067], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 492
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 236
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 10:52:44 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8067
+апр. 29, 2025 11:03:59 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 11:03:59 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 11:03:59 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 11:03:59 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8273
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:04:01 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8273
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 1438 bytes received from client
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=Product{id=1, name='penis', coordinates=Coordinates{x=1, y=2}, creationDate=2025-04-29T23:04:25.585355900, price=3, partNumber='4', manufactureCost=5, unitOfMeasure=GRAMS, manufacturer=Organization{id=3044247044362770180, name='qwe', employeesCount=123, type=PUBLIC, officialAddress=Address{street='q', town=Location{x=1.0, y=2, z=3}
+}}}}
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'add'
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 482
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 226
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:04:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:08:53 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 1432 bytes received from client
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=Product{id=1, name='5', coordinates=Coordinates{x=5, y=5}, creationDate=2025-04-29T23:09:49.919603100, price=5, partNumber='5', manufactureCost=5, unitOfMeasure=MILLILITERS, manufacturer=Organization{id=3562351680296888386, name='5', employeesCount=5, type=COMMERCIAL, officialAddress=Address{street='5', town=Location{x=5.0, y=5, z=5}
+}}}}
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'add'
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 482
+апр. 29, 2025 11:09:49 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:09:50 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 226
+апр. 29, 2025 11:09:50 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:09:50 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:09:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:10:05 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:10:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:10:09 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8273
+апр. 29, 2025 11:10:42 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8273], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:10:42 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 11:10:42 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 11:11:19 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 11:11:19 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 11:11:19 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 11:11:19 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8330
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:11:20 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8330
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:11:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8330
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 1422 bytes received from client
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=Product{id=1, name='5', coordinates=Coordinates{x=5, y=5}, creationDate=2025-04-29T23:11:34.236446900, price=5, partNumber='5', manufactureCost=5, unitOfMeasure=GRAMS, manufacturer=Organization{id=7474824657139771530, name='5', employeesCount=5, type=PUBLIC, officialAddress=Address{street='5', town=Location{x=5.0, y=5, z=5}
+}}}}
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'add'
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 482
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 226
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:11:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8330
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:37 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:11:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:11:38 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:11:38 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8330
+апр. 29, 2025 11:14:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8330], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:14:02 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 11:14:02 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 11:14:43 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 11:14:43 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 11:14:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 11:14:43 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8372
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:14:45 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8372
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 742
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:46 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 230
+апр. 29, 2025 11:14:47 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:14:47 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8372
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 1422 bytes received from client
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='add', product=Product{id=6688135563173512608, name='5', coordinates=Coordinates{x=5, y=5}, creationDate=2025-04-29T23:14:58.911852600, price=5, partNumber='5', manufactureCost=5, unitOfMeasure=GRAMS, manufacturer=Organization{id=6485360222022471471, name='5', employeesCount=5, type=PUBLIC, officialAddress=Address{street='5', town=Location{x=5.0, y=5, z=5}
+}}}}
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'add'
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 482
+апр. 29, 2025 11:14:58 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:14:59 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 226
+апр. 29, 2025 11:14:59 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:14:59 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8372
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1091
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 67
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:15:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8372
+апр. 29, 2025 11:15:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8372], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:15:07 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 11:15:07 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 11:17:21 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 11:17:21 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 11:17:21 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 11:17:21 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8402
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:17:23 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:17:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:17:24 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:17:24 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8402
+апр. 29, 2025 11:17:29 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8402], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:17:29 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 11:17:29 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 11:23:48 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+апр. 29, 2025 11:23:48 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+апр. 29, 2025 11:23:48 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+апр. 29, 2025 11:23:48 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8461
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:23:51 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8461
+апр. 29, 2025 11:23:56 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8461], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:23:56 PM com.wwwyssa.lab6.server.Server run
+SEVERE: Error receiving request from client: Connection reset
+апр. 29, 2025 11:23:56 PM com.wwwyssa.lab6.server.Server run
+INFO: Collection saved successfully
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:13876], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=16, readyOps=16
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:8462
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 793
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 25
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:24:01 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:8462
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8462], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=1, readyOps=1
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:13876 remote=/127.0.0.1:8462], selector=sun.nio.ch.WEPollSelectorImpl@71be98f5, interestOps=4, readyOps=4
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 1091
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 67
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+апр. 29, 2025 11:24:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:8462

@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.wwwyssa.lab6.common.models.Product;
+import com.wwwyssa.lab6.common.validators.ArgumentValidator;
+import com.wwwyssa.lab6.server.Server;
 import com.wwwyssa.lab6.server.commands.Command;
 import com.wwwyssa.lab6.server.managers.CommandManager;
 import com.wwwyssa.lab6.common.util.executions.AnswerString;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
+import com.wwwyssa.lab6.server.util.AskingCommand;
 
 /**
  * Класс для запуска команд в интерактивном режиме и режиме скрипта.
@@ -26,19 +29,40 @@ public class Runner {
         this.commandManager = commandManager;
     }
 
+
+    private ExecutionResponse validateCommand(String[] userCommand) {
+        try {
+            Command<?> command = commandManager.getCommands().get(userCommand[0]);
+            if (command == null) {
+                return new ExecutionResponse(false, new AnswerString("Команда '" + userCommand[0] + "' не найдена! Для показа списка команд введите 'help'."));
+            } else {
+                ArgumentValidator argumentValidator = command.getArgumentValidator();
+                return argumentValidator.validate(userCommand[1].trim(), command.getName());
+            }
+        } catch (NullPointerException e) {
+            return new ExecutionResponse(false, new AnswerString("Введено недостаточно аргументов для выполнения последней команды!"));
+        }
+    }
+
+
+
     /**
      * Запускает команду.
      * @param userCommand команда для запуска
      * @return код завершения
      */
     public ExecutionResponse launchCommand(String[] userCommand, Product product) {
-        if (userCommand[0].isEmpty()) return new ExecutionResponse(new AnswerString(""));
-        Command command = commandManager.getCommands().get(userCommand[0]);
-        if (command == null)
-            return new ExecutionResponse(false, new AnswerString("Команда '" + userCommand[0] + "' не найдена. Наберите 'help' для справки"));
-        if (command.getName().equals("execute_script")) {
-            return command.execute(userCommand[1]);
+        ExecutionResponse<?> validateStatus = validateCommand(userCommand);
+        if (validateStatus.getExitCode()) {
+            Command<?> command = commandManager.getCommands().get(userCommand[0]);
+            Server.logger.info("Выполнение команды '" + userCommand[0] + "'");
+            if (AskingCommand.class.isAssignableFrom(command.getClass())) {
+                return ((AskingCommand<?>) command).execute(userCommand[1], product);
+            } else {
+                return command.execute(userCommand[1]);
+            }
+        }else {
+            return new ExecutionResponse(false, validateStatus.getAnswer());
         }
-        return command.execute(userCommand[1]);
     }
 }
