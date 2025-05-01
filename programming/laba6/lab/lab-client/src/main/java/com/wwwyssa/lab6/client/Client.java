@@ -14,6 +14,7 @@ import com.wwwyssa.lab6.common.util.Response;
 import com.wwwyssa.lab6.client.util.DefaultConsole;
 import com.wwwyssa.lab6.common.util.executions.ListAnswer;
 import com.wwwyssa.lab6.common.validators.ArgumentValidator;
+import com.wwwyssa.lab6.common.validators.NoArgumentsValidator;
 
 import java.io.*;
 import java.nio.BufferOverflowException;
@@ -39,14 +40,16 @@ public final class Client {
             try {
                 networkManager.connect();
                 commandsData = networkManager.receive().getCommandsMap();
+                commandsData.put("execute_script", new Pair<>(new NoArgumentsValidator(), false));
                 attempts = 1;
                 console.println("Connected to " + SERVER_HOST + ":" + SERVER_PORT);
                 while (true) {
                     console.println("Введите команду:");
                     String inputCommand = console.input();
+                    System.out.println("inputCommand = " + inputCommand);
                     ExecutionResponse argumentStatus = validateCommand((inputCommand.trim() + " ").split(" ", 2));
                     if (!argumentStatus.getExitCode()) {
-                        console.printError( argumentStatus.getAnswer().getAnswer().toString());
+                        console.printError(argumentStatus.getAnswer().getAnswer().toString());
                     }
                     else {
                         Request request = prepareRequest(console, inputCommand);
@@ -109,6 +112,7 @@ public final class Client {
                 System.exit(0);
                 return null;
             } else if (userCommand[0].equals("execute_script")) {
+                System.out.println("EXECUTE_SCRIPT");
                 return new ExecutionResponse(true, new AnswerString("Введена команда 'execute_script'. Валидация аргументов не требуется."));
             } else {
                 var argumentValidator = commandsData.get(userCommand[0]);

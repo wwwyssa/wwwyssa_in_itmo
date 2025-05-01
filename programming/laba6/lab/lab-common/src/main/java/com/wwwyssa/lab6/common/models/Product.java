@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class Product implements Comparable<Product>, Validatable, Serializable {
     @Serial
-    private static final long serialVersionUID = 14L;
+    private static final long serialVersionUID = 18L;
 
     private long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 

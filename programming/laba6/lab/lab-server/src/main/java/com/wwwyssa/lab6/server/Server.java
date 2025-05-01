@@ -29,6 +29,8 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
 
+
+
 public class Server {
 
     public static final Logger logger = Logger.getLogger(Server.class.getName());
@@ -97,6 +99,8 @@ public class Server {
             register("removeGreaterKey", new RemoveGreaterKey(CollectionManager.getInstance()));
             register("Save", new Save(CollectionManager.getInstance()));
             register("add", new Add(CollectionManager.getInstance()));
+            register("removeById", new RemoveById(CollectionManager.getInstance()));
+            register("removeGreater", new RemoveGreater(CollectionManager.getInstance()));
         }};
         Runner runner = new Runner(commandManager);
 

@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Location implements Validatable, Serializable {
 
     @Serial
-    private static final long serialVersionUID = 14L;
+    private static final long serialVersionUID = 16L;
     
     private float x; // Поле не может быть null
 

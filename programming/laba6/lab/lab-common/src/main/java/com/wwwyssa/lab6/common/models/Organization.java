@@ -12,7 +12,7 @@ import java.util.Random;
 public class Organization implements Validatable, Serializable {
 
     @Serial
-    private static final long serialVersionUID = 14L;
+    private static final long serialVersionUID = 17L;
 
     private Long id; // Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 

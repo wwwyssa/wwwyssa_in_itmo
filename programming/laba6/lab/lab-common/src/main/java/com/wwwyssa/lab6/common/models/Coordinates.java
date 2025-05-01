@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class Coordinates implements Validatable, Serializable {
     @Serial
-    private static final long serialVersionUID = 14L;
+    private static final long serialVersionUID = 15L;
 
     private Integer x; //Максимальное значение поля: 765, Поле не может быть null
     
