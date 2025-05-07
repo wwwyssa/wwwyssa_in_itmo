@@ -30,9 +30,15 @@ import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
 
 
+/**
+    * Класс Server - основной класс сервера, который отвечает за запуск и управление сервером.
+ */
 
 public class Server {
 
+    /**
+        * Логгер для сервера
+     */
     public static final Logger logger = Logger.getLogger(Server.class.getName());
     static { initLogger();}
     private static void initLogger() {
@@ -68,7 +74,7 @@ public class Server {
 
 
 
-    private static final int PORT = 13876;
+    private static final int PORT = 15719;
     private static CommandManager commandManager;
     private static ServerConnectionManager networkManager;
     private static Selector selector;
@@ -89,18 +95,19 @@ public class Server {
         logger.info("The collection file has been successfully loaded!");
         // Регистрация команд
         commandManager = new CommandManager() {{
-            register("help", new Help(this));
-            register("show", new Show(CollectionManager.getInstance()));
-            register("info", new Info(CollectionManager.getInstance()));
-            register("averageOfManufactureCost", new AverageOfManufactureCost(CollectionManager.getInstance()));
-            register("minByName", new MinByName(CollectionManager.getInstance()));
-            register("clear", new Clear(CollectionManager.getInstance()));
-            register("printFieldAscendingPartNumber", new PrintFieldAscendingPartNumber(CollectionManager.getInstance()));
-            register("removeGreaterKey", new RemoveGreaterKey(CollectionManager.getInstance()));
-            register("Save", new Save(CollectionManager.getInstance()));
-            register("add", new Add(CollectionManager.getInstance()));
-            register("removeById", new RemoveById(CollectionManager.getInstance()));
-            register("removeGreater", new RemoveGreater(CollectionManager.getInstance()));
+            register("help", new TimedExecutable(new Help(this)));
+            register("show",  new TimedExecutable(new Show(CollectionManager.getInstance())));
+            register("info",  new TimedExecutable(new Info(CollectionManager.getInstance())));
+            register("averageOfManufactureCost",  new TimedExecutable(new AverageOfManufactureCost(CollectionManager.getInstance())));
+            register("minByName", new TimedExecutable( new MinByName(CollectionManager.getInstance())));
+            register("clear", new TimedExecutable( new Clear(CollectionManager.getInstance())));
+            register("printFieldAscendingPartNumber",  new TimedExecutable(new PrintFieldAscendingPartNumber(CollectionManager.getInstance())));
+            register("removeGreaterKey",  new TimedExecutable(new RemoveGreaterKey(CollectionManager.getInstance())));
+            register("add",  new TimedExecutable(new Add(CollectionManager.getInstance())));
+            register("removeById",  new TimedExecutable(new RemoveById(CollectionManager.getInstance())));
+            register("removeGreater",  new TimedExecutable(new RemoveGreater(CollectionManager.getInstance())));
+            register("executeScript", new VoidCommand("execute_script", "исполнить скрипт из файла", this));
+            register("exit", new VoidCommand("exit", "завершить программу", this));
         }};
         Runner runner = new Runner(commandManager);
 
@@ -119,6 +126,10 @@ public class Server {
         run(runner);
     }
 
+    /**
+        * Метод run - запускает сервер и обрабатывает входящие соединения.
+        * @param runner - объект Runner, который отвечает за выполнение команд.
+     */
     public static void run(Runner runner) {
         try {
             // Создание селектора для обработки нескольких каналов
@@ -215,7 +226,11 @@ public class Server {
         }
     }
 
-
+    /**
+        * Метод InitialCommandsData - отправляет клиенту список доступных команд.
+        * @param clientChannel - канал клиента, которому отправляется список команд.
+        * @param key - ключ селектора для регистрации канала.
+     */
     private static void InitialCommandsData(SocketChannel clientChannel, SelectionKey key) throws ClosedChannelException {
         try {
             Map<String, Pair<ArgumentValidator, Boolean>> commandsData = new HashMap<>();

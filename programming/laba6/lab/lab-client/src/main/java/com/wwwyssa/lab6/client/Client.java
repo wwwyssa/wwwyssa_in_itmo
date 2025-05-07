@@ -19,15 +19,18 @@ import com.wwwyssa.lab6.common.validators.NoArgumentsValidator;
 import java.io.*;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-//Вариант 88347
+
+/**
+* Клиентский класс для подключения к серверу и отправки запросов.
+* Обрабатывает ввод пользователя, проверку команд и сетевое взаимодействие.
+*/
 public final class Client {
     private static final Console console = new DefaultConsole();
-    private static final int SERVER_PORT = 13876;
+    private static final int SERVER_PORT = 15719;
     private static final String SERVER_HOST = "localhost";
     private static Map<String, Pair<ArgumentValidator, Boolean>> commandsData;
     private static final ConnectionManager networkManager = new ConnectionManager(SERVER_PORT, SERVER_HOST);
@@ -35,18 +38,15 @@ public final class Client {
     private static int attempts = 1;
 
     public static void main(String[] args) {
-
         do {
             try {
                 networkManager.connect();
                 commandsData = networkManager.receive().getCommandsMap();
-                commandsData.put("execute_script", new Pair<>(new NoArgumentsValidator(), false));
                 attempts = 1;
                 console.println("Connected to " + SERVER_HOST + ":" + SERVER_PORT);
                 while (true) {
                     console.println("Введите команду:");
                     String inputCommand = console.input();
-                    System.out.println("inputCommand = " + inputCommand);
                     ExecutionResponse argumentStatus = validateCommand((inputCommand.trim() + " ").split(" ", 2));
                     if (!argumentStatus.getExitCode()) {
                         console.printError(argumentStatus.getAnswer().getAnswer().toString());
@@ -60,10 +60,8 @@ public final class Client {
                         networkManager.send(request);
                         Response response = networkManager.receive();
                         if (response.getExecutionStatus().getExitCode()) {
-                            if (response.getExecutionStatus().getAnswer() == null) {
-                                //response.getExecutionStatus().getAnswer().forEach(item -> console.println(item.toString()));
-                            }
-                            else {
+                            if (response.getExecutionStatus().getAnswer() != null) {
+
                                 if (response.getExecutionStatus().getAnswer().getClass() == ListAnswer.class){
                                     console.println(response.getExecutionStatus().getAnswer().getAnswer());
                                 } else{
@@ -77,7 +75,7 @@ public final class Client {
                     }
                 }
             } catch (BufferOverflowException | BufferUnderflowException | IOException e) {
-                console.printError("Не удалось подключиться к серверу. Проверьте, запущен ли сервер и доступен ли он по адресу " + SERVER_HOST + ":" + SERVER_PORT);
+                console.printError("Не удалось подключиться к серверу. Проверьте, запущен ли сервер и доступен ли он по адресу " + SERVER_HOST + ":" + SERVER_PORT + " попытка " + attempts);
                 try {
                     Thread.sleep(2000);
                     attempts++;
@@ -89,9 +87,18 @@ public final class Client {
         console.printError("Превышено максимальное количество попыток подключения к серверу.");
     }
 
+
+    /**
+     * Запрашивает у пользователя ввод элемента коллекции.
+     * Если ввод не прошёл валидацию, выводит сообщение об ошибке.
+     *
+     * @param console       Объект консоли для взаимодействия с пользователем.
+     * @param inputCommand  Введённая пользователем команда.
+     * @return Объект Request, содержащий команду и её аргументы.
+     */
     private static Request askingRequest(Console console, String inputCommand) {
         ElementValidator elementValidator = new ElementValidator();
-        Pair<ExecutionResponse, Product> validationStatusPair = elementValidator.validateAsking(console, Math.abs(new Random().nextLong()) + 1); //На клиенте вводится id=1L, на сервере он меняется на корректный
+        Pair<ExecutionResponse, Product> validationStatusPair = elementValidator.validateAsking(console, Math.abs(new Random().nextLong()) + 1);
         if (!validationStatusPair.getFirst().getExitCode()) {
             console.printError(validationStatusPair.getFirst().getAnswer());
             return null;
@@ -99,6 +106,7 @@ public final class Client {
             return new Request(inputCommand, validationStatusPair.getSecond());
         }
     }
+
 
     private static ExecutionResponse validateCommand(String[] userCommand) {
         try {
@@ -127,6 +135,15 @@ public final class Client {
         }
     }
 
+
+    /**
+     * Подготавливает запрос на основе введённой пользователем команды.
+     * Если команда требует дополнительного ввода, запрашивает его у пользователя.
+     *
+     * @param console       Объект консоли для взаимодействия с пользователем.
+     * @param inputCommand  Введённая пользователем команда.
+     * @return Объект Request, содержащий команду и её аргументы.
+     */
     private static Request prepareRequest(Console console, String inputCommand) {
         String[] commands = (inputCommand.trim() + " ").split(" ", 2);
         if (commandsData.get(commands[0]).getSecond()) {
@@ -143,6 +160,12 @@ public final class Client {
         }
     }
 
+    /**
+     * Выполняет файл скрипта и обрабатывает его команды.
+     *
+     * @param fileName Имя файла скрипта для выполнения.
+     * @return ExecutionResponse, указывающий на успех или неудачу выполнения скрипта.
+     */
     private static ExecutionResponse runScript(String fileName) {
         try {
             scriptStackCounter++;

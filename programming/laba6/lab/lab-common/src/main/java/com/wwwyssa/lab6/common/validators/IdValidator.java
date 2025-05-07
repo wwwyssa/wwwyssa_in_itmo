@@ -22,7 +22,7 @@ public class IdValidator extends ArgumentValidator implements Serializable {
     @Override
     public ExecutionResponse validate(String arg, String name) {
         if (arg.isEmpty()) {
-            return new ExecutionResponse(false, new AnswerString("У команды должен быть аргумент (id элемента коллекции)!\nПример корректного ввода: " + name));
+            return new ExecutionResponse(false, new AnswerString("У команды должен быть аргумент (id элемента коллекции)!\nПример корректного ввода: " + name + "{id}"));
         }
         try {
             Long id = Long.parseLong(arg);

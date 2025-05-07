@@ -9,6 +9,10 @@ import java.util.Scanner;
 import com.wwwyssa.lab6.common.models.*;
 import java.time.LocalDateTime;
 
+
+/**
+ * Класс для считывания данных из XML-файла и создания объектов Product.
+ */
 public class ProductXMLScaner {
     LinkedHashMap<Integer, Product> Products;
     File file;
@@ -16,6 +20,12 @@ public class ProductXMLScaner {
     String curentTag;
     boolean flag;
 
+    /**
+     * Конструктор класса ProductXMLScaner.
+     *
+     * @param file файл, из которого будут считываться данные
+     * @throws FileNotFoundException если файл не найден
+     */
     public ProductXMLScaner(File file) throws FileNotFoundException {
         this.file = file;
         this.Products = new LinkedHashMap<Integer, Product>();
@@ -27,6 +37,12 @@ public class ProductXMLScaner {
         }
     }
 
+
+    /**
+     * Метод для считывания данных из XML-файла и создания объектов Product.
+     *
+     * @return LinkedHashMap с объектами Product
+     */
     public LinkedHashMap<Integer, Product> readData() {
         scipUselessLine(1);
         while (scan.hasNextLine()) {
@@ -63,12 +79,22 @@ public class ProductXMLScaner {
         return Products;
     }
 
+    /**
+     * Метод для считывания лишних строк из файла.
+     *
+     * @param n количество строк, которые нужно пропустить
+     */
     public void scipUselessLine(int n){
         for (int i = 0; i < n; i++){
             scan.nextLine();
         }
     }
 
+    /**
+     * Метод для считывания данных об организации.
+     *
+     * @return объект Organization
+     */
 
     public Organization scanOrganization(){
         scipUselessLine(1);
@@ -80,6 +106,11 @@ public class ProductXMLScaner {
         return new Organization(orgName, employeesCount, orgType, orgAddress);
     }
 
+    /**
+     * Метод для считывания данных об адресе.
+     *
+     * @return объект Address
+     */
     public Address scanAddress(){
         scipUselessLine(1);
         String street = getStrBetweenTags(scan.nextLine());
@@ -88,6 +119,11 @@ public class ProductXMLScaner {
         return new Address(street, town);
     }
 
+    /**
+     * Метод для считывания данных о местоположении.
+     *
+     * @return объект Location
+     */
 
     public Location scanLocation(){
         scipUselessLine(1);
@@ -99,6 +135,11 @@ public class ProductXMLScaner {
         return location;
     }
 
+    /**
+     * Метод для считывания данных о координатах.
+     *
+     * @return объект Coordinates
+     */
     public Coordinates scanCoordinates(){
         scipUselessLine(1);
         Coordinates curCoor = new Coordinates();
@@ -108,6 +149,12 @@ public class ProductXMLScaner {
         return new Coordinates(x, y);
     }
 
+    /**
+     * Метод для извлечения строки между тегами.
+     *
+     * @param line строка, из которой нужно извлечь содержимое
+     * @return содержимое между тегами
+     */
 
     public String getStrBetweenTags(String line) {
         int start = line.indexOf('>');  // Находим первую '>'

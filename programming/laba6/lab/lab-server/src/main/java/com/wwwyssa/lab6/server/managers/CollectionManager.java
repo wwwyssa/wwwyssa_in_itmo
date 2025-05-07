@@ -5,186 +5,185 @@ import com.wwwyssa.lab6.common.util.executions.AnswerString;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
 
 import java.time.LocalDateTime;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Класс для управления коллекцией продуктов.
+ * Class for managing the collection of products.
  */
 public class CollectionManager {
     private static long currentId = 1;
     private final DumpManager dumpManager = DumpManager.getInstance();
-    private Map<Integer, Product> collection = new LinkedHashMap<>();
+    private final CollectionStorage collectionStorage = new CollectionStorage();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
     private static volatile CollectionManager instance;
 
     /**
-     * Конструктор для создания объекта CollectionManager.
+     * Private constructor for singleton pattern.
      */
-    public CollectionManager() {
+    private CollectionManager() {
         this.lastInitTime = null;
         this.lastSaveTime = null;
-        this.collection = dumpManager.readMap();
+        collectionStorage.getCollection().putAll(dumpManager.readMap());
     }
 
-
     /**
-     * Возвращает единственный экземпляр CollectionManager.
-     * @return Экземпляр CollectionManager.
+     * Returns the singleton instance of CollectionManager.
+     * @return The instance of CollectionManager.
      */
     public static CollectionManager getInstance() {
         if (instance == null) {
-            synchronized (CollectionManager.class) {
-                if (instance == null) {
-                    instance = new CollectionManager();
-                }
-            }
+            instance = new CollectionManager();
         }
         return instance;
     }
 
     /**
-     * Генерирует новый уникальный идентификатор.
-     * @return новый уникальный идентификатор
+     * Generates a new unique ID.
+     * @return A new unique ID.
      */
     public static long generateId() {
         return currentId++;
     }
 
     /**
-     * Очищает коллекцию.
+     * Clears the collection.
      */
     public void clear() {
-        collection.clear();
+        collectionStorage.clear();
     }
 
     /**
-     * Возвращает коллекцию продуктов.
-     * @return коллекция продуктов
+     * Returns the collection of products.
+     * @return The collection of products.
      */
     public Map<Integer, Product> getCollection() {
-        return collection;
+        return collectionStorage.getCollection();
     }
 
     /**
-     * Возвращает продукт по его идентификатору.
-     * @param id идентификатор продукта
-     * @return продукт с заданным идентификатором
+     * Retrieves a product by its ID.
+     * @param id The ID of the product.
+     * @return The product with the given ID.
      */
     public Product getById(long id) {
-        return collection.get((int) id);
+        return collectionStorage.readProduct(id);
     }
 
     /**
-     * Проверяет, содержится ли продукт в коллекции.
-     * @param product продукт для проверки
-     * @return true, если продукт содержится в коллекции, иначе false
+     * Checks if a product exists in the collection.
+     * @param product The product to check.
+     * @return true if the product exists, false otherwise.
      */
     public boolean contains(Product product) {
-        return collection.containsValue(product);
+        return collectionStorage.contains(product);
     }
 
     /**
-     * Возвращает свободный идентификатор.
-     * @return свободный идентификатор
+     * Returns a free ID for a new product.
+     * @return A free ID.
      */
     public long getFreeId() {
-        while (collection.containsKey((int) currentId)) {
+        while (collectionStorage.getCollection().containsKey((int) currentId)) {
             currentId++;
         }
         return currentId;
     }
 
     /**
-     * Добавляет продукт в коллекцию.
-     * @param product продукт для добавления
-     * @return true, если продукт успешно добавлен, иначе false
+     * Adds a product to the collection.
+     * @param product The product to add.
+     * @return true if the product was added successfully, false otherwise.
      */
     public boolean addProduct(Product product) {
-        if (contains(product)) {
-            return false;
-        }
-        collection.put((int) product.getId(), product);
-        return true;
+        return collectionStorage.createProduct(product);
     }
 
+    /**
+     * Adds a product with a specific key to the collection.
+     * @param key The key for the product.
+     * @param product The product to add.
+     * @return true if the product was added successfully.
+     */
     public boolean addProductWithKey(int key, Product product) {
-        collection.put(key, product);
+        collectionStorage.getCollection().put(key, product);
         return true;
     }
 
-
     /**
-     * Обновляет продукт в коллекции.
-     * @param product продукт для обновления
+     * Updates a product in the collection.
+     * @param id The ID of the product to update.
+     * @param updatedProduct The updated product.
+     * @return true if the product was updated successfully, false otherwise.
      */
-    public void updateProduct(Product product) {
-        collection.put((int) product.getId(), product);
+    public boolean updateProduct(long id, Product updatedProduct) {
+        return collectionStorage.updateProduct(id, updatedProduct);
     }
 
     /**
-     * Удаляет продукт из коллекции.
-     * @param id id продукта для удаления
+     * Removes a product from the collection.
+     * @param id The ID of the product to remove.
+     * @return true if the product was removed successfully, false otherwise.
      */
-    public void removeProduct(long id) {
-        collection.remove((int) id);
+    public boolean removeProduct(long id) {
+        return collectionStorage.deleteProduct(id);
     }
 
     /**
-     * Загружает коллекцию из дампа данных.
+     * Loads the collection from the dump.
+     * @return The status of the load operation.
      */
     public ExecutionResponse loadCollection() {
-        collection = dumpManager.readMap();
+        collectionStorage.getCollection().putAll(dumpManager.readMap());
         lastInitTime = LocalDateTime.now();
         return new ExecutionResponse(new AnswerString("OK"));
     }
 
     /**
-     * Сохраняет коллекцию в дамп данных.
+     * Saves the collection to the dump.
      */
     public void saveCollection() {
-        if (!collection.isEmpty()){
-            dumpManager.writeMap(collection);
+        if (!collectionStorage.getCollection().isEmpty()) {
+            dumpManager.writeMap(collectionStorage.getCollection());
             lastSaveTime = LocalDateTime.now();
         }
     }
 
     /**
-     * Возвращает время последней инициализации коллекции.
-     * @return время последней инициализации
+     * Returns the time of the last initialization.
+     * @return The time of the last initialization.
      */
     public LocalDateTime getLastInitTime() {
         return lastInitTime;
     }
 
     /**
-     * Возвращает время последнего сохранения коллекции.
-     * @return время последнего сохранения
+     * Returns the time of the last save.
+     * @return The time of the last save.
      */
     public LocalDateTime getLastSaveTime() {
         return lastSaveTime;
     }
 
     /**
-     * Возвращает количество элементов в коллекции.
-     * @return количество элементов
+     * Returns the type of the collection.
+     * @return The type of the collection.
      */
     public String collectionType() {
-        return collection.getClass().getName();
+        return collectionStorage.getCollection().getClass().getName();
     }
 
-
     /**
-     * Возвращает количество элементов в коллекции.
-     * @return количество элементов
+     * Returns the size of the collection.
+     * @return The size of the collection.
      */
     public int collectionSize() {
-        return collection.size();
+        return collectionStorage.getCollection().size();
     }
 
     @Override
     public String toString() {
+        Map<Integer, Product> collection = collectionStorage.getCollection();
         if (collection.isEmpty()) return "Коллекция пуста!";
         StringBuilder info = new StringBuilder();
         for (int id : collection.keySet()) {
@@ -192,7 +191,5 @@ public class CollectionManager {
         }
         return info.toString().trim();
     }
-
-
 
 }

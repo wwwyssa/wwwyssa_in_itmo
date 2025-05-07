@@ -5,6 +5,7 @@ import com.wwwyssa.lab6.common.util.executions.AnswerString;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
 import com.wwwyssa.lab6.common.util.ValidAnswer;
 import com.wwwyssa.lab6.server.managers.CommandManager;
+import com.wwwyssa.lab6.server.util.Executable;
 
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class Help extends Command<NoArgumentsValidator>  {
      */
     public ExecutionResponse innerExecute(String arguments) {
         String result = "";
-        for (Map.Entry<String, Command> entry : commandManager.getCommands().entrySet()) {
+        for (Map.Entry<String, Executable> entry : commandManager.getCommands().entrySet()) {
             result += entry.getKey() + " -> " + entry.getValue() + "\n";
         }
         return new ExecutionResponse<>(new AnswerString(result));

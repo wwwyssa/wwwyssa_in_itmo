@@ -13,6 +13,7 @@ import com.wwwyssa.lab6.server.managers.CommandManager;
 import com.wwwyssa.lab6.common.util.executions.AnswerString;
 import com.wwwyssa.lab6.common.util.executions.ExecutionResponse;
 import com.wwwyssa.lab6.server.util.AskingCommand;
+import com.wwwyssa.lab6.server.util.Executable;
 
 /**
  * Класс для запуска команд в интерактивном режиме и режиме скрипта.
@@ -32,7 +33,8 @@ public class Runner {
 
     private ExecutionResponse validateCommand(String[] userCommand) {
         try {
-            Command<?> command = commandManager.getCommands().get(userCommand[0]);
+            System.out.println(userCommand[0]);
+            Executable command = commandManager.getCommands().get(userCommand[0]);
             if (command == null) {
                 return new ExecutionResponse(false, new AnswerString("Команда '" + userCommand[0] + "' не найдена! Для показа списка команд введите 'help'."));
             } else {
@@ -54,7 +56,7 @@ public class Runner {
     public ExecutionResponse launchCommand(String[] userCommand, Product product) {
         ExecutionResponse<?> validateStatus = validateCommand(userCommand);
         if (validateStatus.getExitCode()) {
-            Command<?> command = commandManager.getCommands().get(userCommand[0]);
+            Executable command = commandManager.getCommands().get(userCommand[0]);
             Server.logger.info("Выполнение команды '" + userCommand[0] + "'");
             if (AskingCommand.class.isAssignableFrom(command.getClass())) {
                 return ((AskingCommand<?>) command).execute(userCommand[1], product);

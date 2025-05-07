@@ -12,7 +12,7 @@ import com.wwwyssa.lab6.common.util.ValidAnswer;
 /**
  * Абстрактный класс, представляющий команду.
  */
-public abstract class Command<T extends ArgumentValidator> {
+public abstract class Command<T extends ArgumentValidator> implements Executable{
     private final String name;
     private final String description;
     private final int expectedNumberOfArguments;
@@ -100,8 +100,10 @@ public abstract class Command<T extends ArgumentValidator> {
 
 
     public ExecutionResponse execute(String arg) {
+        //start timer
         ExecutionResponse argumentStatus = argumentValidator.validate(arg, getName());
         if (argumentStatus.getExitCode()) {
+            //stop time
             return innerExecute(arg);
         } else {
             return argumentStatus;

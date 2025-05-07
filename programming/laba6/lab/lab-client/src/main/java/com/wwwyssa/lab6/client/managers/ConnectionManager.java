@@ -15,27 +15,55 @@ import java.io.ByteArrayOutputStream;
 import java.io.ByteArrayInputStream;
 import java.nio.channels.SocketChannel;
 
+
+/**
+ * Класс для управления соединением с сервером.
+ */
 public class ConnectionManager {
     private final int PORT;
     private final String SERVER_HOST;
     private SocketChannel channel;
 
+
+    /**
+     * Конструктор класса ConnectionManager.
+     *
+     * @param port Порт для подключения к серверу.
+     * @param host Хост для подключения к серверу.
+     */
     public ConnectionManager(int port, String host) {
         this.PORT = port;
         this.SERVER_HOST = host;
     }
 
 
+    /**
+     * Метод для подключения к серверу.
+     *
+     * @throws IOException Если произошла ошибка ввода-вывода.
+     */
     public void connect() throws IOException {
         channel = SocketChannel.open();
         channel.connect(new InetSocketAddress(InetAddress.getByName(SERVER_HOST), PORT));
     }
 
+
+    /**
+     * Метод для отключения от сервера.
+     *
+     * @throws IOException Если произошла ошибка ввода-вывода.
+     */
     public void close() throws IOException {
         if (channel != null) {
             channel.close();
         }
     }
+
+    /**
+     * Метод для проверки, подключен ли клиент к серверу.
+     *
+     * @return true, если клиент подключен к серверу, иначе false.
+     */
     public void send(Request request) throws IOException, ClassNotFoundException {
         try(ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             ObjectOutputStream out = new ObjectOutputStream(bytes)) {
@@ -46,6 +74,15 @@ public class ConnectionManager {
             out.flush();
         }
     }
+
+    /**
+     * Метод для получения ответа от сервера.
+     *
+     * @return Ответ от сервера.
+     * @throws IOException Если произошла ошибка ввода-вывода.
+     * @throws ClassNotFoundException Если произошла ошибка при десериализации объекта.
+     * @throws BufferUnderflowException Если произошла ошибка при чтении из буфера.
+     */
     public Response receive() throws IOException, ClassNotFoundException, BufferUnderflowException {
         ByteBuffer dataToReceiveLength = ByteBuffer.allocate(8);
         channel.read(dataToReceiveLength); // читаем длину ответа от сервера

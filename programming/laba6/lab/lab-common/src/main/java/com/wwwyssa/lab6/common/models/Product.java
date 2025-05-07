@@ -212,14 +212,14 @@ public class Product implements Comparable<Product>, Validatable, Serializable {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinates=" + coordinates +
-                ", creationDate=" + creationDate +
-                ", price=" + price +
-                ", partNumber='" + partNumber + '\'' +
-                ", manufactureCost=" + manufactureCost +
-                ", unitOfMeasure=" + unitOfMeasure +
-                ", manufacturer=" + manufacturer +
+                "\nname='" + name + '\'' +
+                "\ncoordinates=" + coordinates +
+                "\ncreationDate=" + creationDate +
+                "\nprice=" + price +
+                "\npartNumber='" + partNumber + '\'' +
+                "\nmanufactureCost=" + manufactureCost +
+                "\nunitOfMeasure=" + unitOfMeasure +
+                "\nmanufacturer=" + manufacturer +
                 '}';
     }
 

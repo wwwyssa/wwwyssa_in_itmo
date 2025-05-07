@@ -28,11 +28,8 @@ public class DumpManager {
     public static DumpManager getInstance() {
         if (instance == null) {
             Server.logger.info("DumpManager instance created");
-
-            instance = new DumpManager("E:\\wwwyssa_in_itmo\\programming\\laba6\\lab\\1.xml");
-
-
-
+            instance = new DumpManager("1.xml");
+            // /home/studs/s466650/prog/laba6/1.xml
         }
         return instance;
     }

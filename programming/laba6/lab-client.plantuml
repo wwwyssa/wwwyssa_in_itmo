@@ -1,0 +1,80 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Asker {
+  + Asker(): 
+  + readCoordinates(Console): Coordinates
+  + readManufactureCost(Console): int
+  + readOrganization(Console): Organization
+  + readLocation(Console): Location
+  + readProduct(Console, long): Product
+  + readUnitOfMeasure(Console): UnitOfMeasure
+  + readPrice(Console): int
+  + readPartNumber(Console): String
+  + readAddress(Console): Address
+}
+class Client {
+  + Client(): 
+  - networkManager: ConnectionManager
+  - attempts: int
+  - SERVER_PORT: int
+  - commandsData: Map<String, Pair<ArgumentValidator, Boolean>>
+  - console: Console
+  - SERVER_HOST: String
+  - scriptStackCounter: int
+  - validateCommand(String[]): ExecutionResponse
+  - runScript(String): ExecutionResponse
+  + main(String[]): void
+  - prepareRequest(Console, String): Request
+  - askingRequest(Console, String): Request
+}
+class ConnectionManager {
+  + ConnectionManager(int, String): 
+  - channel: SocketChannel
+  - PORT: int
+  - SERVER_HOST: String
+  + receive(): Response
+  + connect(): void
+  + close(): void
+  + send(Request): void
+}
+interface Console << interface >> {
+  + print(Object): void
+  + input(): String
+  + printError(Object): void
+  + println(Object): void
+}
+class DefaultConsole {
+  + DefaultConsole(): 
+  - scanner: Scanner
+  - fileScanner: Scanner
+  - defScanner: Scanner
+  + nextLine(): void
+  + isCanReadln(): boolean
+  + printError(Object): void
+  + hasNextLine(): boolean
+  + print(Object): void
+  + input(): String
+  + println(Object): void
+}
+class ElementValidator {
+  + ElementValidator(): 
+  + validateAsking(Console, long): Pair<ExecutionResponse, Product>
+  + validating(Product): Pair<ExecutionResponse, Product>
+}
+class FileConsole {
+  + FileConsole(File): 
+  - scanner: Scanner
+  + input(): String
+  + print(Object): void
+  + println(Object): void
+  + printError(Object): void
+  + skipLines(int): void
+}
+
+DefaultConsole     -[#008200,dashed]-^  Console           
+FileConsole        -[#008200,dashed]-^  Console           
+@enduml

@@ -1,0 +1,203 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Add {
+  + Add(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(Product): ExecutionResponse
+}
+class AskingCommand<T> {
+  + AskingCommand(String, String, T): 
+  + execute(String, Product): ExecutionResponse
+  + innerExecute(String): ExecutionResponse
+  + execute(String): ExecutionResponse
+  # innerExecute(Product): ExecutionResponse
+}
+class AverageOfManufactureCost {
+  + AverageOfManufactureCost(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class Clear {
+  + Clear(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class CollectionManager {
+  + CollectionManager(): 
+  - instance: CollectionManager
+  - dumpManager: DumpManager
+  - lastInitTime: LocalDateTime
+  - collection: Map<Integer, Product>
+  - lastSaveTime: LocalDateTime
+  - currentId: long
+  + getFreeId(): long
+  + addProductWithKey(int, Product): boolean
+  + addProduct(Product): boolean
+  + loadCollection(): ExecutionResponse
+  + toString(): String
+  + getById(long): Product
+  + getLastInitTime(): LocalDateTime
+  + getCollection(): Map<Integer, Product>
+  + getInstance(): CollectionManager
+  + getLastSaveTime(): LocalDateTime
+  + collectionType(): String
+  + contains(Product): boolean
+  + collectionSize(): int
+  + removeProduct(long): void
+  + generateId(): long
+  + clear(): void
+  + saveCollection(): void
+  + updateProduct(Product): void
+}
+class Command<T> {
+  + Command(String, String, int, T): 
+  # collectionManager: CollectionManager
+  + argumentValidator: T
+  - description: String
+  - expectedNumberOfArguments: int
+  - name: String
+  + validate(String[]): ExecutionResponse<ValidAnswer<String>>
+  + getName(): String
+  + innerExecute(String): ExecutionResponse
+  + equals(Object): boolean
+  + hashCode(): int
+  + toString(): String
+  + getArgumentValidator(): ArgumentValidator
+  + execute(String): ExecutionResponse
+  + getDescription(): String
+}
+class CommandManager {
+  + CommandManager(): 
+  - commands: LinkedHashMap<String, Command>
+  - commandHistory: ArrayList<String>
+  + getCommands(): LinkedHashMap<String, Command>
+  + register(String, Command): void
+  + addToHistory(String): void
+}
+class DictToXmlConverter {
+  + DictToXmlConverter(): 
+  - objectToXml(Product): String
+  + dictToXml(LinkedHashMap<Integer, Product>, String): String
+}
+class DumpManager {
+  + DumpManager(String): 
+  - instance: DumpManager
+  - fileName: String
+  + readMap(): LinkedHashMap<Integer, Product>
+  + getInstance(): DumpManager
+  + writeMap(Map<Integer, Product>): ExecutionResponse
+}
+interface Executable << interface >> {
+  + execute(String[]): ExecutionResponse
+}
+class Help {
+  + Help(CommandManager): 
+  - commandManager: CommandManager
+  + innerExecute(String): ExecutionResponse
+}
+class Info {
+  + Info(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class MinByName {
+  + MinByName(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class PrintFieldAscendingPartNumber {
+  + PrintFieldAscendingPartNumber(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class ProductXMLScaner {
+  + ProductXMLScaner(File): 
+  ~ file: File
+  ~ Products: LinkedHashMap<Integer, Product>
+  ~ curentTag: String
+  ~ scan: Scanner
+  ~ flag: boolean
+  + scanOrganization(): Organization
+  + scipUselessLine(int): void
+  + scanLocation(): Location
+  + scanCoordinates(): Coordinates
+  + getStrBetweenTags(String): String
+  + readData(): LinkedHashMap<Integer, Product>
+  + scanAddress(): Address
+}
+class RemoveById {
+  + RemoveById(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class RemoveGreater {
+  + RemoveGreater(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(Product): ExecutionResponse
+}
+class RemoveGreaterKey {
+  + RemoveGreaterKey(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class Runner {
+  + Runner(CommandManager): 
+  - commandManager: CommandManager
+  - scriptStack: List<String>
+  + launchCommand(String[], Product): ExecutionResponse
+  - validateCommand(String[]): ExecutionResponse
+}
+class Save {
+  + Save(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+class Server {
+  + Server(): 
+  - selector: Selector
+  - commandManager: CommandManager
+  - response: Response
+  - networkManager: ServerConnectionManager
+  - PORT: int
+  - collectionManager: CollectionManager
+  - isRunning: boolean
+  + logger: Logger
+  + main(String[]): void
+  - InitialCommandsData(SocketChannel, SelectionKey): void
+  - initLogger(): void
+  + run(Runner): void
+}
+class ServerConnectionManager {
+  + ServerConnectionManager(int): 
+  - serverChannel: ServerSocketChannel
+  - PORT: int
+  + receive(SocketChannel, SelectionKey): Request
+  + send(Response, SocketChannel): void
+  + getServerSocketChannel(): ServerSocketChannel
+  + startServer(): void
+  + close(): void
+}
+class Show {
+  + Show(CollectionManager): 
+  - collectionManager: CollectionManager
+  + innerExecute(String): ExecutionResponse
+}
+
+Add                            -[#000082,plain]-^  AskingCommand                 
+AskingCommand                  -[#000082,plain]-^  Command                       
+AverageOfManufactureCost       -[#000082,plain]-^  Command                       
+Clear                          -[#000082,plain]-^  Command                       
+Help                           -[#000082,plain]-^  Command                       
+Info                           -[#000082,plain]-^  Command                       
+MinByName                      -[#000082,plain]-^  Command                       
+PrintFieldAscendingPartNumber  -[#000082,plain]-^  Command                       
+RemoveById                     -[#000082,plain]-^  Command                       
+RemoveGreater                  -[#000082,plain]-^  AskingCommand                 
+RemoveGreaterKey               -[#000082,plain]-^  Command                       
+Save                           -[#000082,plain]-^  Command                       
+Show                           -[#000082,plain]-^  Command                       
+@enduml
