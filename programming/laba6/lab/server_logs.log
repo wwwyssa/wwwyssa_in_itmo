@@ -5371,3 +5371,113 @@ INFO: Stop packet sent
 
 мая 07, 2025 5:13:55 PM com.wwwyssa.lab6.server.Server run
 INFO: Response sent to client: /127.0.0.1:55547
+мая 13, 2025 2:29:25 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 13, 2025 2:29:25 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 13, 2025 2:29:25 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 13, 2025 2:29:25 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:15719], selector=sun.nio.ch.WEPollSelectorImpl@79b4d0f, interestOps=16, readyOps=16
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.Server run
+INFO: Client connected: /127.0.0.1:6233
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 887
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 119
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+мая 13, 2025 2:29:32 PM com.wwwyssa.lab6.server.Server InitialCommandsData
+INFO: Command list sent to the client: /127.0.0.1:6233
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:15719 remote=/127.0.0.1:6233], selector=sun.nio.ch.WEPollSelectorImpl@79b4d0f, interestOps=1, readyOps=1
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: 148 bytes received from client
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager receive
+INFO: Request received from client
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Request received from client: Request{string='show', product=null}
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.Runner launchCommand
+INFO: Выполнение команды 'show'
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Command executed successfully
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.Server run
+INFO: Processing key: channel=java.nio.channels.SocketChannel[connected local=/127.0.0.1:15719 remote=/127.0.0.1:6233], selector=sun.nio.ch.WEPollSelectorImpl@79b4d0f, interestOps=4, readyOps=4
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet with message length sent: 754
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+мая 13, 2025 2:29:33 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Packet of bytes sent with length: 256
+мая 13, 2025 2:29:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Last packet of bytes sent with length: 242
+мая 13, 2025 2:29:34 PM com.wwwyssa.lab6.server.managers.ServerConnectionManager send
+INFO: Stop packet sent
+
+мая 13, 2025 2:29:34 PM com.wwwyssa.lab6.server.Server run
+INFO: Response sent to client: /127.0.0.1:6233
+мая 19, 2025 2:32:13 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:32:13 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:32:13 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:32:13 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:35:08 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:35:08 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:35:08 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:35:08 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:37:01 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:37:01 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:37:01 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:37:01 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:37:29 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:37:29 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:37:30 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:37:30 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:38:06 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:38:06 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:38:06 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:38:06 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:39:17 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:39:17 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:39:17 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:39:17 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
+мая 19, 2025 2:39:43 PM com.wwwyssa.lab6.server.managers.DumpManager getInstance
+INFO: DumpManager instance created
+мая 19, 2025 2:39:43 PM com.wwwyssa.lab6.server.Server main
+INFO: The collection file has been successfully loaded!
+мая 19, 2025 2:39:43 PM com.wwwyssa.lab6.server.Server run
+INFO: Selector started
+мая 19, 2025 2:39:43 PM com.wwwyssa.lab6.server.Server run
+INFO: To stop the server, press [Ctrl + C]
