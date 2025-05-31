@@ -4,6 +4,7 @@ import com.wwwyssa.lab7.common.util.User;
 import com.wwwyssa.lab7.common.util.executions.AnswerString;
 import com.wwwyssa.lab7.common.util.executions.ExecutionResponse;
 import com.wwwyssa.lab7.common.validators.NoArgumentsValidator;
+import com.wwwyssa.lab7.server.Server;
 import com.wwwyssa.lab7.server.managers.CollectionManager;
 
 
@@ -27,13 +28,7 @@ public class Clear extends Command<NoArgumentsValidator> {
      */
     @Override
     public ExecutionResponse innerExecute(String arguments, User user) {
-        int i = 0;
-        while (collectionManager.getCollection().size() > 0) {
-            if (collectionManager.getCollection().containsKey(i)){
-                collectionManager.removeProduct(i, user);
-            }
-            i++;
-        }
+        collectionManager.clear(user);
         return new ExecutionResponse(new AnswerString("Коллекция очищена!"));
     }
 }

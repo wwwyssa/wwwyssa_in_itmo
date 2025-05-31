@@ -100,8 +100,9 @@ public class CollectionManager {
     /**
      * Clears the collection.
      */
-    public void clear() {
+    public void clear(User user) {
         collection.clear();
+        persistenceManager.clear(user);
     }
 
     /**
@@ -158,26 +159,17 @@ public class CollectionManager {
      */
     public ExecutionResponse addProduct(Product product, User user) {
         Server.logger.info("Добавление продукта в коллекцию..." + user.getName());
-        try {
-
-            if ((product != null) && product.isValid()) {
-                ExecutionResponse addStatus = persistenceManager.add(user, product);
-                if (addStatus.getExitCode()) {
-                    product.setId(Long.parseLong((String) addStatus.getAnswer().getAnswer()));
-                    lastSaveTime = LocalDateTime.now();
-                    collection.put(product.getId(), product);
-                    return new ExecutionResponse<>(true, new AnswerString("Элемент успешно добавлен в коллекцию! Присвоенный id = " + addStatus.getAnswer()));
-                }
-                return new ExecutionResponse<>(false, new AnswerString( "Произошла ошибка при добавлении коллекции в базу данных!"));
+        if ((product != null) && product.isValid()) {
+            ExecutionResponse addStatus = persistenceManager.add(user, product);
+            if (addStatus.getExitCode()) {
+                product.setId(Long.parseLong((String) addStatus.getAnswer().getAnswer()));
+                lastSaveTime = LocalDateTime.now();
+                collection.put(product.getId(), product);
+                return new ExecutionResponse<>(true, new AnswerString("Элемент успешно добавлен в коллекцию! Присвоенный id = " + addStatus.getAnswer()));
             }
-            return new ExecutionResponse(false,  new AnswerString("Элемент коллекции введён неверно!"));
-        }  finally {
-
+            return new ExecutionResponse<>(false, new AnswerString( "Произошла ошибка при добавлении коллекции в базу данных!"));
         }
-
-
-
-
+        return new ExecutionResponse(false,  new AnswerString("Элемент коллекции введён неверно!"));
     }
 
 
@@ -189,20 +181,21 @@ public class CollectionManager {
     public ExecutionResponse removeProduct(long id, User user) {
         lock.writeLock().lock();
         if (!collection.containsKey(id)) {
-            return new ExecutionResponse(false, new AnswerString("Product with the given ID does not exist")); // Product with the given ID does not exist
+            return new ExecutionResponse(false, new AnswerString("Product with the given ID does not exist"));
         }
-
 
         if (getById(id).getCreator() != user.getId()) {
             Server.logger.info("Другой владелец.");
             return new ExecutionResponse(false, new AnswerString("Вы не можете удалить продукт, который не принадлежит вам!"));
         }
+
         int removedCount = persistenceManager.remove(user, id);
+
         if (removedCount == 0) {
             Server.logger.info("Ничего не было удалено.");
             return new ExecutionResponse(false, new AnswerString("Ничего не было удалено!"));
         }
-        lock.writeLock().lock();
+
         collection.remove(id);
         lock.writeLock().unlock();
         lastSaveTime = LocalDateTime.now();
@@ -213,15 +206,6 @@ public class CollectionManager {
 
 
 
-    /**
-     * Saves the collection to the dump.
-     */
-    public void saveCollection() {
-        if (collection.isEmpty()) {
-            System.out.println("Коллекция пуста, сохранение невозможно!");
-            lastSaveTime = LocalDateTime.now();
-        }
-    }
 
     /**
      * Returns the time of the last initialization.

@@ -9,7 +9,6 @@ import com.wwwyssa.lab7.common.validators.ArgumentValidator;
 import com.wwwyssa.lab7.server.commands.*;
 import com.wwwyssa.lab7.server.commands.*;
 import com.wwwyssa.lab7.server.managers.*;
-import com.wwwyssa.lab7.server.managers.dbManagers.DDLManager;
 import com.wwwyssa.lab7.server.util.AskingCommand;
 import com.wwwyssa.lab7.server.util.HibernateUtil;
 import org.hibernate.SessionFactory;
@@ -138,7 +137,6 @@ public static void main(String[] args) throws SQLException {
     Runtime.getRuntime().addShutdownHook(new Thread(() -> {
         try {
             isRunning = false; // Останавливаем цикл
-            collectionManager.saveCollection();
             selector.close();
             networkManager.close();
         } catch (Exception e) {
@@ -200,6 +198,10 @@ public static void run() {
                             clientChannel.register(selector, SelectionKey.OP_READ);
                         } else if (key.isReadable()) {
                             SocketChannel clientChannel = (SocketChannel) key.channel();
+                            if (!clientChannel.isConnected()) {
+                                key.cancel();
+                                continue;
+                            }
                             clientChannel.configureBlocking(false);
                             if (responseFutures.get(clientChannel) != null) {
                                 continue; // Пропускаем итерацию, если уже идёт обработка этого клиента

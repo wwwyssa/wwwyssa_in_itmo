@@ -38,7 +38,7 @@ public class OrganizationDAO implements Serializable {
 
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  @Column(name="id", nullable=false, unique=true, length=11)
+  @Column(name="id", nullable=false, unique=true)
   private int id;
 
   @NotBlank(message = "Название организации не должно быть пустым.")

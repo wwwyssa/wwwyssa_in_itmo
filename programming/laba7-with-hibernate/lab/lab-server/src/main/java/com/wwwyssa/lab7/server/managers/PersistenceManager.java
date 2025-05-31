@@ -30,7 +30,7 @@ public class PersistenceManager {
         }
 
 
-        var dao = new ProductDAO(product);
+        ProductDAO dao = new ProductDAO(product);
         dao.setManufacturer(newOrg);
         dao.setCreator(new UserDAO(user));
 
@@ -42,7 +42,7 @@ public class PersistenceManager {
 
         Server.logger.info("Добавление продукта успешно выполнено.");
 
-        var newId = dao.getId();
+        long newId = dao.getId();
         Server.logger.info("Новый id продукта это " + newId);
         return new ExecutionResponse(true, new AnswerString(String.valueOf(newId)));
     }
@@ -65,6 +65,7 @@ public class PersistenceManager {
 
         return orgDAO;
     }
+
     public void update(User user, Product product) {
         Server.logger.info("Обновление продукта id#" + product.getId());
         var session = sessionFactory.getCurrentSession();
@@ -74,8 +75,6 @@ public class PersistenceManager {
 
         if (product.getManufacturer() != null) {
             updateOrganization(user, product.getManufacturer());
-        } else {
-            productDAO.setManufacturer(null);
         }
         productDAO.update(product);
         session.update(productDAO);
@@ -91,6 +90,7 @@ public class PersistenceManager {
         var session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         var organizationDAO = session.get(OrganizationDAO.class, organization.getId());
+        organizationDAO.setCreator(session.get(UserDAO.class, user.getId()));
         organizationDAO.update(organization);
 
         session.update(organizationDAO);

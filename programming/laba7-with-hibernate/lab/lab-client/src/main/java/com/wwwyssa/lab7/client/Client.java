@@ -57,7 +57,6 @@ public final class Client {
                 }
                 while (true) {
                     console.println("Введите команду:");
-                    console.println(user);
                     String inputCommand = console.input();
                     ExecutionResponse argumentStatus = validateCommand((inputCommand.trim() + " ").split(" ", 2));
                     if (!argumentStatus.getExitCode()) {
