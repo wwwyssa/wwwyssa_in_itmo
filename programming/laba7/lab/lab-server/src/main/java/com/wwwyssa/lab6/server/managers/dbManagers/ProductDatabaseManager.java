@@ -102,8 +102,6 @@ public class ProductDatabaseManager {
 
     public ExecutionResponse addProduct(User user, Product product) throws SQLException {
         Connection connection = getConnection();
-        //throw new SQLException();
-        // 6812 7520 20656
         try{
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO product (name, coordinates_id, creation_date, price, part_number, " +
@@ -138,8 +136,7 @@ public class ProductDatabaseManager {
 
     public int addCoordinates(Coordinates coordinates) throws SQLException {
         Connection connection = getConnection();
-        throw new RuntimeException();
-        /*PreparedStatement statement = connection.prepareStatement(
+        PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO coordinates (x, y) VALUES (?, ?) RETURNING id"
         );
 
@@ -154,7 +151,7 @@ public class ProductDatabaseManager {
 
         return id;
 
-         */
+
     }
 
     public int addManufacturer(Organization manufacturer) throws SQLException {

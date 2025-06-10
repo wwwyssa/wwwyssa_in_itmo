@@ -1,7 +1,10 @@
 /target/
 /lab-client/target/
-/lab-common/target/
+/lab-common/target
 /lab-server/target/
 *.iml
 .idea
 *.jar
+*.log
+lab/server_logs.log.lck
+lab/server_logs.log

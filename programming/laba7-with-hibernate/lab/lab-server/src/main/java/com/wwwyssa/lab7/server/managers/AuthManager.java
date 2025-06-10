@@ -60,7 +60,8 @@ public class AuthManager {
                 if (transaction != null) {
                     transaction.rollback();
                 }
-                throw e;
+                Server.logger.info("Ошибка при создании пользователя " + login + e);
+                return -1;
             }
         }
     }
