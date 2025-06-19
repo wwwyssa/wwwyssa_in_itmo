@@ -27,3 +27,9 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER emotional_status_change_trigger
+AFTER INSERT OR UPDATE ON emotionalstatus
+FOR EACH ROW
+EXECUTE FUNCTION log_emotional_change();
