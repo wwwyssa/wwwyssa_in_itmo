@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background: #1e1e1e;
+    color: #e1e1e1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #444;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+}
+
+#info .name {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+#info .group,
+#info .variant {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.fire {
+    color: #FF6961;
+    font-weight: bold;
+}
+
+.container {
+    padding: 1rem;
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.input-section,
+.results-section {
+    flex: 1;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #444;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #FF6961;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.text-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e1e1e1;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #FF6961;
+}
+
+/* Стили для кнопок Y */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.y-button {
+    padding: 5px 10px;
+    border: 1px solid #555;
+    background: #333;
+    color: #e1e1e1;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.y-button:hover {
+    background: #444;
+    border-color: #666;
+}
+
+.y-button.selected {
+    background: #4caf50;
+    color: white;
+    border-color: #388e3c;
+}
+
+.y-button.selected:hover {
+    background: #45a049;
+}
+
+/* Стили для radio кнопок R */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+#r-radio label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #e1e1e1;
+}
+
+#r-radio input[type="radio"] {
+    margin-right: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background: #FF6961;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background: #e55a54;
+}
+
+.error-message {
+    color: #FF6961;
+    padding: 1rem;
+    background-color: rgba(255, 105, 97, 0.1);
+    border: 1px solid rgba(255, 105, 97, 0.3);
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#graph {
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+}
+
+/* Стили для таблицы с вертикальной прокруткой */
+.table-container {
+    overflow-x: auto;
+    max-height: 300px; /* Ограничение по высоте */
+    overflow-y: auto; /* Вертикальная прокрутка */
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Минимальная ширина для удобного отображения */
+}
+
+.results-table th {
+    background-color: #333;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 2px solid #444;
+    color: #e1e1e1;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.results-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #444;
+    text-align: center;
+    color: #e1e1e1;
+}
+
+.results-table tr {
+    background-color: #2a2a2a;
+}
+
+.results-table tr:hover {
+    background-color: #333;
+}
+
+/* Стили для результатов */
+.hit {
+    color: #4caf50 !important;
+    font-weight: bold;
+}
+
+.miss {
+    color: #f44336 !important;
+    font-weight: bold;
+}
+
+.error {
+    color: #ff9800 !important;
+    font-weight: bold;
+}
+
+.input-hint {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-top: 0.25rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ff0000;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.close-button {
+    color: #fd0f0f;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#modal-error-message {
+    color: #fd0f0f;
+    font-weight: bold;
+}

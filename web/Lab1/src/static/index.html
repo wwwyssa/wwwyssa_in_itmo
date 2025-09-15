@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Lab 1</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div id="info">
+        <span class="name">Марьин Григорий</span>
+        <span class="group">Группа: P3212</span>
+        <span class="variant">Variant: <span class="fire">466650</span></span>
+    </div>
+</nav>
+<main class="container">
+    <section class="input-section">
+        <h2 class="section-title">Координаты точки</h2>
+        <form action="/" method="POST" id="data-form">
+            <div class="input-group">
+                <label for="x" class="input-label">X координата </label>
+                <input type="text" id="x" name="x" class="text-input" placeholder="от -5 до  5">
+                <div class="input-hint">Значение между -5 и 5</div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Y координата</label>
+                <div id="y-buttons" class="button-group">
+                </div>
+                <input type="hidden" id="y" name="y" value="">
+                <div class="input-hint">Выберете значение Y</div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">R параметр</label>
+                <div id="r-radio" class="radio-group">
+                </div>
+                <div class="input-hint">Выберете значение R</div>
+            </div>
+
+            <button type="submit" class="submit-button">Проверить точку</button>
+        </form>
+        <div id="error" class="error-message" hidden></div>
+    </section>
+    <section class="results-section">
+        <h2 class="section-title">Results</h2>
+        <div class="canvas-container">
+            <canvas id="graph" width="300" height="300"></canvas>
+        </div>
+        <div class="table-container">
+            <table id="result-table" class="results-table">
+                <thead>
+                <tr>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>r</th>
+                    <th>Время</th>
+                    <th>Время выполнения</th>
+                    <th>Результат</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+<div id="error-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p id="modal-error-message"></p>
+    </div>
+</div>
+
+</body>
+</html>
