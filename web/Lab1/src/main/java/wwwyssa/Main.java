@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.stream.Collectors;
 
 public class Main {
     private static final String HTTP_RESPONSE = """
@@ -44,17 +43,12 @@ public class Main {
                 String method = System.getProperty("REQUEST_METHOD");
                 String queryString = "";
 
-                if ("GET".equalsIgnoreCase(method)) {
-                    // Для GET запросов
-                    queryString = System.getProperty("QUERY_STRING");
-                } else if ("POST".equalsIgnoreCase(method)) {
-                    // Для POST запросов - читаем тело запроса
+                if ("POST".equalsIgnoreCase(method)) {
                     String contentLengthStr = System.getProperty("CONTENT_LENGTH");
                     if (contentLengthStr != null && !contentLengthStr.isEmpty()) {
                         int contentLength = Integer.parseInt(contentLengthStr);
                         if (contentLength > 0) {
-                            BufferedReader reader = new BufferedReader(
-                                    new InputStreamReader(System.in, StandardCharsets.UTF_8));
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
                             char[] buffer = new char[contentLength];
                             reader.read(buffer, 0, contentLength);
                             queryString = new String(buffer);
@@ -97,7 +91,13 @@ public class Main {
         if (x > 0 && y > 0) {
             return false;
         }
-        if (x < 0 && y > 0) {
+
+        if (y == 0){
+            if (x > r || x < r / 2) {
+                return false;
+            }
+        }
+        if (x < 0 && y >= 0) {
             if ((y - x) > (r / 2)) {
                 return false;
             }
@@ -107,7 +107,7 @@ public class Main {
                 return false;
             }
         }
-        if (x > 0 && y < 0) {
+        if (x >= 0 && y <= 0) {
             if (x > r || y < -r / 2) {
                 return false;
             }

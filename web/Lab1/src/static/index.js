@@ -12,15 +12,16 @@ const error = document.getElementById("error");
 const canvas = document.getElementById("graph");
 const ctx = canvas.getContext("2d");
 
-// Draw initial graph
+
 drawGraph();
 
 document.getElementById("x").addEventListener("change", (ev) => {
     const input = ev.target;
     const value = input.value;
+    value.replace(',', '.');
 
-    if (!/^[-+]?\d*([,]\d+)?$/.test(value)) {
-        showError("X должен быть числом! Дробные числа вводить через запятую");
+    if (!/^[-+]?\d*([.]\d+)?$/.test(value)) {
+        showError("X должен быть числом! Дробные числа вводить через точку");
         input.value = "";
         state.x = NaN;
     } else {
@@ -43,7 +44,9 @@ yValues.forEach(value => {
             btn.classList.remove('selected');
         });
         button.classList.add('selected');
+
         state.y = value;
+
         error.hidden = true;
     });
     yButtonsContainer.appendChild(button);
@@ -130,7 +133,6 @@ document.getElementById("data-form").addEventListener("submit", async function (
     const rowResult = newRow.insertCell(5);
 
     try {
-        // Используем URLSearchParams вместо FormData для лучшей совместимости с сервером
         const formData = new URLSearchParams();
         formData.append('x', state.x);
         formData.append('y', state.y);

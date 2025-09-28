@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Params {
-    private final int x;
+    private final float x;
     private final float y;
     private final float r;
 
@@ -17,7 +17,7 @@ public class Params {
             throw new ValidationException("Missing query string");
         }
         var params = splitQuery(query);
-        this.x = Integer.parseInt(params.get("x"));
+        this.x = Float.parseFloat(params.get("x"));
         this.y = Float.parseFloat(params.get("y"));
         this.r = Float.parseFloat(params.get("r"));
     }
@@ -79,7 +79,7 @@ public class Params {
         }
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
