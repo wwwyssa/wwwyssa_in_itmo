@@ -1,0 +1,15 @@
+E:\wwwyssa_in_itmo\yap\PIPISKA\bin\Debug\net9.0\PIPISKA.exe
+E:\wwwyssa_in_itmo\yap\PIPISKA\bin\Debug\net9.0\PIPISKA.deps.json
+E:\wwwyssa_in_itmo\yap\PIPISKA\bin\Debug\net9.0\PIPISKA.runtimeconfig.json
+E:\wwwyssa_in_itmo\yap\PIPISKA\bin\Debug\net9.0\PIPISKA.dll
+E:\wwwyssa_in_itmo\yap\PIPISKA\bin\Debug\net9.0\PIPISKA.pdb
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.GeneratedMSBuildEditorConfig.editorconfig
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.AssemblyInfoInputs.cache
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.AssemblyInfo.cs
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.csproj.CoreCompileInputs.cache
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.sourcelink.json
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.dll
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\refint\PIPISKA.dll
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.pdb
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\PIPISKA.genruntimeconfig.cache
+E:\wwwyssa_in_itmo\yap\PIPISKA\obj\Debug\net9.0\ref\PIPISKA.dll

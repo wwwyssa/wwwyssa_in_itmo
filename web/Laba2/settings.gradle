@@ -1,0 +1,4 @@
+rootProject.name = 'Laba2'
+include 'src:main:webapp'
+findProject(':src:main:webapp')?.name = 'webapp'
+
