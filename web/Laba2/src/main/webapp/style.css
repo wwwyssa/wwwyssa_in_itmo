@@ -47,12 +47,6 @@ body {
     padding: 30px;
 }
 
-@media (max-width: 768px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
-}
-
 .form-section {
     background: #f8f9fa;
     padding: 25px;

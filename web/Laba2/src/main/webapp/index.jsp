@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="web.beans.ResultBean, web.models.Point" %>
+<%@ page import="web.beans.ResultBean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     ResultBean resultBean = (ResultBean) session.getAttribute("results");
@@ -23,7 +23,7 @@
         <div class="header-info">
             <div>ФИО: Марьин Григорий Алексеевич</div>
             <div>Группа: P3212</div>
-            <div>Вариант: </div>
+            <div>Вариант: 468259</div>
         </div>
     </div>
 
@@ -68,7 +68,7 @@
 
         <div class="graph-section">
             <h2>Область на координатной плоскости</h2>
-            <p>Кликните на графике для проверки точки (предварительно установите радиус R)</p>
+            <p>Mocha Mousse - Цвет 2025 года hex-код #A47864</p>
             <div class="graph-container" id="graphContainer">
                 <canvas id="graphCanvas" width="500" height="400"></canvas>
             </div>

@@ -13,7 +13,7 @@
 <div class="container">
     <div class="header">
         <h1>Марьин Григорий</h1>
-        <h1>Группа: P3212 Вариант: </h1>
+        <h1>Группа: P3212 Вариант: 468259</h1>
         <a href="index.jsp">Назад</a>
     </div>
     <div class="content">
@@ -27,20 +27,18 @@
                     <th>R</th>
                     <th>result</th>
                     <th>Время запроса</th>
-                    <th>Время работы</th>
                 </tr>
                 </thead>
                 <tbody>
                 <jsp:useBean id="results" scope="session" class="web.beans.ResultBean"/>
                 <c:if test="${not empty results.points}">
-                    <c:set var="lastResult" value="${results.points[results.points.size() - 1]}"/>
+                    <c:set var="lastResult" value="${results.points[0]}"/>
                     <tr>
                         <td><fmt:formatNumber value="${lastResult.x}" minFractionDigits="0" maxFractionDigits="15"/></td>
                         <td><fmt:formatNumber value="${lastResult.y}" minFractionDigits="0" maxFractionDigits="15"/></td>
                         <td><fmt:formatNumber value="${lastResult.r}" minFractionDigits="0"/></td>
                         <td>${lastResult.inside ? "Есть пробитие" : "Почти попал"}</td>
                         <td><fmt:formatDate value="${lastResult.timestamp}" pattern="dd.MM.yyyy, HH:mm:ss"/></td>
-                        <td>${lastResult.executionTime}ms</td>
                     </tr>
                 </c:if>
                 </tbody>

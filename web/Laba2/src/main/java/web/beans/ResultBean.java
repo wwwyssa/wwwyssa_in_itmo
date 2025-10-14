@@ -6,6 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ResultBean implements Serializable {
     @Serial
@@ -25,8 +26,33 @@ public class ResultBean implements Serializable {
     }
 
     public void addPoint(Point point) {
-        this.points.add(point);
+        List<Point> tmp = new ArrayList<>();
+        tmp.add(point);
+        tmp.addAll(points);
+        this.points = tmp;
     }
 
+
+    @Override
+    public String toString() {
+        return "ResultBean{" +
+                "points=" + points +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ResultBean that = (ResultBean) o;
+
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return points != null ? points.hashCode() : 0;
+    }
 
 }

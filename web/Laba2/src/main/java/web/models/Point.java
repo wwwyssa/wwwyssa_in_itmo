@@ -18,10 +18,9 @@ public class Point implements Serializable {
         this.y = y;
         this.r = r;
         this.timestamp = new Date();
-        this.inside = checkInside(x, y, r); // Автоматически проверяем при создании
+        this.inside = checkInside(x, y, r);
     }
 
-    // Геттеры и сеттеры
     public double getX() { return x; }
     public void setX(double x) { this.x = x; }
 
@@ -35,10 +34,6 @@ public class Point implements Serializable {
     public void setInside(boolean inside) { this.inside = inside; }
 
     public Date getTimestamp() { return timestamp; }
-    public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
-
-    public long getExecutionTime() { return executionTime; }
-    public void setExecutionTime(long executionTime) { this.executionTime = executionTime; }
 
     // Метод для проверки попадания
     public boolean checkInside(double x, double y, double r) {

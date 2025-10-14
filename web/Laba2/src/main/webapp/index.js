@@ -6,7 +6,6 @@ const state = {
     r: 3.0,
 };
 
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
@@ -97,7 +96,6 @@ function setupEventListeners(canvas, ctx) {
         });
     }
 
-    // Обработчик клика по графику
     if (canvas) {
         canvas.addEventListener('click', (ev) => {
             handleCanvasClick(ev, canvas, ctx);
@@ -159,7 +157,6 @@ async function submitForm() {
         });
 
         if (response.ok) {
-            // Перенаправляем на страницу результатов
             window.location.href = "result.jsp";
         } else {
             showError("Ошибка сервера");
@@ -169,7 +166,6 @@ async function submitForm() {
     }
 }
 
-// Валидация данных
 function validateState(state) {
     hideError();
 
@@ -197,7 +193,6 @@ function validateState(state) {
     return true;
 }
 
-// Функции для работы с ошибками
 function showError(message) {
     const errorDiv = document.getElementById("error");
     if (errorDiv) {
@@ -246,7 +241,7 @@ function drawGraph(canvas, ctx) {
 
     drawGridAndAxes(ctx, width, height, r, scale);
     drawHitArea(ctx, width, height, r, scale);
-    drawPoints(ctx, width, height, r, scale); // Добавлен вызов отрисовки точек
+    drawPoints(ctx, width, height, r, scale);
 }
 
 function drawPoints(ctx, width, height, r, scale) {
@@ -276,7 +271,6 @@ function drawGridAndAxes(ctx, width, height, r, scale) {
     ctx.strokeStyle = "#e0e0e0";
     ctx.lineWidth = 1;
 
-    // Вертикальные линии
     for (let x = width/2; x >= 0; x -= scale) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -290,7 +284,6 @@ function drawGridAndAxes(ctx, width, height, r, scale) {
         ctx.stroke();
     }
 
-    // Горизонтальные линии
     for (let y = height/2; y >= 0; y -= scale) {
         ctx.beginPath();
         ctx.moveTo(0, y);
@@ -304,23 +297,19 @@ function drawGridAndAxes(ctx, width, height, r, scale) {
         ctx.stroke();
     }
 
-    // Оси координат
     ctx.strokeStyle = "#000000";
     ctx.lineWidth = 2;
 
-    // Ось Y
     ctx.beginPath();
     ctx.moveTo(width/2, 0);
     ctx.lineTo(width/2, height);
 
-    // Ось X
     ctx.moveTo(0, height/2);
     ctx.lineTo(width, height/2);
     ctx.stroke();
 
-    // Стрелки
     ctx.beginPath();
-    // Стрелка Y
+
     ctx.moveTo(width/2, 0);
     ctx.lineTo(width/2 - 5, 10);
     ctx.moveTo(width/2, 0);
@@ -332,30 +321,24 @@ function drawGridAndAxes(ctx, width, height, r, scale) {
     ctx.lineTo(width - 10, height/2 + 5);
     ctx.stroke();
 
-    // Подписи
     ctx.fillStyle = "#000000";
     ctx.font = "12px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    // Подписи оси X
     ctx.fillText("x", width - 10, height/2 - 10);
 
-    // Подписи оси Y
     ctx.fillText("y", width/2 + 10, 10);
 
-    // Подписи значений
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
 
-    // Значения по X
     for (let i = -4; i <= 4; i++) {
         if (i === 0) continue;
         const x = width/2 + i * scale;
         ctx.fillText(i.toString(), x, height/2 + 5);
     }
 
-    // Значения по Y
     ctx.textAlign = "right";
     ctx.textBaseline = "middle";
     for (let i = -4; i <= 4; i++) {
@@ -364,23 +347,21 @@ function drawGridAndAxes(ctx, width, height, r, scale) {
         ctx.fillText(i.toString(), width/2 - 5, y);
     }
 
-    // Подпись R
     ctx.textAlign = "left";
     ctx.fillText(`R = ${r}`, 10, 20);
 }
 
 function drawHitArea(ctx, width, height, r, scale) {
-    ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
-    ctx.strokeStyle = "#ff0000";
+    ctx.fillStyle = "rgba(164,120,100,0.53)";
+    ctx.strokeStyle = "#A47864";
     ctx.lineWidth = 1;
 
-    // 1. Прямоугольник (вторая четверть, x ∈ [-R, 0], y ∈ [0, R/2])
     ctx.beginPath();
     ctx.rect(width/2 - r * scale, height/2 - (r * scale / 2), r * scale, r * scale / 2);
     ctx.fill();
     ctx.stroke();
 
-    // 2. Треугольник (четвертая четверть, x ∈ [0, R/2], y ∈ [-R/2, 0])
+    // 2.
     ctx.beginPath();
     ctx.moveTo(width/2, height/2);
     ctx.lineTo(width/2 + (r * scale / 2), height/2);
@@ -389,7 +370,7 @@ function drawHitArea(ctx, width, height, r, scale) {
     ctx.fill();
     ctx.stroke();
 
-    // 3. Четверть круга (третья четверть)
+    // 3.
     ctx.beginPath();
     ctx.arc(width/2, height/2, r * scale / 2,  Math.PI / 2, Math.PI, false);
     ctx.lineTo(width/2, height/2);

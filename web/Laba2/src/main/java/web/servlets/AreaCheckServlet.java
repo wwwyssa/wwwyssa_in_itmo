@@ -8,15 +8,12 @@ import web.beans.ResultBean;
 import web.models.Point;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 @WebServlet("/checkArea")
 public class AreaCheckServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        LocalDateTime startTime = LocalDateTime.now();
 
         try {
             String xParam = req.getParameter("x");
@@ -33,20 +30,15 @@ public class AreaCheckServlet extends HttpServlet {
             double y = Double.parseDouble(yParam);
             double r = Double.parseDouble(rParam);
 
-            // Проверка диапазонов
-            if (!isValidX(x) || !isValidY(y) || !isValidR(r)) {
+             if (!isValidX(x) || !isValidY(y) || !isValidR(r)) {
                 sendErrorResponse(resp, "Параметры вне допустимого диапазона");
                 return;
             }
 
             Point point = new Point(x, y, r);
-            boolean isInside = point.checkInside(x, y, r); // Используем метод проверки
-            point.setInside(isInside); // Устанавливаем результат
+            boolean isInside = point.checkInside(x, y, r);
+            point.setInside(isInside);
 
-            LocalDateTime endTime = LocalDateTime.now();
-            point.setExecutionTime(ChronoUnit.MILLIS.between(startTime, endTime));
-
-            // Добавляем результат в историю
             ResultBean resultBean = (ResultBean) req.getSession().getAttribute("results");
             if (resultBean == null) {
                 resultBean = new ResultBean();
@@ -54,8 +46,7 @@ public class AreaCheckServlet extends HttpServlet {
             }
             resultBean.addPoint(point);
 
-            // Перенаправляем на страницу результатов
-            resp.sendRedirect("result.jsp");
+            req.getRequestDispatcher("result.jsp").forward(req, resp);
 
         } catch (NumberFormatException e) {
             sendErrorResponse(resp, "Неверный формат параметров");
@@ -72,7 +63,6 @@ public class AreaCheckServlet extends HttpServlet {
         return y >= -5 && y <= 5;
     }
 
-    // R оставляем дискретным
     private boolean isValidR(double r) {
         double[] allowedR = {1, 2, 3, 4, 5};
         for (double value : allowedR) {
@@ -81,27 +71,6 @@ public class AreaCheckServlet extends HttpServlet {
         return false;
     }
 
-
-    private void sendSuccessResponse(HttpServletResponse resp, double x, double y, double r, boolean isInside, LocalDateTime start, LocalDateTime end) throws IOException {
-        String JSONresponse = """
-        {
-            "x": %f,
-            "y": %f,
-            "r": %f,
-            "result": %b,
-            "now": "%s",
-            "time": %d
-        }
-        """;
-
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write(String.format(JSONresponse,
-                x, y, r, isInside,
-                LocalDateTime.now(),
-                ChronoUnit.NANOS.between(start, end)
-        ));
-    }
 
     private void sendErrorResponse(HttpServletResponse resp, String message) throws IOException {
         resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
