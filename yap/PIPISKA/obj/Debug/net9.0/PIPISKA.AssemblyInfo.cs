@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PIPISKA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acb30915f504db2418a3e5cb3deb819b94cbc2e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fad6119b910aead37a5c54bcb7c5a8459792edb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PIPISKA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PIPISKA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

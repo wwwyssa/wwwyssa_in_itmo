@@ -1,0 +1,15 @@
+E:\wwwyssa_in_itmo\yap\fourthLab\bin\Debug\net9.0\fourthLab.exe
+E:\wwwyssa_in_itmo\yap\fourthLab\bin\Debug\net9.0\fourthLab.deps.json
+E:\wwwyssa_in_itmo\yap\fourthLab\bin\Debug\net9.0\fourthLab.runtimeconfig.json
+E:\wwwyssa_in_itmo\yap\fourthLab\bin\Debug\net9.0\fourthLab.dll
+E:\wwwyssa_in_itmo\yap\fourthLab\bin\Debug\net9.0\fourthLab.pdb
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.GeneratedMSBuildEditorConfig.editorconfig
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.AssemblyInfoInputs.cache
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.AssemblyInfo.cs
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.csproj.CoreCompileInputs.cache
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.sourcelink.json
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.dll
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\refint\fourthLab.dll
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.pdb
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\fourthLab.genruntimeconfig.cache
+E:\wwwyssa_in_itmo\yap\fourthLab\obj\Debug\net9.0\ref\fourthLab.dll
