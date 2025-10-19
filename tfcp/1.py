@@ -1,16 +1,9 @@
 import argparse
 import numpy as np
 
-"""
-Простой скрипт для рисования множества Мандельброта.
-
-Пример использования:
-    python 1.py --width 1200 --height 900 --maxiter 300 --center -0.75 0.0 --zoom 1.0 --cmap inferno --out mandelbrot.png
-"""
 import matplotlib.pyplot as plt
 
 def mandelbrot(width = 900, height = 600, center=(-0.75, 0.0), zoom=1.0, maxiter=200):
-    # вычисляем область (zoom=1.0 => стандартная область по x: [-2,1], y: [-1.5,1.5])
     cx, cy = center
     x_span = 3.0 / zoom
     y_span = 3.0 * height / width / zoom
@@ -66,27 +59,7 @@ def plot_and_save(it_counts, extent, cmap="inferno", out=None, dpi=150, center=N
     
     # Настраиваем деления и подписи
     ax.tick_params(colors='white', which='both', labelsize=8)
-    
-    # Добавляем информацию о приближении
-    if center is not None and zoom is not None:
-        x_min, x_max, y_min, y_max = extent
-        info_text = (f'Center: {center[0]:.10f} + {center[1]:.10f}i\n'
-                    f'Zoom: {zoom:.6e}\n'
-                    f'X range: [{x_min:.6e}, {x_max:.6e}]\n'
-                    f'Y range: [{y_min:.6e}, {y_max:.6e}]\n'
-                    f'Iterations: {maxiter}\n'
-                    f'Resolution: {it_counts.shape[1]}×{it_counts.shape[0]}')
-        
-        plt.text(0.02, 0.98, info_text, 
-                transform=ax.transAxes,
-                fontsize=8,
-                verticalalignment='top',
-                bbox=dict(boxstyle='round', facecolor='black', alpha=0.8),
-                color='white',
-                family='monospace')
-    
-    if out:
-        plt.savefig(out, bbox_inches='tight', pad_inches=0.1, facecolor='black')
+
     plt.show()
 
 
