@@ -98,7 +98,7 @@ public static void main(String[] args) throws SQLException {
     Server.logger.info("Server started");
    /*try {
 
-        DDLManager ddlManager = new DDLManager("jdbc:postgresql://pg:5432/studs", "s466650", "suzaNzpmt8VQyTrD");
+        DDLManager ddlManager = new DDLManager("jdbc:postgresql://pg:5432/studs", "s466650", "");
         ddlManager.dropTables();
         System.out.println("Таблицы удалены");
         ddlManager.createTables();
