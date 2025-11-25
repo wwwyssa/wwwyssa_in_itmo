@@ -6,4 +6,5 @@ informatic/laba4/solves/__pycache__/
 *.__pycache__/ 
 /soft-skills/*
 /history/*
-.gitignote
+/tfcp/*
+.gitignore

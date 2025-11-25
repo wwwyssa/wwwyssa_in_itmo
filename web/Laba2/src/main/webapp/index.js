@@ -209,7 +209,6 @@ function showError(message) {
 
         return;
     }
-ч
     alert(message);
 }
 

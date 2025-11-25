@@ -1,0 +1,15 @@
+E:\wwwyssa_in_itmo\yap\fifthLab\bin\Debug\net9.0\fifthLab.exe
+E:\wwwyssa_in_itmo\yap\fifthLab\bin\Debug\net9.0\fifthLab.deps.json
+E:\wwwyssa_in_itmo\yap\fifthLab\bin\Debug\net9.0\fifthLab.runtimeconfig.json
+E:\wwwyssa_in_itmo\yap\fifthLab\bin\Debug\net9.0\fifthLab.dll
+E:\wwwyssa_in_itmo\yap\fifthLab\bin\Debug\net9.0\fifthLab.pdb
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.GeneratedMSBuildEditorConfig.editorconfig
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.AssemblyInfoInputs.cache
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.AssemblyInfo.cs
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.csproj.CoreCompileInputs.cache
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.sourcelink.json
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.dll
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\refint\fifthLab.dll
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.pdb
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\fifthLab.genruntimeconfig.cache
+E:\wwwyssa_in_itmo\yap\fifthLab\obj\Debug\net9.0\ref\fifthLab.dll

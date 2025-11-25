@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "fourthLab.sln"
+    "dotnet.defaultSolution": "fourthLab.sln",
+    "files.associations": {
+        "stdio.h": "c"
+    }
 }
