@@ -8,21 +8,17 @@ repositories {
 }
 
 dependencies {
-    // 1. Core API для компиляции (Java EE 8 / javax)
+
     compileOnly 'javax:javaee-api:8.0'
 
-    // 2. PrimeFaces (версия для javax)
+
     implementation 'org.primefaces:primefaces:8.0'
 
-    // 3. JPA/Hibernate
+
     implementation 'org.hibernate:hibernate-core:5.4.32.Final'
     implementation 'org.hibernate:hibernate-entitymanager:5.4.32.Final'
 
-    // 4. НОВАЯ ЗАВИСИМОСТЬ: Gson для работы с JSON в PointBean
-    implementation 'com.google.code.gson:gson:2.8.9' // Любая стабильная версия
-
-    // 5. Драйвер БД (Пример для Postgres, замените на свой, если используете другую БД)
-    // runtimeOnly 'org.postgresql:postgresql:42.5.1'
+    implementation 'com.google.code.gson:gson:2.8.9' 
 }
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
