@@ -1,0 +1,55 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>{{ isLoginMode ? 'Вход' : 'Регистрация' }}</h1>
+    
+    <form (ngSubmit)="onSubmit()" #authForm="ngForm">
+      <div class="form-group">
+        <label for="username">Имя пользователя</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="username"
+          required
+          placeholder="Введите имя пользователя"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Введите пароль"
+        />
+      </div>
+
+       
+      <div class="error-message" *ngIf="errorMessage" style="display: block !important; visibility: visible !important;">
+        {{ errorMessage }}
+      </div>
+
+      <div class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="!authForm.valid"
+      >
+        {{ isLoginMode ? 'Войти' : 'Зарегистрироваться' }}
+      </button>
+    </form>
+
+    <div class="toggle-mode">
+      <span>{{ isLoginMode ? 'Нет аккаунта?' : 'Уже есть аккаунт?' }}</span>
+      <button type="button" (click)="toggleMode()">
+        {{ isLoginMode ? 'Зарегистрироваться' : 'Войти' }}
+      </button>
+    </div>
+  </div>
+</div>

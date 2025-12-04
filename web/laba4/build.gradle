@@ -1,0 +1,111 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'nu.studer.jooq' version '9.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// --- Spring ---
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jooq'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// --- PostgreSQL ---
+	runtimeOnly 'org.postgresql:postgresql'
+
+	// --- JWT ---
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+
+	// --- Lombok ---
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// --- Dev ---
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// --- WAR ---
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// --- Tests ---
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// --- jOOQ generator ---
+	jooqGenerator 'org.postgresql:postgresql'
+}
+
+jooq {
+	version = '3.18.7'
+
+	configurations {
+		main {
+			generationTool {
+
+				jdbc {
+					driver = 'org.postgresql.Driver'
+					url = 'jdbc:postgresql://localhost:5432/laba4	'
+					user = 'postgres'
+					password = '123'
+				}
+
+				generator {
+					name = 'org.jooq.codegen.DefaultGenerator'
+
+					database {
+						name = 'org.jooq.meta.postgres.PostgresDatabase'
+						inputSchema = 'public'
+						includes = '.*'
+					}
+
+					generate {
+						pojos = true
+						records = true
+						daos = true
+					}
+
+					target {
+						packageName = 'com.example.laba4.db'
+						directory = 'build/generated-src/jooq/main'
+					}
+				}
+			}
+		}
+	}
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs += 'build/generated-src/jooq/main'
+		}
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// Ensure jOOQ code is generated before compilation
+tasks.named('compileJava') {
+	dependsOn tasks.named('generateJooq')
+}

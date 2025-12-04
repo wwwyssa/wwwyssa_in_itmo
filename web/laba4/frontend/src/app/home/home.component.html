@@ -1,0 +1,11 @@
+<div class="home-container">
+  <div class="header">
+    <h1>Добро пожаловать, {{ username }}!</h1>
+    <button class="logout-btn" (click)="logout()">Выйти</button>
+  </div>
+  
+  <div class="content">
+    <p>Вы успешно авторизованы в системе.</p>
+    <p>Ваш JWT токен сохранен в localStorage и будет автоматически отправляться с запросами к серверу.</p>
+  </div>
+</div>
