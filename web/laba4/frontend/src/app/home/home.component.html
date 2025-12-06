@@ -5,7 +5,55 @@
   </div>
   
   <div class="content">
-    <p>Вы успешно авторизованы в системе.</p>
-    <p>Ваш JWT токен сохранен в localStorage и будет автоматически отправляться с запросами к серверу.</p>
+    <div class="main-layout">
+      <canvas id="canvas" width="600" height="600" class="graph-canvas"></canvas>
+      <div class="form-container">
+        <h2>Введите координаты</h2>
+        <div class="form-group">
+          <label>X:</label>
+          <div class="checkbox-group">
+            <label *ngFor="let val of xValues" class="checkbox-label">
+              <input type="checkbox" [checked]="x === val" (change)="selectX(val)">
+              {{val}}
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Y (-3 ... 3):</label>
+          <input type="number" [(ngModel)]="y" step="0.1" min="-3" max="3" placeholder="Введите Y">
+        </div>
+        <div class="form-group">
+          <label>R:</label>
+          <div class="checkbox-group">
+            <label *ngFor="let val of rValues" class="checkbox-label">
+              <input type="checkbox" [checked]="rValue === val" (change)="selectR(val)">
+              {{val}}
+            </label>
+          </div>
+        </div>
+        <button class="submit-btn" (click)="submitPoint()">Отправить</button>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="points-table">
+    <h2>История точек</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>X</th>
+          <th>Y</th>
+          <th>R</th>
+          <th>Попадание</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let point of points">
+          <td>{{ point.x }}</td>
+          <td>{{ point.y }}</td>
+          <td>{{ point.r }}</td>
+          <td>{{ point.hit ? 'Пробитие' : 'Промах' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

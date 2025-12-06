@@ -15,7 +15,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret:my-super-secret-key-for-jwt-token-generation-at-least-256-bits-long}")
+    @Value("${jwt.secret:jwf-token-229337}")
     private String secret;
 
     @Value("${jwt.expiration:86400000}")

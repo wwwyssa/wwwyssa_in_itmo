@@ -57,7 +57,7 @@ export class AuthComponent {
       password: this.password
     };
 
-    this.http.post<AuthResponse>(`http://localhost:8080${endpoint}`, body)
+    this.http.post<AuthResponse>(`http://localhost:8080${endpoint}`, body, { withCredentials: true })
       .subscribe({
         next: (response) => {
     
@@ -73,8 +73,7 @@ export class AuthComponent {
             this.errorMessage = response?.message || 'Ошибка авторизации';
             this.password = '';
             this.cdr.detectChanges();
-            console.log('detectChanges вызван');
-          }
+       }
         }
       });
   }
