@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public class   UserRepository {
     private final DSLContext dsl;
     private final Users U = Users.USERS;
 

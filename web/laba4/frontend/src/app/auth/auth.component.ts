@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -26,10 +26,11 @@ export class AuthComponent {
   password = '';
   errorMessage = '';
   successMessage = '';
-  isLoading = false;
+
+
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
@@ -60,15 +61,15 @@ export class AuthComponent {
     this.http.post<AuthResponse>(`http://localhost:8080${endpoint}`, body, { withCredentials: true })
       .subscribe({
         next: (response) => {
-    
+
           if (response && response.success === true && response.token) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('username', response.username);
             this.successMessage = response.message;
-            
-            setTimeout(() => {
-              this.router.navigate(['/']);
-            }, 500);
+
+
+            this.router.navigate(['/']);
+
           } else {
             this.errorMessage = response?.message || 'Ошибка авторизации';
             this.password = '';

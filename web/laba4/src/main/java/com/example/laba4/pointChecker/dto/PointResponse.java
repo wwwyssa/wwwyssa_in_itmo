@@ -10,7 +10,7 @@ public class PointResponse {
 
     public PointResponse() {}
 
-    public PointResponse(Long id, Double x, Double y, Integer r, Boolean hit, String createdAt) {
+    public  PointResponse(Long id, Double x, Double y, Integer r, Boolean hit, String createdAt) {
         this.id = id;
         this.x = x;
         this.y = y;

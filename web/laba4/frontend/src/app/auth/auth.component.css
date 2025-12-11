@@ -88,3 +88,33 @@ input:focus {
   cursor: pointer;
   text-decoration: underline;
 }
+
+@media (max-width: 1123px) and (min-width: 683px) {
+  .auth-container {
+    padding: 16px;
+  }
+  .auth-card {
+    padding: 24px;
+    max-width: 520px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 682px) {
+  .auth-container {
+    padding: 12px;
+  }
+  .auth-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  input,
+  .submit-btn {
+    font-size: 14px;
+  }
+}
