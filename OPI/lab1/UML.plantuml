@@ -1,0 +1,107 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+
+actor "Пользователь" as USER
+actor "Физлицо" as Individual
+actor "Авторизованный пользователь" as AuthorizedUser
+actor "Неавторизованный пользователь" as UnAuthorizedUser
+actor "Юрлицо" as LegalEntity
+actor "Продавец" as SELLER
+actor "Техподдержка" as Support
+
+rectangle "Интернет-магазин" {
+
+    package "Авторизация"{
+        usecase "Доступ к профилю" as PROFILE_ACCES
+        usecase "Вход через Яндекс ID" as LOGIN_PROFILE
+        usecase "Регистрация в Яндекс ID" as REGISTER_PROFILE
+    }
+    
+    package "Поиск и выбор товаров" {
+        usecase "Просмотр подборок" as COLLECTIONS_VIEW
+        usecase "Поиск через поисковую строку" as STR_FIND
+        usecase "Сортировка по категориям" as CATEGORY_SORT
+        usecase "Поиск похожих товаров" as SIMILAR_FIND
+        usecase "Искользование системы поиска" as FIND_SYSTEM
+        usecase "Подсказки в поисковой строке" as STR_TIPS
+    }
+    
+    package "Избранное" {
+        usecase "Управление избранным" as LIKED_ACTION
+        usecase "Создать вишлист" as CREATE_WHISHLIST
+        usecase "Промотр подорки" as WHATCH_SUITABLE
+    }
+    
+    package "Корзина" {
+        usecase "Управление корзиной" as SHOPCART_ACTION
+    }
+    
+    package "Оформление заказа"{
+        usecase "Оформление заказа" as CREATE_ORDER
+        usecase "Выбор способа оплаты" as CHOOSE_PAYMETHOD
+        usecase "Выбор адреса доставки" as CHOOSE_ADDRESS
+        usecase "Получение чека" as CHECK
+        usecase "Применение промокодов" as USE_SALE
+        usecase "Оплата заказа" as PAY
+
+        usecase "Отслеживание заказа" as TRACK_ORDER
+        usecase "Возврат товара" as RETURN_PRODUCT
+        
+    }
+    
+    package "Доп функции" {
+        usecase "Поделиться товаром" as SHARE_PRODUCT
+        usecase "Намек на подарок" as HINT_GIFT
+        usecase "Чат с поддержкой" as SUPPORT_CHAT
+        usecase "Чат с AI-помощником" as AI_CHAT
+        usecase "Оставить отзывы о товаре" as PRODUCT_REVIEW
+    }
+    
+}
+LOGIN_PROFILE ..> PROFILE_ACCES : <<include>>
+REGISTER_PROFILE ..> LOGIN_PROFILE : <<extend>>
+
+SIMILAR_FIND ..> COLLECTIONS_VIEW : <<extend>>
+
+STR_FIND ..> FIND_SYSTEM : <<include>>
+STR_FIND <.. STR_TIPS : <<extend>>
+LIKED_ACTION <.. WHATCH_SUITABLE : <<extend>>
+LIKED_ACTION <.. CREATE_WHISHLIST : <<extend>>
+CREATE_ORDER <.. CHOOSE_PAYMETHOD : <<include>>
+CREATE_ORDER <.. CHOOSE_ADDRESS : <<include>>
+CREATE_ORDER ..> CHECK : <<include>>
+CREATE_ORDER <.. USE_SALE : <<extend>>
+CREATE_ORDER <.. PAY : <<extend>>
+SHOPCART_ACTION <|-- CREATE_ORDER
+TRACK_ORDER ..> RETURN_PRODUCT : <<extend>>
+
+HINT_GIFT ..> SHARE_PRODUCT : <<extend>>
+AI_CHAT ..> SIMILAR_FIND : <<extend>>
+
+USER <|-- Individual
+USER <|-- AuthorizedUser
+USER <|-- UnAuthorizedUser
+AuthorizedUser <|-- LegalEntity
+AuthorizedUser <|-- SELLER
+AuthorizedUser <|-- Support
+
+AuthorizedUser --> PROFILE_ACCES
+UnAuthorizedUser --> LOGIN_PROFILE
+UnAuthorizedUser --> REGISTER_PROFILE
+USER --> STR_FIND
+USER --> CATEGORY_SORT
+USER --> SIMILAR_FIND
+USER --> AI_CHAT
+USER --> SHARE_PRODUCT
+USER --> COLLECTIONS_VIEW
+
+AuthorizedUser--> LIKED_ACTION
+AuthorizedUser --> SHOPCART_ACTION
+AuthorizedUser --> CREATE_ORDER
+AuthorizedUser --> TRACK_ORDER
+AuthorizedUser --> PRODUCT_REVIEW
+AuthorizedUser --> HINT_GIFT
+AuthorizedUser --> SUPPORT_CHAT
+@enduml
