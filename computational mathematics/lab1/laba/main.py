@@ -1,10 +1,10 @@
 import sys
 
-class GaussSeidelSolver:
-    def __init__(self, matrix, rhs, epsilon):
+class GaussZeidel:
+    def __init__(self, matrix, b, epsilon):
         self.n = len(matrix)
         self.A = matrix
-        self.b = rhs
+        self.b = b
         self.epsilon = epsilon
 
     def calculate_matrix_norm(self):
@@ -18,8 +18,8 @@ class GaussSeidelSolver:
     def check_diagolnal_preobl(self):
         for i in range(self.n):
             diagonal = abs(self.A[i][i])
-            off_diagonal = sum(abs(self.A[i][j]) for j in range(self.n) if i != j)
-            if diagonal < off_diagonal:
+            ne_diagonal = sum(abs(self.A[i][j]) for j in range(self.n) if i != j)
+            if diagonal < ne_diagonal:
                 return False
         return True
 
@@ -63,7 +63,8 @@ class GaussSeidelSolver:
                 for row in self.A:
                     print(row)
             else:
-                print("Невозможно достичь диагонального преобладания перестановкой строк.")
+                print("Error 2 || Error 1")
+                sys.exit()
 
  
         norm = self.calculate_matrix_norm()
@@ -102,42 +103,44 @@ class GaussSeidelSolver:
         
 
 
-def get_input_mode():
+def inp_mode():
     print("\nВыберите режим ввода данных:")
     print("1. С клавиатуры")
     print("2. Из файла")
     while True:
-        choice = input("Ваш выбор (1 или 2): ").strip()
+        choice = input("1 или 2\n").strip()
         if choice in ['1', '2']:
             return choice
         print("Неверный ввод. Попробуйте еще раз.")
 
-def read_from_keyboard():
+def read_from_cmd():
     try:
         n = int(input("Введите размерность матрицы n (<= 20): "))
         if n > 20 or n < 1:
             print("Размерность должна быть от 1 до 20.")
             sys.exit()
 
-        print("Введите коэффициенты матрицы (построчно, через пробел):")
+
+
+        print("Введиье расширенную матрицу системы Ax=b:")
         matrix = []
+        b = []
         for i in range(n):
-            row = list(map(float, input(f"Строка {i+1}: ").split()))
-            if len(row) != n:
-                print(f"Ошибка! Ожидалось {n} элементов.")
+            inp_row = list(map(float, input(f"Строка {i+1}: ").split()))
+            row = inp_row[:n]
+            if sum(row) == 0 and inp_row[n] == 0:
+                print("Error 1 || Error 2")
                 sys.exit()
+            b.append(inp_row[n])
             matrix.append(row)
 
-        print("Введите вектор свободных членов (через пробел):")
-        rhs = list(map(float, input().split()))
-        if len(rhs) != n:
-            print(f"Ошибка! Ожидалось {n} элементов.")
-            sys.exit()
+
+
 
         epsilon = float(input("Введите точность вычислений (например, 0.001): "))
-        return matrix, rhs, epsilon
-    except ValueError:
-        print("Ошибка ввода чисел.")
+        return matrix, b, epsilon
+    except Exception as e:
+        print(f"Ошибка ввода чисел: {e}")
         sys.exit()
 
 def read_from_file():
@@ -152,44 +155,38 @@ def read_from_file():
                 sys.exit()
                 
             matrix = []
-            for i in range(n):
-                row = list(map(float, lines[i+1].split()))
-                matrix.append(row)
-                
-            rhs = list(map(float, lines[n+1].split()))
+            b = []
+            for i in range(1, n+1):
+                row = list(map(float, lines[i].split()))
+                matrix.append(row[:n])
+                b.append(row[n])
             epsilon = float(lines[n+2])
-            
-            return matrix, rhs, epsilon
-    except FileNotFoundError:
-        print("Файл не найден.")
+            return matrix, b, epsilon
+    except Exception as e:
+        print(f"Ошибка при чтении файла: {e}")
         sys.exit()
-    except (ValueError, IndexError):
-        print("Ошибка структуры файла.")
-        sys.exit()
-
 
 
 def main():
-    
-    mode = get_input_mode()
+    print("Метод Гаусса-Зейделя")
+    mode = inp_mode()
     
     if mode == '1':
-        matrix, rhs, epsilon = read_from_keyboard()
+        matrix, b, epsilon = read_from_cmd()
     else:
-        matrix, rhs, epsilon = read_from_file()
+        matrix, b, epsilon = read_from_file()
 
-    solver = GaussSeidelSolver(matrix, rhs, epsilon)
+    solver = GaussZeidel(matrix, b, epsilon)
     result_x, iters, final_errors = solver.solve()
 
     if result_x is not None:
-        print("\n=== Ответ: ===")
         print(f"Количество итераций: {iters}")
         
-        print("\nВектор неизвестных x:")
+        print("\nВектор неизвестных:")
         for i, val in enumerate(result_x):
             print(f"x{i+1} = {val:.6f}")
             
-        print("\nВектор погрешностей |x(k) - x(k-1)|:")
+        print("Погрешности:")
         for i, val in enumerate(final_errors):
             print(f"e{i+1} = {val:.10f}")
     else:
@@ -197,3 +194,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+#1
+#3
+#2 -1 0 1
+#-1 2 -1 -2
+#0 -1 2 3
+#0.001
