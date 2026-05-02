@@ -1,0 +1,14 @@
+C:\Users\professor\Downloads\workshop08\workshop08\part01\bin\Debug\net8.0\part01.exe
+C:\Users\professor\Downloads\workshop08\workshop08\part01\bin\Debug\net8.0\part01.deps.json
+C:\Users\professor\Downloads\workshop08\workshop08\part01\bin\Debug\net8.0\part01.runtimeconfig.json
+C:\Users\professor\Downloads\workshop08\workshop08\part01\bin\Debug\net8.0\part01.dll
+C:\Users\professor\Downloads\workshop08\workshop08\part01\bin\Debug\net8.0\part01.pdb
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.AssemblyInfoInputs.cache
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.AssemblyInfo.cs
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.csproj.CoreCompileInputs.cache
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.dll
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\refint\part01.dll
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.pdb
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\part01.genruntimeconfig.cache
+C:\Users\professor\Downloads\workshop08\workshop08\part01\obj\Debug\net8.0\ref\part01.dll

@@ -1,0 +1,15 @@
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\bin\Debug\net9.0\laba7.exe
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\bin\Debug\net9.0\laba7.deps.json
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\bin\Debug\net9.0\laba7.runtimeconfig.json
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\bin\Debug\net9.0\laba7.dll
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\bin\Debug\net9.0\laba7.pdb
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.GeneratedMSBuildEditorConfig.editorconfig
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.AssemblyInfoInputs.cache
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.AssemblyInfo.cs
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.csproj.CoreCompileInputs.cache
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.sourcelink.json
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.dll
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\refint\laba7.dll
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.pdb
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\laba7.genruntimeconfig.cache
+E:\wwwyssa_in_itmo\yap\seventhLab\laba7\obj\Debug\net9.0\ref\laba7.dll
