@@ -8,7 +8,7 @@ reports:
     slice: all
     view: |
       {pc}:	{instruction}	{pc:label}
-      {memory:598:629}
+      {memory:0:31}
   - name: Result
     slice: last
     view: |
@@ -16,4 +16,4 @@ reports:
       numio[0x84]: {io:0x84:dec}
       
     assert: |
-      numio[0x84]: [] >>> [3844]
+      numio[0x84]: [] >>> [25]

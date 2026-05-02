@@ -19,12 +19,9 @@ solution:
     dup                  \ duplicate input
     if zero              \ if 0 -> zero
     dup                  \ duplicate input
-    -if positive         
+    -if loop            
     negative ;
     
-positive:
-    dup
-    lit 0 a!             \ 0 -> a
 
 loop:
     2*                   \ Left Shift

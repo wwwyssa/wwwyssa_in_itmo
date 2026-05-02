@@ -11,7 +11,16 @@ actor "Юрлицо" as LegalEntity
 actor "Продавец" as SELLER
 actor "Техподдержка" as Support
 
+
 rectangle "Интернет-магазин" {
+
+    class Dummy {
+  String data
+  void methods()
+}
+
+    
+
 
     package "Авторизация"{
         usecase "Доступ к профилю" as PROFILE_ACCES
@@ -57,6 +66,7 @@ rectangle "Интернет-магазин" {
         usecase "Чат с поддержкой" as SUPPORT_CHAT
         usecase "Чат с AI-помощником" as AI_CHAT
         usecase "Оставить отзывы о товаре" as PRODUCT_REVIEW
+        usecase "Стать продавцом" as BECOME_SELLER
     }
     
 }
@@ -104,4 +114,7 @@ AuthorizedUser --> TRACK_ORDER
 AuthorizedUser --> PRODUCT_REVIEW
 AuthorizedUser --> HINT_GIFT
 AuthorizedUser --> SUPPORT_CHAT
+
+SELLER --> BECOME_SELLER
+LegalEntity --> BECOME_SELLER
 @enduml
