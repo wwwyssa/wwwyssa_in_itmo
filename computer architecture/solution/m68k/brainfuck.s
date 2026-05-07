@@ -12,7 +12,7 @@ _start:
 	movea.l  0x200, A2
 	movea.l  0x240, A3
 
-	clr.l    D1
+	clr.l    D1 ; счетчик команд
 
 read_code:
 	cmp.l    64, D1
@@ -59,7 +59,7 @@ validate_next:
 validate_done:
 	cmp.l    0, D3
 	bne      error
-	clr.l    D6
+	clr.l    D6 ; указатель ленты
 	clr.l    D1
 	movea.l  0x200, A2
 
@@ -107,31 +107,24 @@ cmd_lt:
 
 cmd_plus:
 	move.l   0(A3, D6), D0
-	cmp.l    2147483647, D0
-	beq      overflow_error
 	add.l    1, D0
 	move.l   D0, 0(A3, D6)
 	jmp      next_cmd
 
 cmd_minus:
 	move.l   0(A3, D6), D0
-	cmp.l    -2147483648, D0
-	beq      overflow_error
 	sub.l    1, D0
 	move.l   D0, 0(A3, D6)
 	jmp      next_cmd
 
 cmd_dot:
 	move.l   0(A3, D6), D0
-	and.l    0xFF, D0
 	move.l   D0, (A1)
 	jmp      next_cmd
 
 cmd_comma:
 	move.b   (A0), D0
-	and.l    0xFF, D0
 	move.l   0(A3, D6), D5
-	and.l    0xFFFFFF00, D5
 	or.l     D0, D5
 	move.l   D5, 0(A3, D6)
 	jmp      next_cmd
@@ -221,6 +214,6 @@ error:
 	halt
 
 overflow_error:
-	move.l   -858993460, D0
+	move.l   0xCCCCCCCC, D0
 	move.l   D0, (A1)
 	halt
