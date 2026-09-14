@@ -1,0 +1,193 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+:- encoding(utf8).
+
+
+% Персонажи игры
+character(tarnished).
+character(melina).
+character(ranni).
+character(blaidd).
+character(alexander).
+character(rogier).
+character(malenia).
+character(radahn).
+character(morgott).
+character(godrick).
+character(rennala).
+
+% Полубоги Междуземья
+demigod(ranni).
+demigod(malenia).
+demigod(radahn).
+demigod(morgott).
+demigod(godrick).
+
+% Боссы
+boss(malenia).
+boss(radahn).
+boss(morgott).
+boss(godrick).
+boss(rennala).
+
+% Воины
+warrior(blaidd).
+warrior(alexander).
+warrior(malenia).
+warrior(radahn).
+
+% Персонажи, связанные с колдовством
+sorcerer(ranni).
+sorcerer(rogier).
+sorcerer(rennala).
+
+% Неигровые персонажи
+npc(melina).
+npc(ranni).
+npc(blaidd).
+npc(alexander).
+npc(rogier).
+
+
+% Местонахождение персонажей
+located_in(godrick, stormveil_castle).
+located_in(rogier, stormveil_castle).
+located_in(rennala, raya_lucaria).
+located_in(radahn, caelid).
+located_in(morgott, leyndell).
+located_in(malenia, haligtree).
+
+% Оружие персонажей
+wields(malenia, hand_of_malenia).
+wields(radahn, starscourge_greatsword).
+wields(blaidd, royal_greatsword).
+wields(rogier, rogiers_rapier).
+wields(morgott, morgotts_cursed_sword).
+wields(godrick, axe_of_godrick).
+
+% Союзнические отношения
+ally_of(melina, tarnished).
+ally_of(alexander, tarnished).
+ally_of(blaidd, ranni).
+
+% 1. Персонаж вооружён, если у него есть оружие
+armed(Person) :-
+    character(Person),
+    wields(Person, _Weapon).
+
+% 2. Союзническое отношение рассматривается в обоих направлениях
+companion(Person1, Person2) :-
+    (
+        ally_of(Person1, Person2);
+        ally_of(Person2, Person1)
+    ).
+
+% 3. Босс-полубог одновременно является полубогом и боссом
+demigod_boss(Person) :-
+    demigod(Person),
+    boss(Person).
+
+
+% 4. Боевой маг владеет колдовством и является NPC или боссом
+battle_mage(Person) :-
+    sorcerer(Person),
+    (
+        npc(Person);
+        boss(Person)
+    ).
+
+% 5. Два разных персонажа находятся в одной области
+same_location(Person1, Person2) :-
+    located_in(Person1, Location),
+    located_in(Person2, Location),
+    Person1 \= Person2.
+
+% 6. Помощник в задании является NPC и союзником Погасшего, но не является боссом
+quest_helper(Person) :-
+    npc(Person),
+    companion(Person, tarnished),
+    \+ boss(Person).
+
+%7 Экспедиция против босса может быть организована, если:
+% 1. помощник поддерживает Погасшего;
+% 2. помощник вооружён;
+% 3. помощник не является колдуном;
+% 4. противник является боссом-полубогом;
+% 5. известно местонахождение босса;
+% 6. известно оружие босса;
+% 7. помощник и босс - разные персонажи.
+expedition(Helper, Enemy, Location, EnemyWeapon) :-
+    quest_helper(Helper),
+    (
+        armed(Helper);
+        warrior(Helper)
+    ),
+    \+ sorcerer(Helper),
+    demigod_boss(Enemy),
+    located_in(Enemy, Location),
+    wields(Enemy, EnemyWeapon),
+    Helper \= Enemy.
+</div>
+
+<div class="nb-cell query" name="q1">
+character(tarnished).
+</div>
+
+<div class="nb-cell query" name="q2">
+boss(malenia).
+</div>
+
+<div class="nb-cell query" name="q3">
+wields(malenia, Weapon).
+</div>
+
+<div class="nb-cell query" name="q4">
+located_in(Character, Location).
+</div>
+
+<div class="nb-cell query" name="q5">
+npc(Person), sorcerer(Person).
+</div>
+
+<div class="nb-cell query" name="q6">
+warrior(Person); sorcerer(Person).
+</div>
+
+<div class="nb-cell query" name="q7">
+character(Person), \+ boss(Person).
+</div>
+
+<div class="nb-cell query" name="q8">
+armed(Person).
+</div>
+
+<div class="nb-cell query" name="q9">
+companion(Person1, Person2).
+</div>
+
+<div class="nb-cell query" name="q10">
+demigod_boss(Person).
+</div>
+
+<div class="nb-cell query" name="q13">
+battle_mage(Person).
+</div>
+
+<div class="nb-cell query" name="q14">
+same_location(Person1, Person2).
+</div>
+
+<div class="nb-cell query" name="q15">
+quest_helper(Person).
+</div>
+
+<div class="nb-cell query" name="q16">
+setof(Person, demigod_boss(Person), Bosses).
+</div>
+
+<div class="nb-cell query" name="q11">
+expedition(Helper, Enemy, Location, EnemyWeapon).
+</div>
+
+</div>

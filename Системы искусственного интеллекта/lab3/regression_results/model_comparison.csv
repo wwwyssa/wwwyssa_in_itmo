@@ -1,0 +1,4 @@
+model,features,feature_count,r2_train,r2_test,r2_gap,rmse_test
+income,median_income,1,0.47853729713015936,0.47918118686170186,-0.0006438897315425018,84226.65917899525
+income_location_age,"median_income, longitude, latitude, housing_median_age",4,0.5969181091626581,0.6026591873011353,-0.00574107813847724,73567.81051380625
+all_features,"longitude, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income",8,0.6447174450504949,0.623253755256719,0.021463689793775886,71635.8979650615
