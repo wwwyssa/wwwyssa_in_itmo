@@ -10,7 +10,6 @@ OUTPUT_PATH = Path(__file__).resolve().parent / "sequence_results" / "approximat
 
 
 def initial_moments(data):
-    """Первый момент m1 = среднее(x), второй момент m2 = среднее(x²)."""
     if len(data) < 2:
         raise ValueError("Нужно минимум два значения")
     total = 0
@@ -24,19 +23,10 @@ def initial_moments(data):
 
 
 def fit_hyperexponential(data):
-    """Параметры H2 с равными вкладами компонент в математическое ожидание.
-
-    Два момента не определяют три параметра H2 однозначно.
-    Дополнительное условие: p / lambda1 = (1-p) / lambda2 = m1 / 2.
-    Формулы: I. Adan, Stochastic Performance Modelling, раздел 2.3:
-    https://iadan.win.tue.nl/4t400/DictaatPart1.pdf
-    """
     m1, m2 = initial_moments(data)
     if m1 <= 0:
         raise ValueError("Среднее должно быть положительным")
 
-    # Для метода моментов D = m2 - m1², без поправки N/(N-1).
-    # Исправленная дисперсия из main.py используется на другом этапе работы.
     variance = m2 - m1 ** 2
     cv_squared = variance / m1 ** 2
     if cv_squared <= 1:

@@ -1,0 +1,94 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% Вариант 10. Таблицы пересчитаны по data.txt; генерация H2, seed=42.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{FreeSerif}}
+\IfFontExistsTF{Arial}
+  {\setsansfont{Arial}}
+  {\setsansfont{FreeSans}}
+\IfFontExistsTF{Courier New}
+  {\setmonofont{Courier New}}
+  {\setmonofont{FreeMono}}
+\usepackage[left=22mm,right=18mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{array,booktabs,multirow,tabularx,longtable}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{fancyvrb}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\hypersetup{
+  pdftitle={Обработка результатов измерений: статистический анализ числовой последовательности},
+  pdfauthor={Марьин Григорий Алексеевич},
+  pdfsubject={Лабораторная работа № 1. Вариант 10}
+}
+\graphicspath{{./}{figures/}}
+\setstretch{1.15}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\captionsetup{font=small,justification=centering,labelsep=endash}
+\setlist[enumerate]{leftmargin=8mm,itemsep=3pt,topsep=4pt}
+\setcounter{secnumdepth}{0}
+\pagestyle{plain}
+
+\newcommand{\stage}[2]{\subsection*{Этап #1. #2}}
+\newcommand{\conclusion}[2]{\par\medskip\noindent\textbf{Вывод из #1 этапа:} #2\par}
+\newcommand{\reportfigure}[3]{%
+  \begin{center}
+    \includegraphics[width=#2\linewidth]{#1}
+    \captionof*{figure}{#3}
+  \end{center}}
+\newcommand{\pmv}[1]{\(\pm #1\)}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  Федеральное государственное автономное образовательное\newline
+  учреждение высшего образования\\[3mm]
+  \textbf{«Национальный исследовательский университет ИТМО»}\\[5mm]
+  Факультет программной инженерии и компьютерной техники\\[3mm]
+  Направление подготовки 09.03.04 «Программная инженерия»\\
+  Системное и прикладное программное обеспечение
+
+  \vfill
+  {\Large\bfseries Отчёт\par}
+  \vspace{4mm}
+  {\large по лабораторной работе № 1\par}
+  \vspace{4mm}
+  {\large\bfseries «Обработка результатов измерений:\\
+  статистический анализ числовой последовательности»\par}
+  \vspace{4mm}
+  По моделированию\\[3mm]
+  \textbf{Вариант: 10}
+  \vfill
+
+  \begin{flushright}
+    \begin{minipage}{0.61\textwidth}
+      \raggedleft
+      \textbf{Выполнил:}\\
+      студент 3 курса\\
+      Марьин Григорий Алексеевич\\
+      Группа: P3312\\[4mm]
+      \textbf{Принял:}\\
+      Тропченко Андрей Александрович\\[6mm]
+    \end{minipage}
+  \end{flushright}
+
+  \vfill
+  г. Санкт-Петербург, 2026
+\end{titlepage}
+
+\end{document}

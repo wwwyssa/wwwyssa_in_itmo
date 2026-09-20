@@ -9,3 +9,5 @@ informatic/laba4/solves/__pycache__/
 /tfcp/*
 .gitignore
 programming/laba5/target/*
+*/.venv
+*/venv/

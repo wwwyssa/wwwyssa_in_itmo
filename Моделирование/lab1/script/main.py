@@ -90,7 +90,7 @@ def main():
             print(f"{n:3} | {name:<15} | {value:14.6f} | {deviation:18.6f}")
 
     print("\nДоверительные интервалы математического ожидания:")
-    print(f"{'N':>3} | {'p':>4} | {'Нижняя':>12} | {'Верхняя':>12} | {'delta, %':>12}")
+    print(f"{'N':>3} | {'p':>4} | {'Нижняя':>12} | {'Верхняя':>12} | {'delta, %':>12} | {'delta':>12}")
     for n in SAMPLE_SIZES:
         sample = data[:n]
         for confidence in CONFIDENCE_LEVELS:
@@ -98,7 +98,7 @@ def main():
             lower, upper = confidence_interval(sample, confidence)
             # Относительная погрешность по формуле (7) методички.
             delta = eps / abs(average(sample)) * 100
-            print(f"{n:3} | {confidence:.2f} | {lower:12.6f} | {upper:12.6f} | {delta:12.6f}")
+            print(f"{n:3} | {confidence:.2f} | {lower:12.6f} | {upper:12.6f} | {delta:12.6f} | {eps:12.6f}")
 
 
 if __name__ == "__main__":
