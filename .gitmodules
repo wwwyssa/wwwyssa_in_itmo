@@ -1,3 +1,6 @@
 [submodule "OpiLab3"]
 	path = OpiLab3
 	url = https://github.com/wwwyssa/OpiLab3.git
+[submodule "OPI/lab3"]
+	path = OPI/lab3
+	url = https://github.com/wwwyssa/OpiLab3.git
