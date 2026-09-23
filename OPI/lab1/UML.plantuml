@@ -14,11 +14,6 @@ actor "Техподдержка" as Support
 
 rectangle "Интернет-магазин" {
 
-    class Dummy {
-  String data
-  void methods()
-}
-
     
 
 

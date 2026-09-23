@@ -1,0 +1,51 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 16
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam sequence {
+  ArrowColor #243647
+  LifeLineBorderColor #777777
+  ParticipantBackgroundColor #F2F4F6
+  ParticipantBorderColor #555555
+}
+hide footbox
+participant "Процессор\nSTM32C031C6" as CPU
+participant "Индикатор\nTM1637" as D
+participant "USART2\nКонсоль Wokwi" as U
+
+group Обработка события processKey
+alt Нажата цифра 0 ... 9
+CPU -> CPU: После результата начать новый ввод;\nдобавить цифру к A или B, если число ≤ 9999
+CPU -> U: A/B = число или Maximum operand: 9999
+opt Цифра принята
+ref over CPU,D: Передача сегментов операнда
+end
+else Нажата операция +, -, * или /
+CPU -> CPU: При наличии A до результата сохранить операцию
+CPU -> U: Operation: знак или Enter the first number
+else Нажата клавиша = и результат ещё не показан
+CPU -> CPU: Проверить A, операцию и B; вычислить сотые
+alt Данных недостаточно
+CPU -> U: Enter: number, operation, number, =
+else Деление на ноль
+ref over CPU,D: Передача сегментов Err
+CPU -> CPU: resultShown = true
+CPU -> U: Error: division by zero
+else Выражение корректно
+ref over CPU,D: Передача сегментов результата или Err
+CPU -> CPU: resultShown = true
+CPU -> U: Выражение и результат с двумя знаками
+end
+else Нажата точка или повторное = после результата
+CPU -> CPU: Состояние калькулятора не изменяется
+end
+end
+
+group Передача подготовленных сегментов при обновлении экрана
+CPU -> D: PA6/PA7: START; 0x40; STOP\nАвтоматическое увеличение адреса
+CPU -> D: START; 0xC0; 4 байта сегментов; STOP\nЗапись четырёх разрядов слева направо
+CPU -> D: START; 0x8F; STOP\nВключение; максимальная яркость
+end
+@enduml

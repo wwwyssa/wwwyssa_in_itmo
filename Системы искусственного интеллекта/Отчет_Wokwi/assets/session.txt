@@ -1,0 +1,61 @@
+Calculator ready
+Enter: digit, + - * /, digit, =
+Pressed: 1
+A = 1
+Pressed: 2
+A = 12
+Pressed: +
+Operation: +
+Pressed: 3
+B = 3
+Pressed: =
+12 + 3 = 15.00
+Pressed: 7
+A = 7
+Pressed: /
+Operation: /
+Pressed: 2
+B = 2
+Pressed: =
+7 / 2 = 3.50
+Pressed: 2
+A = 2
+Pressed: -
+Operation: -
+Pressed: 9
+B = 9
+Pressed: =
+2 - 9 = -7.00
+Pressed: 9
+A = 9
+Pressed: *
+Operation: *
+Pressed: 9
+B = 9
+Pressed: =
+9 * 9 = 81.00
+Pressed: 8
+A = 8
+Pressed: /
+Operation: /
+Pressed: 0
+B = 0
+Pressed: =
+Error: division by zero
+Pressed: 1
+A = 1
+Pressed: 2
+A = 12
+Pressed: 3
+A = 123
+Pressed: 4
+A = 1234
+Pressed: 5
+Maximum operand: 9999
+Pressed: *
+Operation: *
+Pressed: 9
+B = 9
+Pressed: =
+Result does not fit the display
+1234 * 9 = 11106.00
