@@ -1,28 +1,28 @@
  Реализовать информационную систему, которая позволяет взаимодействовать с объектами класса Flat, описание которого приведено ниже:
 ```
 public class Flat {
-    private long id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Double area; //Значение поля должно быть больше 0
-    private Integer price; //Значение поля должно быть больше 0
+    private java.time.LocalDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private Long area; //Значение поля должно быть больше 0
+    private double price; //Значение поля должно быть больше 0
     private Boolean balcony; //Поле может быть null
-    private double timeToMetroOnFoot; //Значение поля должно быть больше 0
-    private long numberOfRooms; //Максимальное значение поля: 11, Значение поля должно быть больше 0
+    private float timeToMetroOnFoot; //Значение поля должно быть больше 0
+    private int numberOfRooms; //Максимальное значение поля: 11, Значение поля должно быть больше 0
     private Boolean furniture; //Поле может быть null
     private View view; //Поле не может быть null
     private Transport transport; //Поле может быть null
     private House house; //Поле может быть null
 }
 public class Coordinates {
-    private Long x; //Поле не может быть null
-    private Long y; //Максимальное значение поля: 249, Поле не может быть null
+    private Float x; //Поле не может быть null
+    private Float y; //Максимальное значение поля: 249, Поле не может быть null
 }
 public class House {
     private String name; //Поле не может быть null
-    private Integer year; //Поле не может быть null, Значение поля должно быть больше 0
-    private long numberOfFloors; //Значение поля должно быть больше 0
+    private Long year; //Поле не может быть null, Значение поля должно быть больше 0
+    private int numberOfFloors; //Значение поля должно быть больше 0
 }
 public enum View {
     STREET,
@@ -59,7 +59,6 @@ public enum Transport {
 
 
 Представленные  операции должны быть реализованы в качестве функций БД, которые  необходимо вызывать из уровня бизнес-логики приложения.
-О
 
 Особенности хранения объектов, которые должны быть реализованы в системе:
 - Организовать  хранение данных об объектах в реляционной СУБД (PostgreSQL). Каждый  объект, с которым работает ИС, должен быть сохранен в базе данных.
