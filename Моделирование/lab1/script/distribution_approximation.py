@@ -1,6 +1,5 @@
 import math
 from pathlib import Path
-
 from main import DATA_PATH, read_data
 from sequence_analysis import histogram_frequencies
 

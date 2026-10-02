@@ -1,5 +1,4 @@
 """Генерация по H2 и сравнение с исходной последовательностью.
-
 Запуск: python generated_sequence.py
 Другая реализация: python generated_sequence.py --seed 7
 Результаты: generated_results/seed_42 (или папка другого seed).

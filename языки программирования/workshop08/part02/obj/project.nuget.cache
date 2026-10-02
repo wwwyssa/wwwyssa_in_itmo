@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7b2GCZyjdlE=",
+  "dgSpecHash": "AIP2RKw69/E=",
   "success": true,
-  "projectFilePath": "E:\\wwwyssa_in_itmo\\yap\\workshop08\\part02\\part02.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\wwwyssa_in_itmo\\языки программирования\\workshop08\\part02\\part02.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grisa\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.18\\microsoft.netcore.app.ref.9.0.18.nupkg.sha512",
+    "C:\\Users\\grisa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.18\\microsoft.windowsdesktop.app.ref.9.0.18.nupkg.sha512",
+    "C:\\Users\\grisa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.18\\microsoft.aspnetcore.app.ref.9.0.18.nupkg.sha512",
+    "C:\\Users\\grisa\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.18\\microsoft.netcore.app.host.win-x64.9.0.18.nupkg.sha512"
+  ],
   "logs": []
 }
