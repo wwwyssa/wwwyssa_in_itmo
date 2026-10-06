@@ -1,0 +1,34 @@
+# Keep this file even when the parent repository ignores .gitignore files.
+!/.gitignore
+
+# Build output and local runtime.
+/.gradle/
+/.gradle-user-home/
+/build/
+/out/
+/wildfly/
+*.class
+*.war
+*.ear
+*.log
+*.hprof
+
+# Local credentials; the template belongs in Git.
+/.env
+/.env.*
+!/.env.example
+
+# Editor and API client settings.
+/.idea/
+/.vscode/
+/.postman/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+
+# OS metadata.
+.DS_Store
+Thumbs.db

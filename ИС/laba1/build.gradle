@@ -1,0 +1,59 @@
+plugins {
+    id 'war'
+}
+
+group = 'web'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    eclipseLinkModule
+    jdbcDriver
+}
+
+dependencies {
+    implementation 'com.nimbusds:nimbus-jose-jwt:10.10'
+    // WildFly 35 provides the Jakarta EE 10 APIs at runtime.
+    providedCompile 'jakarta.platform:jakarta.jakartaee-web-api:10.0.0'
+
+    // WildFly loads these from server modules, not from WEB-INF/lib.
+    eclipseLinkModule 'org.eclipse.persistence:eclipselink:4.0.9'
+    jdbcDriver 'org.postgresql:postgresql:42.7.13'
+
+    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.register('copyPostgresDriver', Copy) {
+    from(configurations.jdbcDriver) {
+        include 'postgresql-*.jar'
+        rename { 'postgresql.jar' }
+    }
+    into layout.buildDirectory.dir('jdbc')
+}
+
+tasks.register('copyEclipseLink', Copy) {
+    from(configurations.eclipseLinkModule) {
+        include 'eclipselink-*.jar'
+        rename { 'eclipselink.jar' }
+    }
+    into layout.buildDirectory.dir('eclipselink')
+}

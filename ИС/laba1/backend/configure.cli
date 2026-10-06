@@ -1,0 +1,4 @@
+embed-server --server-config=standalone.xml --std-out=echo
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+/subsystem=datasources/data-source=FlatsDS:add(jndi-name="java:/jdbc/flats",driver-name="postgresql",connection-url="${env.DB_JDBC_URL:jdbc:postgresql://db:5432/flats}",user-name="${env.POSTGRES_USER:flats}",password="${env.POSTGRES_PASSWORD:change-me}",enabled=true)
+stop-embedded-server

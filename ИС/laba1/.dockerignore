@@ -1,0 +1,12 @@
+.git
+.gradle
+.gradle-user-home
+.idea
+.env
+.env.*
+.postman
+*.log
+build
+wildfly
+out
+*.iml
