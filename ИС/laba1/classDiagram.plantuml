@@ -1,0 +1,492 @@
+@startuml
+title Диаграмма классов приложения
+
+top to bottom direction
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty members
+
+package "model" #E8F5E9 {
+    class Flat <<Entity>> {
+        - id: Integer
+        - name: String
+        - coordinates: Coordinates
+        - creationDate: LocalDateTime
+        - area: Long
+        - price: double
+        - balcony: Boolean
+        - timeToMetroOnFoot: float
+        - numberOfRooms: int
+        - furniture: Boolean
+        - view: View
+        - transport: Transport
+        - house: House
+        --
+        + isPriceValid(): boolean
+        + isTimeToMetroOnFootValid(): boolean
+    }
+
+    class House <<Entity>> {
+        - id: Long
+        - name: String
+        - year: Long
+        - numberOfFloors: int
+    }
+
+    class Coordinates <<Entity>> {
+        - id: Long
+        - x: Float
+        - y: Float
+        --
+        + isYWithinRange(): boolean
+    }
+
+    class User <<Entity>> {
+        - id: Long
+        - username: String
+        - passwordHash: String
+    }
+
+    enum View {
+        STREET
+        YARD
+        PARK
+        BAD
+        TERRIBLE
+    }
+
+    enum Transport {
+        FEW
+        LITTLE
+        NORMAL
+    }
+}
+
+package "dto" #FFF8E1 {
+    class FlatRequest <<DTO>> {
+        + name: String
+        + coordinatesId: Long
+        + x: Float
+        + y: Float
+        + area: Long
+        + price: Double
+        + balcony: Boolean
+        + timeToMetroOnFoot: Float
+        + numberOfRooms: Integer
+        + furniture: Boolean
+        + view: View
+        + transport: Transport
+        + houseId: Long
+    }
+
+    class FlatData <<DTO>> {
+        + id: Integer
+        + name: String
+        + coordinatesId: Long
+        + x: Float
+        + y: Float
+        + creationDate: LocalDateTime
+        + area: Long
+        + price: double
+        + balcony: Boolean
+        + timeToMetroOnFoot: float
+        + numberOfRooms: int
+        + furniture: Boolean
+        + view: View
+        + transport: Transport
+        + houseId: Long
+        + houseName: String
+        + houseYear: Long
+        + houseNumberOfFloors: Integer
+        --
+        + FlatData(flat: Flat)
+    }
+
+    class HouseRequest <<DTO>> {
+        + name: String
+        + year: Long
+        + numberOfFloors: Integer
+    }
+
+    class HouseData <<DTO>> {
+        + id: Long
+        + name: String
+        + year: Long
+        + numberOfFloors: int
+        --
+        + HouseData(house: House)
+    }
+
+    class CoordinatesRequest <<DTO>> {
+        + x: Float
+        + y: Float
+    }
+
+    class CoordinatesData <<DTO>> {
+        + id: Long
+        + x: Float
+        + y: Float
+        --
+        + CoordinatesData(coordinates: Coordinates)
+    }
+
+    class AuthRequest <<DTO>> {
+        + username: String
+        + password: String
+    }
+
+    class AuthData <<DTO>> {
+        + token: String
+        + username: String
+        + expiresAt: long
+    }
+
+    class "PageData<T>" as PageData <<DTO>> {
+        + items: List<T>
+        + page: int
+        + size: int
+        + totalElements: long
+        + totalPages: long
+        --
+        + map(mapper: Function<T, R>): PageData<R>
+    }
+}
+
+package "service.flat" #E3F2FD {
+    class FlatService <<Stateless>> {
+        + list(search: FlatSearch): PageData<FlatData>
+        + create(request: FlatRequest): FlatData
+        + find(id: int): FlatData
+        + update(id: int, request: FlatRequest): FlatData
+        + delete(id: int): FlatData
+    }
+
+    class FlatOperationsService <<Stateless>> {
+        + maxArea(): FlatData
+        + countByHouse(houseId: Long): long
+        + namesStartingWith(prefix: String): List<FlatData>
+        + mostExpensiveWithoutBalcony(): FlatData
+        + mostExpensiveOfThree(id1: Integer, id2: Integer, id3: Integer): FlatData
+    }
+
+    class FlatSearch <<record>> {
+        - pagination: PageRequest
+        - name: String
+        - houseName: String
+        - numberOfRooms: Integer
+        - timeToMetroOnFoot: Float
+    }
+}
+
+package "service.house" #E3F2FD {
+    class HouseService <<Stateless>> {
+        + create(request: HouseRequest): HouseData
+        + find(id: long): HouseData
+        + list(page: PageRequest, name: String): PageData<HouseData>
+    }
+}
+
+package "service.coordinates" #E3F2FD {
+    class CoordinatesService <<Stateless>> {
+        + create(request: CoordinatesRequest): CoordinatesData
+        + find(id: long): CoordinatesData
+        + list(page: PageRequest): PageData<CoordinatesData>
+    }
+}
+
+package "service.auth" #E3F2FD {
+    class AuthService <<Stateless>> {
+        + register(request: AuthRequest): AuthData
+        + login(request: AuthRequest): AuthData
+    }
+
+    class JwtService <<Singleton>> {
+        - secret: byte[]
+        --
+        + init(): void
+        + issue(username: String): AuthData
+        + verify(token: String): JwtService.Identity
+    }
+
+    class "JwtService.Identity" as JwtIdentity <<record>> {
+        - username: String
+        - expiresAt: long
+    }
+
+    class PasswordSupport <<utility>> {
+        ~ {static} hash(password: String): String
+        ~ {static} matches(password: String, stored: String): boolean
+    }
+}
+
+package "service.notification" #E3F2FD {
+    class ChangeNotifier <<Singleton>> {
+        - sessions: Set<Session>
+        - transactions: TransactionSynchronizationRegistry
+        --
+        + connect(session: Session, expiresAt: long): void
+        + disconnect(session: Session): void
+        + changed(): void
+    }
+}
+
+package "service.pagination" #E3F2FD {
+    class PageRequest <<record>> {
+        - page: int
+        - size: int
+        - sort: String
+        - direction: String
+        --
+        + offset(): int
+        + validateSort(fields: Set<String>): void
+    }
+}
+
+package "service.exception" #FFEBEE {
+    class BadRequestException
+    class NotFoundException
+    class ConflictException
+    class UnauthorizedException
+}
+
+package "repository" #F3E5F5 {
+    class FlatRepository <<Stateless>> {
+        - entityManager: EntityManager
+        --
+        + find(id: int): Flat
+        + persist(flat: Flat): void
+        + remove(flat: Flat): void
+        + flush(): void
+        + list(search: FlatSearch): PageData<Flat>
+        + maxArea(): Flat
+        + countByHouse(houseId: Long): long
+        + namesStartingWith(prefix: String): List<Flat>
+        + mostExpensiveWithoutBalcony(): Flat
+        + mostExpensiveOfThree(id1: int, id2: int, id3: int): Flat
+    }
+
+    class HouseRepository <<Stateless>> {
+        - entityManager: EntityManager
+        --
+        + find(id: long): House
+        + persist(house: House): void
+        + flush(): void
+        + list(page: PageRequest, name: String): PageData<House>
+    }
+
+    class CoordinatesRepository <<Stateless>> {
+        - entityManager: EntityManager
+        --
+        + find(id: long): Coordinates
+        + persist(coordinates: Coordinates): void
+        + flush(): void
+        + list(page: PageRequest): PageData<Coordinates>
+    }
+
+    class UserRepository <<Stateless>> {
+        - entityManager: EntityManager
+        --
+        + find(username: String): User
+        + create(username: String, passwordHash: String): boolean
+    }
+
+    class QuerySupport <<utility>> {
+        + {static} containsPattern(text: String): String
+        + {static} sortOrders(builder: CriteriaBuilder, root: Root<?>, page: PageRequest): List<Order>
+    }
+}
+
+package "web" #E0F7FA {
+    class FlatController <<REST>> {
+        + list(page: PageParameters, name: String, houseName: String, numberOfRooms: String, timeToMetroOnFoot: String): Response
+        + create(request: FlatRequest, uriInfo: UriInfo): Response
+        + find(id: int): Response
+        + update(id: int, request: FlatRequest): Response
+        + delete(id: int): Response
+    }
+
+    class FlatOperationsController <<REST>> {
+        + maxArea(): Response
+        + countByHouse(houseId: String): Response
+        + namesStartingWith(prefix: String): Response
+        + mostExpensiveWithoutBalcony(): Response
+        + mostExpensiveOfThree(id1: String, id2: String, id3: String): Response
+    }
+
+    class HouseController <<REST>> {
+        + list(page: PageParameters, name: String): Response
+        + create(request: HouseRequest, uriInfo: UriInfo): Response
+        + find(id: long): Response
+    }
+
+    class CoordinatesController <<REST>> {
+        + list(page: PageParameters): Response
+        + create(request: CoordinatesRequest, uriInfo: UriInfo): Response
+        + find(id: long): Response
+    }
+
+    class AuthController <<REST>> {
+        + register(request: AuthRequest): Response
+        + login(request: AuthRequest): Response
+    }
+
+    class JwtFilter <<Provider>> {
+        + filter(request: ContainerRequestContext): void
+    }
+
+    class UpdatesEndpoint <<WebSocket>> {
+        + open(session: Session): void
+        + authenticate(token: String, session: Session): void
+        + close(session: Session): void
+    }
+
+    class ErrorHandler <<Provider>> {
+        + toResponse(exception: Exception): Response
+    }
+
+    class PageParameters {
+        + page: String
+        + size: String
+        + sort: String
+        + direction: String
+        --
+        + toRequest(): PageRequest
+    }
+
+    class QueryNumbers <<utility>> {
+        + {static} requiredInt(value: String, name: String): int
+        + {static} optionalInt(value: String, name: String): Integer
+        + {static} optionalLong(value: String, name: String): Long
+        + {static} optionalFloat(value: String, name: String): Float
+    }
+
+    class ApiResponses <<utility>> {
+        + {static} ok(result: Object): Response
+        + {static} created(result: Object, location: URI): Response
+        + {static} error(status: int, message: String): Response
+    }
+
+    class RestApplication
+}
+
+package "Внешние типы" #EEEEEE {
+    class RuntimeException <<Java>>
+    class Application <<Jakarta>>
+    interface ContainerRequestFilter <<Jakarta>>
+    interface "ExceptionMapper<Exception>" as ExceptionMapper <<Jakarta>>
+}
+
+' Связи сущностей
+Flat "0..*" --> "1" Coordinates : coordinates
+Flat "0..*" --> "0..1" House : house
+Flat ..> View
+Flat ..> Transport
+
+' Преобразование сущностей в DTO
+FlatData ..> Flat : преобразует
+HouseData ..> House : преобразует
+CoordinatesData ..> Coordinates : преобразует
+FlatRequest ..> View
+FlatRequest ..> Transport
+
+' Контроллеры и сервисы
+FlatController --> FlatService : @EJB
+FlatOperationsController --> FlatOperationsService : @EJB
+HouseController --> HouseService : @EJB
+CoordinatesController --> CoordinatesService : @EJB
+AuthController --> AuthService : @EJB
+
+' Сервисы и репозитории
+FlatService --> FlatRepository : @EJB
+FlatService --> HouseRepository : @EJB
+FlatService --> CoordinatesRepository : @EJB
+FlatOperationsService --> FlatRepository : @EJB
+HouseService --> HouseRepository : @EJB
+CoordinatesService --> CoordinatesRepository : @EJB
+AuthService --> UserRepository : @EJB
+
+' Репозитории и модели
+FlatRepository ..> Flat
+FlatRepository ..> House
+HouseRepository ..> House
+CoordinatesRepository ..> Coordinates
+UserRepository ..> User
+
+' Поиск и пагинация
+FlatController ..> FlatSearch : создаёт
+FlatService ..> FlatSearch
+FlatRepository ..> FlatSearch
+FlatSearch --> PageRequest : pagination
+
+FlatController ..> PageParameters
+HouseController ..> PageParameters
+CoordinatesController ..> PageParameters
+PageParameters ..> PageRequest : создаёт
+PageParameters ..> QueryNumbers
+
+HouseRepository ..> QuerySupport
+CoordinatesRepository ..> QuerySupport
+FlatRepository ..> QuerySupport
+QuerySupport ..> PageRequest
+
+' Авторизация
+AuthService --> JwtService : @EJB
+AuthService ..> PasswordSupport
+AuthService ..> AuthRequest
+JwtService ..> AuthData : создаёт
+JwtService ..> JwtIdentity : создаёт
+JwtFilter --> JwtService : @EJB
+
+' Уведомления
+FlatService --> ChangeNotifier : @EJB
+HouseService --> ChangeNotifier : @EJB
+CoordinatesService --> ChangeNotifier : @EJB
+UpdatesEndpoint --> ChangeNotifier : @EJB
+UpdatesEndpoint --> JwtService : @EJB
+
+' Вспомогательные классы web
+FlatController ..> ApiResponses
+FlatOperationsController ..> ApiResponses
+HouseController ..> ApiResponses
+CoordinatesController ..> ApiResponses
+AuthController ..> ApiResponses
+JwtFilter ..> ApiResponses
+
+FlatController ..> QueryNumbers
+FlatOperationsController ..> QueryNumbers
+QueryNumbers ..> BadRequestException
+
+' Наследование и реализация интерфейсов
+RuntimeException <|-- BadRequestException
+RuntimeException <|-- NotFoundException
+RuntimeException <|-- ConflictException
+RuntimeException <|-- UnauthorizedException
+Application <|-- RestApplication
+ContainerRequestFilter <|.. JwtFilter
+ExceptionMapper <|.. ErrorHandler
+
+ErrorHandler ..> BadRequestException
+ErrorHandler ..> NotFoundException
+ErrorHandler ..> ConflictException
+ErrorHandler ..> UnauthorizedException
+
+note right of ChangeNotifier
+  Отправляет "changed" клиентам
+  после успешного завершения
+  транзакции.
+end note
+
+legend bottom
+  <<Entity>> — сущность JPA
+  <<DTO>> — объект передачи данных
+  <<Stateless>> — EJB без состояния клиента
+  <<Singleton>> — один EJB на приложение
+  <<record>> — Java record
+  --> — направленная ассоциация
+  ..> — зависимость
+  <|-- — наследование
+  <|.. — реализация интерфейса
+endlegend
+
+@enduml

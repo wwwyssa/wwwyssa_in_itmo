@@ -1,0 +1,110 @@
+@startuml
+title Диаграмма пакетов backend
+
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+package "web" as Web #E0F7FA
+package "dto" as DTO #FFF8E1
+package "model" as Model #E8F5E9
+package "repository" as Repository #F3E5F5
+
+package "service" as Service #E3F2FD {
+    package "flat" as FlatServicePackage
+    package "house" as HouseServicePackage
+    package "coordinates" as CoordinatesServicePackage
+    package "auth" as AuthServicePackage
+    package "notification" as NotificationPackage
+    package "pagination" as PaginationPackage
+    package "exception" as ExceptionPackage #FFEBEE
+}
+
+' HTTP, WebSocket, параметры и обработка ошибок
+Web ..> FlatServicePackage
+Web ..> HouseServicePackage
+Web ..> CoordinatesServicePackage
+Web ..> AuthServicePackage
+Web ..> NotificationPackage
+Web ..> PaginationPackage
+Web ..> ExceptionPackage
+Web ..> DTO
+
+' Работа сервисов с базой данных
+FlatServicePackage ..> Repository
+HouseServicePackage ..> Repository
+CoordinatesServicePackage ..> Repository
+AuthServicePackage ..> Repository
+
+' Сервисы используют сущности
+FlatServicePackage ..> Model
+HouseServicePackage ..> Model
+CoordinatesServicePackage ..> Model
+AuthServicePackage ..> Model
+
+' Сервисы принимают и возвращают DTO
+FlatServicePackage ..> DTO
+HouseServicePackage ..> DTO
+CoordinatesServicePackage ..> DTO
+AuthServicePackage ..> DTO
+
+' Уведомления об изменениях
+FlatServicePackage ..> NotificationPackage
+HouseServicePackage ..> NotificationPackage
+CoordinatesServicePackage ..> NotificationPackage
+
+' Пагинация
+FlatServicePackage ..> PaginationPackage
+HouseServicePackage ..> PaginationPackage
+CoordinatesServicePackage ..> PaginationPackage
+
+' Ошибки валидации и бизнес-логики
+FlatServicePackage ..> ExceptionPackage
+HouseServicePackage ..> ExceptionPackage
+CoordinatesServicePackage ..> ExceptionPackage
+AuthServicePackage ..> ExceptionPackage
+PaginationPackage ..> ExceptionPackage
+
+' Зависимости репозиториев
+Repository ..> Model
+Repository ..> DTO : PageData
+Repository ..> PaginationPackage : PageRequest
+Repository ..> FlatServicePackage : FlatSearch
+
+' DTO используют сущности и перечисления
+DTO ..> Model
+
+note bottom of Web
+  REST-контроллеры
+  JWT-фильтр
+  WebSocket endpoint
+  Обработка ошибок
+  Разбор параметров запроса
+end note
+
+note bottom of Repository
+  Репозитории сущностей
+  Построение запросов JPA
+  Вызов SQL-функций
+end note
+
+note bottom of Model
+  Flat, House, Coordinates, User
+  View, Transport
+end note
+
+note bottom of NotificationPackage
+  Рассылка уведомлений
+  после фиксации транзакции
+end note
+
+legend bottom
+  Вложенные пакеты имеют полные имена:
+  service.flat, service.house, service.coordinates,
+  service.auth, service.notification,
+  service.pagination, service.exception.
+
+  A ..> B — пакет A зависит от пакета B.
+endlegend
+
+@enduml

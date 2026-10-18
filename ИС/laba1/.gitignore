@@ -7,6 +7,9 @@
 /build/
 /out/
 /wildfly/
+/frontend/node_modules/
+/.npm-tools/
+/.npm-cache/
 *.class
 *.war
 *.ear

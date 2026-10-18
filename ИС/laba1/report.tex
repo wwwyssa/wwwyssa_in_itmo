@@ -1,0 +1,505 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[left=30mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{array,longtable,tabularx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\emergencystretch=2em
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  frame=single,
+  rulecolor=\color{gray},
+  tabsize=4
+}
+% Укажите имена файлов готовых диаграмм вместо conceptual.png и er.png.
+% Если изображений пока нет рядом с report.tex, документ всё равно компилируется.
+\newcommand{\readydiagram}[2]{%
+  \begin{figure}[H]
+    \centering
+    \IfFileExists{#1}{%
+      \includegraphics[width=\linewidth,height=0.65\textheight,keepaspectratio]{#1}%
+    }{%
+      \fbox{\parbox{0.9\linewidth}{\centering
+        #2\\[6pt]
+        Файл готовой диаграммы: \texttt{\detokenize{#1}}}}
+    }
+    \caption{#2}
+  \end{figure}
+}
+\title{Отчёт по лабораторной работе 1\\Информационная система квартир}
+\author{}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+В работе рассматриваются проектирование и реализация базы данных информационной
+системы для управления квартирами. Описаны предметная область, сущности,
+концептуальная, логическая и физическая модели, а также SQL-схема и специальные
+операции. Реализация использует PostgreSQL, Jakarta EE и JPA с EclipseLink.
+
+\section{Текст задания}
+
+Реализовать информационную систему, которая позволяет взаимодействовать с
+объектами класса \texttt{Flat}. Основной объект содержит следующие поля:
+\texttt{id}, \texttt{name}, \texttt{coordinates}, \texttt{creationDate},
+\texttt{area}, \texttt{price}, \texttt{balcony}, \texttt{timeToMetroOnFoot},
+\texttt{numberOfRooms}, \texttt{furniture}, \texttt{view}, \texttt{transport},
+\texttt{house}.
+
+Требования к полям объекта и вспомогательных классов:
+\begin{itemize}
+  \item \texttt{Flat.id}: положительный уникальный идентификатор,
+  генерируемый автоматически средствами БД.
+  \item \texttt{Flat.name}: непустая строка, не равная \texttt{null}.
+  \item \texttt{Flat.coordinates}: обязательный объект координат.
+  \item \texttt{Flat.creationDate}: обязательная дата и время создания,
+  формируемые автоматически.
+  \item \texttt{Flat.area}, \texttt{Flat.price},
+  \texttt{Flat.timeToMetroOnFoot}: положительные значения.
+  \item \texttt{Flat.numberOfRooms}: целое число от 1 до 11.
+  \item \texttt{Flat.balcony}, \texttt{Flat.furniture}: значения
+  \texttt{Boolean}, допускающие \texttt{null}.
+  \item \texttt{Flat.view}: обязательное значение перечисления
+  \texttt{View}: \texttt{STREET}, \texttt{YARD}, \texttt{PARK},
+  \texttt{BAD}, \texttt{TERRIBLE}.
+  \item \texttt{Flat.transport}: необязательное значение перечисления
+  \texttt{Transport}: \texttt{FEW}, \texttt{LITTLE}, \texttt{NORMAL}.
+  \item \texttt{Flat.house}: необязательный объект дома.
+  \item \texttt{Coordinates.x}, \texttt{Coordinates.y}: обязательные значения
+  типа \texttt{Float}; значение \texttt{y} не превышает 249.
+  \item \texttt{House.name}: строка, не равная \texttt{null}.
+  \item \texttt{House.year}: обязательное положительное значение типа
+  \texttt{Long}; \texttt{House.numberOfFloors}: положительное целое число.
+\end{itemize}
+
+Разработанная система должна удовлетворять следующим требованиям:
+\begin{enumerate}
+  \item Основное назначение системы --- управление объектами заданного класса.
+  \item Предусмотреть создание, получение информации по ID, изменение и
+  удаление объектов. Операции выполняются в отдельных окнах или интерфейсах.
+  При просмотре объекта отображается информация о связанных объектах.
+  \item При создании квартиры обеспечить выбор существующих объектов
+  вспомогательных классов.
+  \item Выполнять операции управления на сервере и синхронизировать изменения с БД.
+  \item На главном экране отображать таблицу объектов, выделяя каждому атрибуту
+  отдельную колонку. При необходимости использовать пагинацию.
+  \item Обеспечить сортировку и фильтрацию по значениям строковых колонок.
+  Фильтрация должна выполняться по неполному совпадению.
+  \item Предоставить переход к изменению объекта из общей таблицы и из области
+  визуализации объекта, если она реализована.
+  \item При добавлении, изменении и удалении объектов автоматически обновлять
+  интерфейсы других авторизованных пользователей.
+  \item Запрещать удаление объекта, на который ссылается другой объект,
+  и сообщать пользователю о невозможности удаления.
+  \item Разрешить пользователям просмотр всех объектов. Для изменения
+  открывать отдельное диалоговое окно. При некорректном вводе показывать
+  информативные сообщения.
+  \item Предусмотреть меню для перехода между логически обособленными частями системы.
+\end{enumerate}
+
+В отдельном интерфейсе должны быть доступны пять специальных операций:
+\begin{enumerate}
+  \item Вернуть один объект с максимальным значением \texttt{area}.
+  \item Вернуть количество квартир, значение \texttt{house} которых равно заданному.
+  \item Вернуть массив квартир, название которых начинается с заданной подстроки.
+  \item Найти самую дорогую квартиру без балкона.
+  \item Выбрать наиболее дорогую из трёх квартир с заданными ID.
+\end{enumerate}
+Операции необходимо реализовать как функции БД и вызывать из бизнес-логики.
+
+Хранение данных организовать в PostgreSQL. Ограничения полей должны быть
+реализованы на уровне ORM и БД. Для кафедрального развёртывания использовать
+хост \texttt{pg}, базу \texttt{studs} и учётные данные пользователя кафедрального
+сервера. Основой приложения должны служить Java EE и управляемые компоненты,
+уровнем хранения --- JPA с EclipseLink. Уровни и логические части приложения
+необходимо разделить на отдельные компоненты.
+
+\section{Описание предметной области}
+
+Предметная область --- учёт квартир и их характеристик. Для квартиры хранятся
+название, площадь, цена, число комнат, время пешком до метро, сведения о балконе
+и мебели, вид из окна и доступность транспорта. Местоположение задаётся
+координатами, а сведения о здании выделены в объект дома.
+
+Квартира обязательно связана с координатами. Связь с домом необязательна:
+допускается запись квартиры без сведений о доме. Один дом и один объект
+координат могут использоваться несколькими квартирами. Дом содержит название,
+год и количество этажей; координаты --- значения \texttt{x} и \texttt{y}.
+
+Зарегистрированный пользователь просматривает квартиры, выбирает связанные
+объекты и выполняет операции управления. Учётная запись содержит логин и хеш
+пароля. В модели не предусмотрена принадлежность квартиры пользователю:
+все авторизованные пользователи работают с общим набором данных.
+
+При изменении квартиры сервер сохраняет данные в транзакции. После успешного
+коммита через WebSocket отправляется уведомление, по которому интерфейсы
+повторно запрашивают актуальные данные через REST. Прямое изменение БД
+внешним SQL-запросом само по себе такое уведомление не создаёт.
+
+\section{Сущности и концептуальная модель}
+
+\subsection{Список и классификация сущностей}
+
+\begin{tabularx}{\linewidth}{|p{2.5cm}|p{3.8cm}|X|}
+\hline
+\textbf{Сущность} & \textbf{Классификация} & \textbf{Назначение} \\ \hline
+Квартира & Основная предметная, сильная & Объект учёта, содержащий характеристики жилья и ссылки на связанные объекты. \\ \hline
+Дом & Вспомогательная предметная, сильная & Общие сведения о здании, которые могут использоваться несколькими квартирами. \\ \hline
+Координаты & Вспомогательная предметная, сильная & Местоположение; самостоятельная запись с собственным идентификатором. \\ \hline
+Пользователь & Служебная, сильная & Учётная запись для регистрации и входа в систему. \\ \hline
+\end{tabularx}
+
+Все четыре сущности имеют собственные первичные ключи, поэтому в данной модели
+нет слабых сущностей и таблиц для связей многие ко многим. Обязательная связь
+квартиры с координатами не делает квартиру слабой сущностью: её идентификатор
+не зависит от идентификатора координат.
+
+\texttt{View} и \texttt{Transport} --- перечислимые домены значений атрибутов,
+а не самостоятельные сущности. DTO, сервисы, контроллеры, JWT и WebSocket-сессии
+также не являются сущностями базы данных.
+
+\subsection{Связи концептуальной модели}
+
+\begin{itemize}
+  \item Дом --- квартира: один дом связан с нулём или несколькими квартирами;
+  квартира связана с нулём или одним домом.
+  \item Координаты --- квартира: один объект координат связан с нулём или
+  несколькими квартирами; квартира связана ровно с одним объектом координат.
+  \item Пользователь не имеет хранимой связи с квартирой, домом или координатами.
+  Его участие в операциях системы не моделируется внешним ключом.
+\end{itemize}
+
+\readydiagram{conceptual.png}{Концептуальная модель предметной области}
+
+\section{Логическая модель и ER-диаграмма}
+
+Концептуальные сущности преобразованы в четыре отношения. В каждой таблице
+используется суррогатный первичный ключ \texttt{id}.
+
+\begin{itemize}
+  \item \texttt{coordinates}: \texttt{id} (PK), \texttt{x}, \texttt{y}.
+  \item \texttt{house}: \texttt{id} (PK), \texttt{name}, \texttt{year},
+  \texttt{number\_of\_floors}.
+  \item \texttt{flat}: \texttt{id} (PK), \texttt{name},
+  \texttt{coordinates\_id} (FK), \texttt{creation\_date}, \texttt{area},
+  \texttt{price}, \texttt{balcony}, \texttt{time\_to\_metro\_on\_foot},
+  \texttt{number\_of\_rooms}, \texttt{furniture}, \texttt{view\_type},
+  \texttt{transport\_type}, \texttt{house\_id} (FK).
+  \item \texttt{app\_user}: \texttt{id} (PK), \texttt{username} (уникальный ключ),
+  \texttt{password\_hash}.
+\end{itemize}
+
+\texttt{flat.coordinates\_id} ссылается на \texttt{coordinates.id} и не
+допускает \texttt{NULL}. \texttt{flat.house\_id} ссылается на \texttt{house.id}
+и допускает \texttt{NULL}. Обе связи имеют тип один ко многим.
+
+\readydiagram{er.png}{Логическая модель базы данных и ER-диаграмма}
+
+Атрибуты содержат атомарные значения, повторяющиеся группы отсутствуют.
+Первичные ключи состоят из одного атрибута, поэтому частичных зависимостей
+от составного ключа нет. Характеристики дома и координаты вынесены из
+таблицы квартир в отдельные отношения. При принятых зависимостях от ключей
+модель соответствует третьей нормальной форме.
+
+Полный ответ API может содержать название дома, год, этажность и координаты
+в одном DTO. Это объединение данных для отображения, а не дублирование
+этих полей в таблице \texttt{flat}.
+
+\section{Физическая модель}
+
+СУБД --- PostgreSQL 17. Прикладные идентификаторы генерируются с помощью
+\texttt{GENERATED ALWAYS AS IDENTITY}. В JPA используется стратегия
+\texttt{GenerationType.IDENTITY}. Java-классы отображаются на таблицы
+аннотациями \texttt{@Entity}, \texttt{@Table}, \texttt{@Column} и
+\texttt{@JoinColumn}. Автоматическое создание схемы ORM отключено:
+структуру БД задают SQL-скрипты.
+
+В таблицах ниже обязательность означает наличие ограничения \texttt{NOT NULL}.
+
+\subsection{Таблица coordinates}
+\begin{tabularx}{\linewidth}{|p{1.6cm}|p{2.1cm}|p{2.6cm}|X|}
+\hline
+\textbf{Поле} & \textbf{Тип} & \textbf{Обязательность} & \textbf{Ограничения} \\ \hline
+\texttt{id} & BIGINT & Обязательно & Первичный ключ, IDENTITY, больше нуля. \\ \hline
+\texttt{x} & REAL & Обязательно & Ограничение диапазона в SQL не задано. \\ \hline
+\texttt{y} & REAL & Обязательно & Значение не превышает 249. \\ \hline
+\end{tabularx}
+
+\subsection{Таблица house}
+\begin{tabularx}{\linewidth}{|p{3.4cm}|p{2cm}|p{2.6cm}|X|}
+\hline
+\textbf{Поле} & \textbf{Тип} & \textbf{Обязательность} & \textbf{Ограничения} \\ \hline
+\texttt{id} & BIGINT & Обязательно & Первичный ключ, IDENTITY, больше нуля. \\ \hline
+\texttt{name} & TEXT & Обязательно & Пустая строка допускается. \\ \hline
+\texttt{year} & BIGINT & Обязательно & Больше нуля. \\ \hline
+\texttt{number\_of\_floors} & INTEGER & Обязательно & Больше нуля. \\ \hline
+\end{tabularx}
+
+\subsection{Таблица flat}
+\begin{longtable}{|p{4.8cm}|p{2.5cm}|p{1.6cm}|p{4.3cm}|}
+\hline
+\textbf{Поле} & \textbf{Тип} & \textbf{NULL} & \textbf{Ограничения} \\ \hline
+\endfirsthead
+\hline
+\textbf{Поле} & \textbf{Тип} & \textbf{NULL} & \textbf{Ограничения} \\ \hline
+\endhead
+\texttt{id} & INTEGER & Нет & Первичный ключ, IDENTITY, больше нуля. \\ \hline
+\texttt{name} & TEXT & Нет & Содержит хотя бы один непробельный символ. \\ \hline
+\texttt{coordinates\_id} & BIGINT & Нет & Внешний ключ на \texttt{coordinates.id}. \\ \hline
+\texttt{creation\_date} & TIMESTAMP WITHOUT TIME ZONE & Нет & По умолчанию \texttt{CURRENT\_TIMESTAMP}. \\ \hline
+\texttt{area} & BIGINT & Нет & Больше нуля. \\ \hline
+\texttt{price} & DOUBLE PRECISION & Нет & Конечное значение больше нуля. \\ \hline
+\texttt{balcony} & BOOLEAN & Да & \texttt{TRUE}, \texttt{FALSE} или \texttt{NULL}. \\ \hline
+\texttt{time\_to\_metro\_on\_foot} & REAL & Нет & Конечное значение больше нуля. \\ \hline
+\texttt{number\_of\_rooms} & INTEGER & Нет & От 1 до 11 включительно. \\ \hline
+\texttt{furniture} & BOOLEAN & Да & \texttt{TRUE}, \texttt{FALSE} или \texttt{NULL}. \\ \hline
+\texttt{view\_type} & VARCHAR(16) & Нет & Значение из перечисления \texttt{View}. \\ \hline
+\texttt{transport\_type} & VARCHAR(16) & Да & Значение из \texttt{Transport} или \texttt{NULL}. \\ \hline
+\texttt{house\_id} & BIGINT & Да & Внешний ключ на \texttt{house.id}. \\ \hline
+\end{longtable}
+
+Дата создания формируется в JPA-методе с \texttt{@PrePersist}. SQL-значение
+по умолчанию используется при вставке без явного указания даты. ORM исключает
+дату из обновлений через \texttt{updatable=false}; отдельного SQL-триггера,
+запрещающего изменение даты прямым запросом, нет.
+
+\subsection{Таблица app\_user}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|p{2.4cm}|p{2.6cm}|X|}
+\hline
+\textbf{Поле} & \textbf{Тип} & \textbf{Обязательность} & \textbf{Ограничения} \\ \hline
+\texttt{id} & BIGINT & Обязательно & Первичный ключ, IDENTITY. \\ \hline
+\texttt{username} & VARCHAR(32) & Обязательно & Уникальный логин: 3--32 строчных латинских буквы, цифры или символы подчёркивания. \\ \hline
+\texttt{password\_hash} & VARCHAR(200) & Обязательно & Хеш пароля; открытый пароль не хранится. \\ \hline
+\end{tabularx}
+
+Пароли хешируются алгоритмом PBKDF2-HMAC-SHA256 с индивидуальной случайной
+солью и 600\,000 итерациями. Параметры алгоритма, соль и результат хеширования
+сохраняются одной строкой. JWT выдаётся после регистрации или входа и не
+хранится отдельной записью в БД.
+
+\subsection{Целостность и индексы}
+
+Первичные ключи обеспечивают идентификацию строк. \texttt{NOT NULL} задаёт
+обязательность полей, \texttt{CHECK} ограничивает диапазоны и домены, а
+\texttt{UNIQUE} запрещает повторение логинов. Перечисления сохраняются
+строками, для которых предусмотрены SQL-проверки допустимых значений.
+
+Внешние ключи используют \texttt{ON DELETE RESTRICT}: нельзя удалить дом
+или координаты, пока на них ссылаются квартиры. Удаление квартиры не удаляет
+связанные записи. Каскадное удаление не настроено; API удаления домов и
+координат в текущей реализации отсутствует.
+
+PostgreSQL создаёт индексы для первичных ключей и уникального логина.
+Дополнительные индексы для внешних ключей, сортировки и поиска по подстроке
+в SQL-схеме не объявлены.
+
+\section{Реализация модели на SQL}
+
+Схема определена в \texttt{db/init/schema.sql}, учётные записи --- в
+\texttt{db/init/users.sql}, специальные операции --- в
+\texttt{db/init/flat\_functions.sql}. Ниже приведены определения из этих файлов.
+
+\subsection{Создание предметных таблиц}
+\begin{lstlisting}[language=SQL]
+BEGIN;
+
+CREATE TABLE coordinates (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    x REAL NOT NULL,
+    y REAL NOT NULL,
+    CONSTRAINT ck_coordinates_id_positive CHECK (id > 0),
+    CONSTRAINT ck_coordinates_y_max CHECK (y <= 249)
+);
+
+CREATE TABLE house (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    year BIGINT NOT NULL,
+    number_of_floors INTEGER NOT NULL,
+    CONSTRAINT ck_house_id_positive CHECK (id > 0),
+    CONSTRAINT ck_house_year_positive CHECK (year > 0),
+    CONSTRAINT ck_house_floors_positive CHECK (number_of_floors > 0)
+);
+
+CREATE TABLE flat (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    coordinates_id BIGINT NOT NULL,
+    creation_date TIMESTAMP WITHOUT TIME ZONE NOT NULL
+        DEFAULT CURRENT_TIMESTAMP,
+    area BIGINT NOT NULL,
+    price DOUBLE PRECISION NOT NULL,
+    balcony BOOLEAN,
+    time_to_metro_on_foot REAL NOT NULL,
+    number_of_rooms INTEGER NOT NULL,
+    furniture BOOLEAN,
+    view_type VARCHAR(16) NOT NULL,
+    transport_type VARCHAR(16),
+    house_id BIGINT,
+    CONSTRAINT ck_flat_id_positive CHECK (id > 0),
+    CONSTRAINT ck_flat_name_not_blank CHECK (name ~ '[^[:space:]]'),
+    CONSTRAINT ck_flat_area_positive CHECK (area > 0),
+    CONSTRAINT ck_flat_price_positive_finite
+        CHECK (price > 0 AND price < 'Infinity'::DOUBLE PRECISION),
+    CONSTRAINT ck_flat_metro_time_positive_finite
+        CHECK (time_to_metro_on_foot > 0
+            AND time_to_metro_on_foot < 'Infinity'::REAL),
+    CONSTRAINT ck_flat_rooms_range
+        CHECK (number_of_rooms BETWEEN 1 AND 11),
+    CONSTRAINT ck_flat_view
+        CHECK (view_type IN ('STREET', 'YARD', 'PARK', 'BAD', 'TERRIBLE')),
+    CONSTRAINT ck_flat_transport
+        CHECK (transport_type IS NULL
+            OR transport_type IN ('FEW', 'LITTLE', 'NORMAL')),
+    CONSTRAINT fk_flat_coordinates
+        FOREIGN KEY (coordinates_id) REFERENCES coordinates(id)
+        ON DELETE RESTRICT,
+    CONSTRAINT fk_flat_house
+        FOREIGN KEY (house_id) REFERENCES house(id)
+        ON DELETE RESTRICT
+);
+
+COMMIT;
+\end{lstlisting}
+
+\subsection{Создание таблицы пользователей}
+\begin{lstlisting}[language=SQL]
+BEGIN;
+CREATE TABLE IF NOT EXISTS app_user (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(32) NOT NULL UNIQUE,
+    password_hash VARCHAR(200) NOT NULL,
+    CONSTRAINT ck_user_username
+        CHECK (username ~ '^[a-z0-9_]{3,32}$')
+);
+COMMIT;
+\end{lstlisting}
+
+\subsection{Специальные операции}
+
+Четыре функции реализованы на SQL, выбор самой дорогой из трёх квартир ---
+на PL/pgSQL. При равных площади или цене выбирается объект с наименьшим ID.
+\texttt{STABLE} характеризует поведение функций в пределах SQL-запроса
+и не означает постоянного кеширования результатов.
+
+\begin{lstlisting}[language=SQL]
+BEGIN;
+
+CREATE OR REPLACE FUNCTION flat_max_area()
+RETURNS SETOF flat
+LANGUAGE sql STABLE
+AS $$
+    SELECT f.* FROM flat f
+    ORDER BY f.area DESC, f.id ASC LIMIT 1;
+$$;
+
+CREATE OR REPLACE FUNCTION flat_count_by_house(p_house_id BIGINT)
+RETURNS BIGINT
+LANGUAGE sql STABLE
+AS $$
+    SELECT count(*) FROM flat f
+    WHERE f.house_id IS NOT DISTINCT FROM p_house_id;
+$$;
+
+CREATE OR REPLACE FUNCTION flat_names_starting_with(p_prefix TEXT)
+RETURNS SETOF flat
+LANGUAGE sql STABLE
+AS $$
+    SELECT f.* FROM flat f
+    WHERE left(f.name, char_length(p_prefix)) = p_prefix
+    ORDER BY f.id ASC;
+$$;
+
+CREATE OR REPLACE FUNCTION flat_most_expensive_without_balcony()
+RETURNS SETOF flat
+LANGUAGE sql STABLE
+AS $$
+    SELECT f.* FROM flat f WHERE f.balcony IS FALSE
+    ORDER BY f.price DESC, f.id ASC LIMIT 1;
+$$;
+
+CREATE OR REPLACE FUNCTION flat_most_expensive_of_three(
+    p_id1 INTEGER, p_id2 INTEGER, p_id3 INTEGER)
+RETURNS SETOF flat
+LANGUAGE plpgsql STABLE
+AS $$
+BEGIN
+    RETURN QUERY
+        SELECT f.* FROM flat f
+        WHERE f.id IN (p_id1, p_id2, p_id3)
+        ORDER BY f.price DESC, f.id ASC LIMIT 1;
+END;
+$$;
+
+COMMIT;
+\end{lstlisting}
+
+\texttt{flat\_count\_by\_house(NULL)} возвращает количество квартир без дома.
+Для отсутствующего ID дома результат равен нулю. Поиск по префиксу учитывает
+регистр; пустой префикс соответствует всем названиям. В операции поиска
+без балкона учитываются только строки с \texttt{balcony=FALSE}; неизвестное
+значение \texttt{NULL} не считается отсутствием балкона.
+
+Проверка трёх положительных, различных и существующих ID выполняется в
+\texttt{FlatOperationsService}. Сама SQL-функция выбирает максимум среди
+найденных строк и не содержит этих проверок.
+
+Примеры вызовов функций:
+\begin{lstlisting}[language=SQL]
+SELECT * FROM flat_max_area();
+SELECT flat_count_by_house(1);
+SELECT flat_count_by_house(NULL);
+SELECT * FROM flat_names_starting_with('Studio');
+SELECT * FROM flat_most_expensive_without_balcony();
+SELECT * FROM flat_most_expensive_of_three(1, 2, 3);
+\end{lstlisting}
+
+\subsection{Связь SQL-модели с приложением}
+
+REST-контроллеры вызывают EJB-сервисы; сервисы выполняют проверки и обращаются
+к репозиториям. Репозитории используют \texttt{EntityManager}. Списки квартир,
+домов и координат строятся через Criteria API; специальные операции вызываются
+через параметризованные native queries. При регистрации применяется
+\texttt{INSERT ... ON CONFLICT DO NOTHING}, чтобы уникальное ограничение
+обрабатывало в том числе одновременные регистрации одного логина.
+
+EJB управляет транзакциями. \texttt{flush()} синхронизирует изменения с БД,
+но не заменяет коммит. Уведомление об изменении отправляется только после
+успешного завершения транзакции.
+
+При первом запуске PostgreSQL в Docker таблицы и функции создаются init-скриптами.
+Для существующей БД новые определения применяются отдельно; пересборка WAR
+не изменяет сохранённую схему автоматически.
+
+\section{Выводы по работе}
+
+В ходе работы спроектирована и реализована реляционная модель информационной
+системы квартир. Выделены четыре сущности, определены первичные и внешние ключи,
+обязательность атрибутов и ограничения допустимых значений. Разделение квартир,
+домов и координат позволяет повторно использовать связанные записи и хранить
+общие характеристики без дублирования.
+
+Полученная модель реализована в PostgreSQL и связана с Java-приложением через
+JPA и EclipseLink. Операции изменения выполняются в транзакциях, пять
+специальных операций реализованы функциями БД. Регистрация и вход используют
+хеширование паролей и JWT; уведомления WebSocket позволяют обновлять интерфейсы
+после сохранения изменений.
+
+Работа позволила применить на практике переход от предметной области к
+концептуальной, логической и физической моделям, ограничения ссылочной
+целостности и интеграцию ORM с SQL-функциями.
+
+\end{document}

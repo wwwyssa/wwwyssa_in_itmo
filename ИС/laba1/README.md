@@ -1,6 +1,6 @@
 # Информационная система «Квартиры»
 
-Jakarta EE 10, Java 17, JPA + EclipseLink, PostgreSQL и интерфейс на JavaScript.
+Jakarta EE 10, Java 17, JPA + EclipseLink, PostgreSQL и интерфейс на React + Vite.
 Реализованы управление квартирами, выбор связанных домов и координат,
 пагинация, фильтрация, сортировка, пять специальных операций,
 регистрация и вход с JWT, обновление таблиц через WebSocket.
@@ -20,10 +20,20 @@ docker compose up -d --build
 ```
 
 Интерфейс: `http://localhost:8080/`. Если изменён `BACKEND_PORT`, используйте этот порт.
+Без действующего входа интерфейс автоматически переводит пользователя на `/#login` — страницу авторизации. После входа открывается список квартир. При выходе, истечении токена или ответе API `401` снова показывается страница авторизации.
 При первом запуске создайте пользователя через форму регистрации.
 Схема, SQL-функции и таблица пользователей создаются автоматически на новой БД.
 
-Для локальной сборки WAR нужна Java 17:
+Если БД создана до добавления регистрации, таблицу пользователей нужно добавить отдельно:
+
+```powershell
+docker compose exec -T db sh -c 'exec psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f /docker-entrypoint-initdb.d/03_users.sql'
+```
+
+Команда выполняет `db/init/users.sql` и сохраняет существующие данные. Скрипты из `/docker-entrypoint-initdb.d` запускаются автоматически только при первой инициализации БД; пересборка backend не применяет их к существующему volume.
+
+Для локальной сборки WAR нужны Java 17 и Node.js 22.12+ (или 24+) с npm.
+Gradle устанавливает зависимости фронтенда по lock-файлу, собирает React и включает результат в WAR:
 
 ```powershell
 .\gradlew.bat war
@@ -32,6 +42,20 @@ docker compose up -d --build
 Результат: `build/libs/laba1-1.0-SNAPSHOT.war`.
 На Linux/macOS используйте `./gradlew war`.
 
+## Разработка интерфейса
+
+Запустите сервер приложения, затем из каталога `frontend`:
+
+```powershell
+npm ci
+npm run dev
+```
+
+Интерфейс разработки: `http://localhost:5173/`. Vite перенаправляет REST и WebSocket
+на `http://localhost:8080`. Если backend работает на другом порту, перед запуском задайте,
+например, `$env:BACKEND_URL = 'http://localhost:8081'`.
+Для полной сборки и запуска через Docker локальная установка Node.js не нужна.
+
 ## Структура
 
 - `src/main/java/web` — HTTP-контроллеры, авторизация и WebSocket.
@@ -39,11 +63,17 @@ docker compose up -d --build
 - `src/main/java/repository` — доступ к БД.
 - `src/main/java/model` — JPA-сущности.
 - `src/main/java/dto` — входные данные и ответы API.
-- `src/main/webapp` — интерфейс.
+- `frontend/src` — React-компоненты, стили и клиент API.
+- `src/main/webapp/WEB-INF` — конфигурация веб-приложения.
 - `db/init` — SQL-схема и функции.
 - `backend` — Dockerfile и настройка WildFly.
 
-[Описание API и настройки запуска](docs/API.md) · [Модель данных и SQL-функции](db/README.md).
+Основные компоненты интерфейса находятся в `frontend/src/components`:
+`AuthForm` — вход и регистрация, `ListPage` — таблицы,
+`FlatEditor` — создание и редактирование квартиры,
+`ReferenceDialogs` — выбор, создание и просмотр связанных объектов,
+`Operations` — специальные операции. `App.jsx` управляет разделами и диалогами,
+а `hooks.js` загружает данные и получает уведомления WebSocket.
 
 ## Задание
 

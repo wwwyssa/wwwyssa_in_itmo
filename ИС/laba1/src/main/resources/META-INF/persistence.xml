@@ -9,6 +9,9 @@
         <validation-mode>CALLBACK</validation-mode>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+            <property name="eclipselink.logging.logger" value="DefaultLogger"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>

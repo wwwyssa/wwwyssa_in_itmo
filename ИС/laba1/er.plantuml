@@ -1,0 +1,61 @@
+@startuml
+title Логическая модель базы данных и ER-диаграмма
+
+left to right direction
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor white
+    BorderColor #444444
+    FontColor #222222
+    HeaderBackgroundColor #EEEEEE
+}
+
+' Звёздочка обозначает обязательный атрибут (NOT NULL).
+entity "coordinates" as Coordinates {
+    * id : BIGINT <<PK>>
+    --
+    * x : REAL
+    * y : REAL
+}
+
+entity "house" as House {
+    * id : BIGINT <<PK>>
+    --
+    * name : TEXT
+    * year : BIGINT
+    * number_of_floors : INTEGER
+}
+
+entity "flat" as Flat {
+    * id : INTEGER <<PK>>
+    --
+    * name : TEXT
+    * coordinates_id : BIGINT <<FK>>
+    * creation_date : TIMESTAMP WITHOUT TIME ZONE
+    * area : BIGINT
+    * price : DOUBLE PRECISION
+    balcony : BOOLEAN
+    * time_to_metro_on_foot : REAL
+    * number_of_rooms : INTEGER
+    furniture : BOOLEAN
+    * view_type : VARCHAR(16)
+    transport_type : VARCHAR(16)
+    house_id : BIGINT <<FK>>
+}
+
+entity "app_user" as User {
+    * id : BIGINT <<PK>>
+    --
+    * username : VARCHAR(32) <<UQ>>
+    * password_hash : VARCHAR(200)
+}
+
+Coordinates ||--o{ Flat : coordinates_id -> id
+House |o--o{ Flat : house_id -> id
+
+
+@enduml

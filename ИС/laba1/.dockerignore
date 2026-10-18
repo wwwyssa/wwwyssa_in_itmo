@@ -10,3 +10,6 @@ build
 wildfly
 out
 *.iml
+frontend/node_modules
+.npm-tools
+.npm-cache

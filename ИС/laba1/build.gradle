@@ -57,3 +57,36 @@ tasks.register('copyEclipseLink', Copy) {
     }
     into layout.buildDirectory.dir('eclipselink')
 }
+
+def frontendOutput = layout.buildDirectory.dir('frontend')
+def frontendPrebuilt = providers.gradleProperty('frontendPrebuilt').isPresent()
+def npmCommand = System.getProperty('os.name').toLowerCase().contains('windows') ? 'npm.cmd' : 'npm'
+
+tasks.register('installFrontend', Exec) {
+    onlyIf { !frontendPrebuilt }
+    workingDir 'frontend'
+    commandLine npmCommand, 'ci', '--no-audit', '--no-fund'
+    inputs.files('frontend/package.json', 'frontend/package-lock.json')
+    outputs.dir('frontend/node_modules')
+}
+
+tasks.register('buildFrontend', Exec) {
+    dependsOn 'installFrontend'
+    onlyIf { !frontendPrebuilt }
+    workingDir 'frontend'
+    commandLine npmCommand, 'run', 'build'
+    inputs.files(fileTree('frontend') {
+        exclude 'node_modules/**'
+    })
+    outputs.dir(frontendOutput)
+}
+
+tasks.named('war') {
+    dependsOn 'buildFrontend'
+    from(frontendOutput)
+    doFirst {
+        if (!frontendOutput.get().file('index.html').asFile.exists()) {
+            throw new GradleException('React build is missing. Run the frontend build before packaging the WAR.')
+        }
+    }
+}

@@ -1,9 +1,18 @@
+FROM node:24-alpine AS frontend
+
+WORKDIR /app
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+COPY frontend/ ./
+RUN npm run build
+
 FROM gradle:9.6.0-jdk17-alpine AS build
 
 WORKDIR /home/gradle/project
 COPY --chown=gradle:gradle build.gradle settings.gradle ./
 COPY --chown=gradle:gradle src ./src
-RUN gradle --no-daemon clean war copyPostgresDriver copyEclipseLink
+COPY --from=frontend --chown=gradle:gradle /build/frontend ./build/frontend
+RUN gradle --no-daemon -PfrontendPrebuilt war copyPostgresDriver copyEclipseLink
 
 FROM quay.io/wildfly/wildfly:35.0.0.Final-jdk17
 
